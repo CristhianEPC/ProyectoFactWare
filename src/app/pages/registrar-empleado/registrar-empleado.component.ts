@@ -30,8 +30,8 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   filteredOptions?: Observable<Persona[]>;
   myControl = new FormControl();
-  //firstFormGroup: FormGroup |  null= null;
-  //secondFormGroup: FormGroup | null= null
+ firstFormGroup: FormGroup |  null= null;
+  secondFormGroup: FormGroup | null= null
   public asignaUsua: Usuarios= new Usuarios();
 
 
@@ -44,7 +44,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   ngOnInit(): void {
 
-   /* this.firstFormGroup = this._formBuilder.group({
+    this.firstFormGroup = this._formBuilder.group({
       firstCotrl: ['', Validators.required],
     });
     this.secondFormGroup = this._formBuilder.group({
@@ -59,7 +59,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
         map(values=>this.filter(values)),
       );
       this.issloading=false;
-    });*/
+    });
 
 
     this.rolesService.getRoles().subscribe(
