@@ -82,7 +82,9 @@ import { EditarusuarioComponent } from './editarusuario/editarusuario.component'
     RegistroProveedorComponent,
     CrudInventarioComponent,
     RegistroInventarioComponent,
-    ReporteVentasComponent
+    ReporteVentasComponent,
+    ListadousuariosComponent,
+    EditarusuarioComponent
   ]
 })
 export class PagesModule { }
