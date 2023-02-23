@@ -44,7 +44,7 @@ export class SidebarService {
         titulo: "Inventario",
         submenu: [
             { titulo: 'Crud Inventario', url: 'crudInvent', icono: 'fas fa-cubes' },
-            { titulo: 'Registro Inventario', url: 'regisProvee', icono: 'fas fa-users' }
+            { titulo: 'Registro Inventario', url: 'regisInvent', icono: 'fas fa-users' }
 
         ]
     },

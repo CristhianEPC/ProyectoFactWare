@@ -1,1 +1,67 @@
-<p>registro-inventario works!</p>
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Inventario</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item active">Inventario</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+
+  <div style=" padding: 70px;">
+    <div class="card border-primary mb-3  container-xxl" style="max-width: 100rem;">
+        <div class="card-header text-center">Listado deInventario</div>
+        <div class="card-body text-primary">
+
+            <div class="my-2 text-left ">
+
+                <button class="btn btn-rounded btn-primary botonAsignar" type="button"
+                    [routerLink]="['/usuarios']">Agregar nuevo</button>
+
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Stock</th>
+                        <th>Fecha de entrega</th>
+                        <th>Cantidad existente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inventario of   listaInventario">
+                        <td> {{inventario.id_inventario}} </td>
+                        <td> {{inventario.id_producto}} </td>
+                        <td> {{inventario.stock}} </td>
+                        <td> {{inventario.fechaEntrega}} </td>
+                        <td> {{inventario.cantidad_inventario}} </td>
+                        <td> 
+                            <button type="button" class="btn btn-warning">Editar</button>
+                            <button type="button" class="btn btn-danger"style="margin-left: 10px;"  (click)= "eliminar(inventario.id_inventario)">Eliminar</button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+
