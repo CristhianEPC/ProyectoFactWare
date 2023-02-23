@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSelectionListChange } from '@angular/material';
-import { Router } from '@angular/router';
-import { map, Observable, startWith } from 'rxjs';
-import { Persona } from 'src/app/modelo/Persona';
+import Swal from 'sweetalert2';
+import { ChangeDetectionStrategy,Component, OnInit } from '@angular/core';
+import {map, Observable, startWith} from "rxjs";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 import { Rol } from 'src/app/modelo/rol';
+import { Persona } from 'src/app/modelo/Persona';
 import { Usuarios } from 'src/app/modelo/Usuarios';
 import { PersonaService } from 'src/app/servicios/api/persona.service';
 import { RolesService } from 'src/app/servicios/api/roles.service';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
-import Swal from 'sweetalert2';
-
+import {MatSelectionListChange} from "@angular/material/list";
 @Component({
   selector: 'app-registrar-empleado',
   templateUrl: './registrar-empleado.component.html',
@@ -35,13 +34,13 @@ export class RegistrarEmpleadoComponent implements OnInit {
   secondFormGroup: FormGroup | null= null
   public asignaUsua: Usuarios= new Usuarios();
 
-  constructor(
-    private _formBuilder: FormBuilder,
+
+
+  constructor(private _formBuilder: FormBuilder,
     private personaService:PersonaService,
     private usuarioService:UsuariosService,
     private rolesService:RolesService,
-    private router: Router
-  ) { }
+    private router: Router) {}
 
   ngOnInit(): void {
 

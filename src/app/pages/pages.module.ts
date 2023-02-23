@@ -15,9 +15,22 @@ import { RegistroProveedorComponent } from './registro-proveedor/registro-provee
 import { CrudInventarioComponent } from './crud-inventario/crud-inventario.component';
 import { RegistroInventarioComponent } from './registro-inventario/registro-inventario.component';
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
-
-
-
+import {MatDividerModule} from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table' 
+import { MatError, MatFormFieldModule } from "@angular/material/form-field";
+import {MatCardModule} from '@angular/material/card';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {MatListModule} from '@angular/material/list';
+import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
+import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -32,13 +45,30 @@ import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.componen
     RegistroProveedorComponent,
     CrudInventarioComponent,
     RegistroInventarioComponent,
-    ReporteVentasComponent
+    ReporteVentasComponent,
+    ListadousuariosComponent,
+    EditarusuarioComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
-    
+    SharedModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    CdkStepperModule,
+    MatCardModule,
+    ScrollingModule,
+    CdkAccordionModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule  ,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatIconModule,
+    MatTableModule,
+    MatListModule
   ],
   exports:[
     AdmiComponent,

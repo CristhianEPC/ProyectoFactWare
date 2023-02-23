@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { Pages2Module } from './pages2/pages2.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,11 @@ import { Pages2Module } from './pages2/pages2.module';
     HttpClientModule,
     AuthModule,
     PagesModule,
-    Pages2Module
+    Pages2Module,
+   
+     
+  
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,71 @@
+.box {
+    border: 2px solid black;
+    width: 800px;
+    height: 660px;
+    margin: -650px auto;
+    padding: 5%;
+    justify-content: center;
+    display: flex;
+  
+  
+  }
+  
+    .posicion{
+      position: absolute;
+      margin: 370px
+    }
+  
+    .centrar{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .tabla {
+      border: 1px solid #000;
+      border-collapse: separate;
+      background-color: #000000;
+      color: rgb(248, 244, 244);
+      font-size: 18px;
+      padding: 2px;
+      text-align: center;
+      margin: auto;
+    }
+    
+    .table{
+      margin: -auto;
+    }
+    .td {
+      border: 1px solid #555;
+    }
+    .centracampo{
+      text-align: center;
+    }
+  
+    .titulo{
+      position: absolute;
+      margin: -130px
+    }
+    .botonAsignar{
+      margin-top: 30px;
+      margin-left:80%;
+      transform: translateX(-50%);
+      margin-bottom: 10px;
+      padding: 10px;
+     border-radius: 10px;
+   
+    }
+    .card-header{
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background: #fbfbfb;
+      padding: 20px;
+      font-weight: bold;
+    }
+    .icono{
+      height: 50px;
+    }
+    
+    .botonAsignar:hover  {
+      background: #9d9fa5;
+    }
+    
