@@ -11,7 +11,7 @@ import { LoginComponent } from './auth/login/login.component'
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { Pages2Module } from './pages2/pages2.module';
-import{ApiService}from '../app/servicios/api/api.service'
+import{ApiService}from '../app/servicios/api/api.service';
 
 @NgModule({
   declarations: [

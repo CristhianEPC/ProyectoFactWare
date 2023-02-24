@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Inventario } from 'src/app/modelo/Inventario';
+import { InventarioService } from 'src/app/servicios/api/inventario.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-registro-inventario',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroInventarioComponent implements OnInit {
 
-  constructor() { }
+  listaInventario: Inventario[]=[];
+
+  
+  constructor(private inventarioService: InventarioService, public dialog: MatDialog 
+    ) { }
+
+
 
   ngOnInit(): void {
+ this.listarInventario();
+
+ 
   }
+  listarInventario():void{
+    this.inventarioService.getInventario().subscribe(
+      listainvent=>this. listaInventario=listainvent );
+  
+
+}
+
+
+eliminar(id_inventario: number) {
+  if(confirm('¿Seguro que desea eliminar este usuario?')){  
+    this.inventarioService.eliminarInventario(id_inventario).subscribe(
+      res => this.inventarioService.getInventario().subscribe(
+        listainvent=>this. listaInventario=listainvent
+      )
+    );
+  }
+}
+
 
 }

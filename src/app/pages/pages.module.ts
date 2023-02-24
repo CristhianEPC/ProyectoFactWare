@@ -17,7 +17,24 @@ import { RegistroInventarioComponent } from './registro-inventario/registro-inve
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
 import { AddComponent } from './registro-producto/add/add.component';
 import { EditarComponent } from './registro-producto/editar/editar.component';
-
+import {MatDividerModule} from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table' 
+import { MatError, MatFormFieldModule } from "@angular/material/form-field";
+import {MatCardModule} from '@angular/material/card';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {MatListModule} from '@angular/material/list';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
+import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 
 
 @NgModule({
@@ -36,12 +53,32 @@ import { EditarComponent } from './registro-producto/editar/editar.component';
     RegistroInventarioComponent,
     ReporteVentasComponent,
     AddComponent,
-    EditarComponent
+    EditarComponent,
+    EditarinventarioComponent,
+    GuardarinventarioComponent,
+    EditarusuarioComponent,
+    ListadousuariosComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    CdkStepperModule,
+    MatCardModule,
+    ScrollingModule,
+    CdkAccordionModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule  ,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatIconModule,
+    MatTableModule,
+    MatListModule
     
   ],
   exports:[
