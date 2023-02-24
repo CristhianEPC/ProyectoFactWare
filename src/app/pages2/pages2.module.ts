@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CrudClienteComponent } from './crud-cliente/crud-cliente.component';
 import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente.component';
-import { FormsModule, NgModel } from '@angular/forms';
-import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 
 
 
@@ -17,22 +15,17 @@ import { EditarClienteComponent } from './editar-cliente/editar-cliente.componen
         Pages2Component,
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent,
-        EditarClienteComponent
+        RegistrarClienteComponent
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent,
-        
+        RegistrarClienteComponent
     ],
     imports: [
         CommonModule,
         RouterModule,
         SharedModule,
-        FormsModule
-        
-    ],
-    providers: [NgModel],
+    ]
 })
 export class Pages2Module { }

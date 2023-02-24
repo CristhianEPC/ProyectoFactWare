@@ -13,7 +13,6 @@ import { PagesModule } from './pages/pages.module';
 import { Pages2Module } from './pages2/pages2.module';
 import{ApiService}from '../app/servicios/api/api.service'
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +28,7 @@ import{ApiService}from '../app/servicios/api/api.service'
     HttpClientModule,
     AuthModule,
     PagesModule,
-    Pages2Module,
-   
-     
-  
-     
+    Pages2Module
   ],
   providers: [ApiService ],
   bootstrap: [AppComponent]

@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['admin']);
           console.log("administrador");
         }else{
-          this.router.navigate(['vendedor/vendedor']);
+          this.router.navigate(['vendedor']);
           console.log("vendedor");
         }
 
