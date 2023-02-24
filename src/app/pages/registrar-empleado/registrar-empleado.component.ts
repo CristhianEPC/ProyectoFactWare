@@ -70,11 +70,11 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   
 
-  selectionPersona( event: MatSelectionListChange){
-    this.personasselect=  event.options[0].value;
+  // selectionPersona( event: MatSelectionListChange){
+  //   this.personasselect=  event.options[0].value;
 
 
-  }
+  // }
 
   filter(value: any): Persona[] {
     const filterValue = value.toLowerCase();
