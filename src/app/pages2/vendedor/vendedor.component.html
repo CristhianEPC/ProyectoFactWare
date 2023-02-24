@@ -1,1 +1,67 @@
-<h1 class="display-1">FackWare Facturaciòn</h1>
+<form action="">
+    <h1 class="display-1">FackWare Facturaciòn</h1>
+    <h3>Datos del Cliente</h3>
+    <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar Cedula" aria-label="Search" />
+        <span class="input-group-text border-0" id="search-addon" (click)="haceClic()">
+            <i class="fas fa-search"></i>
+        </span>
+
+        <button style="cursor:pointer" (click)="crearPerson()">crear</button>
+    </div>
+
+    <h3>Datos del Producto</h3>
+
+    <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar id" aria-label="Search" />
+        <span class="input-group-text border-0" id="search-addon" (click)="haceClic()">
+            <i class="fas fa-search"></i>
+        </span>
+
+    </div>
+
+    <div class="sidebar-box input-group">
+        <h5>Producto encontrado
+        <select class="styled-select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+</h5>
+        <button class="float-right d-none d-sm-block">agregar</button>
+    </div>
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
+
+<button>generar factura</button>

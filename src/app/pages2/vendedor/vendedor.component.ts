@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
   selector: 'app-vendedor',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendedorComponent implements OnInit {
 
-  constructor() { }
+  var: String = "";
+  
+  constructor(private apiSer:ApiService,private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  haceClic() {
+    this.var = "soy un cliente";
+    console.log(this.var);
+  }
+
+  crearPerson() {
+    this.router.navigateByUrl('vendedor/regCliente');
   }
 
 }
