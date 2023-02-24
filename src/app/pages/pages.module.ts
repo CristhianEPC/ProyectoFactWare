@@ -15,6 +15,8 @@ import { RegistroProveedorComponent } from './registro-proveedor/registro-provee
 import { CrudInventarioComponent } from './crud-inventario/crud-inventario.component';
 import { RegistroInventarioComponent } from './registro-inventario/registro-inventario.component';
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
+import { AddComponent } from './registro-producto/add/add.component';
+import { EditarComponent } from './registro-producto/editar/editar.component';
 
 
 
@@ -32,7 +34,9 @@ import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.componen
     RegistroProveedorComponent,
     CrudInventarioComponent,
     RegistroInventarioComponent,
-    ReporteVentasComponent
+    ReporteVentasComponent,
+    AddComponent,
+    EditarComponent
   ],
   imports: [
     CommonModule,
