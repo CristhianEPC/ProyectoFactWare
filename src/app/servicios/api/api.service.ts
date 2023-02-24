@@ -5,6 +5,7 @@ import { Observable, Subject} from 'rxjs'
 import { LoginUsuario} from 'src/app/modelo/login';
 import { User } from 'src/app/modelo/user.interface';
 
+
 const USER_KEY = 'auth-user';
 
 @Injectable({
@@ -16,6 +17,7 @@ export class ApiService {
   public loginStatusSubjec = new Subject<boolean>();
 
   url:string = 'http://localhost:8080/api/'
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -53,6 +55,8 @@ export class ApiService {
     let user = this.getUser();
     return user.rol;
   }
+
+ 
 
   ////kjdkljsbdkljabdklb
 
