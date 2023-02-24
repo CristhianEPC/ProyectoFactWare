@@ -30,7 +30,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   filteredOptions?: Observable<Persona[]>;
   myControl = new FormControl();
- firstFormGroup: FormGroup |  null= null;
+  firstFormGroup: FormGroup |  null= null;
   secondFormGroup: FormGroup | null= null
   public asignaUsua: Usuarios= new Usuarios();
 
@@ -69,11 +69,11 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   
 
-  // selectionPersona( event: MatSelectionListChange){
-  //   this.personasselect=  event.options[0].value;
+  selectionPersona( event: MatSelectionListChange){
+    this.personasselect=  event.options[0].value;
 
 
-  // }
+  }
 
   filter(value: any): Persona[] {
     const filterValue = value.toLowerCase();
