@@ -31,6 +31,8 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {MatListModule} from '@angular/material/list';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
+import { EditarInventarioComponent } from './editar-inventario/editar-inventario.component';
+import { GuardarInventarioComponent } from './guardar-inventario/guardar-inventario.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -47,7 +49,9 @@ import { EditarusuarioComponent } from './editarusuario/editarusuario.component'
     RegistroInventarioComponent,
     ReporteVentasComponent,
     ListadousuariosComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    EditarInventarioComponent,
+    GuardarInventarioComponent
   ],
   imports: [
     CommonModule,
