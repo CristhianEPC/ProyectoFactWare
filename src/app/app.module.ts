@@ -5,35 +5,35 @@ import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-import { ReactiveFormsModule, FormsModule, NgModel} from '@angular/forms'
+import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component'
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { Pages2Module } from './pages2/pages2.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, 
-    //FormsModule,
+    FormsModule,
     HttpClientModule,
     AuthModule,
     PagesModule,
     Pages2Module,
-    
+   
+     
+  
+     
   ],
-  exports:[
-    //FormsModule,
-  ],
-  providers: [NgModel],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

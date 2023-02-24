@@ -35,13 +35,7 @@ usuarioObj: Usuarios[] = [];
   }
   
 
-  
-  //Metodo para editar por id
-//   getUsuarios2(id): Observable<Usuarios[]> {
-//     return this.http
-//       .get(this.listar)
-//       .pipe(map((response) => response as Usuarios[]));
-//   }
+
     //Metodo para editar por id
   actualizarUsuario(usuario: Usuarios): Observable<Usuarios> {
     return this.http.put<Usuarios>(
