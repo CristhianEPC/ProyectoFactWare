@@ -10,7 +10,7 @@ import { PersonaService } from 'src/app/servicios/api/persona.service';
 })
 export class EditarClienteComponent implements OnInit {
 
-  persona: Persona = new Persona();
+  persona:Persona = new Persona();
 
   constructor(private router: Router, private service: PersonaService) { }
 
@@ -21,15 +21,20 @@ export class EditarClienteComponent implements OnInit {
 
   Editar() {
 
-    let id = localStorage.getItem("id_persona");
+    let id = localStorage.getItem("id");
     console.log(id);
-    if (id != null) {
-      this.service.getPersonaId(+id-1)
-        .subscribe(data => {
-          console.log(data);
-          this.persona = data;
-        })
-    }
+    this.service.getPersonaId(Number(id))
+    .subscribe(data=>{
+      this.persona=data;
+    })
+
+    // if (id != null) {
+    //   this.service.getPersonaId(+id)
+    //     .subscribe(data => {
+    //       console.log(data);
+    //       this.persona = data;
+    //     })
+    // }
 
   }
 

@@ -20,7 +20,7 @@ export class RegistrarClienteComponent implements OnInit {
   //   correo: new FormControl('', Validators.required),
   // });
   
-  persona = new Persona;
+  persona = new Persona();
 
   constructor(private router:Router, private service:PersonaService) { }
 

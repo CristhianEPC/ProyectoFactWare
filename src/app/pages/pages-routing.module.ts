@@ -15,6 +15,7 @@ import { CrudInventarioComponent } from './crud-inventario/crud-inventario.compo
 import { RegistroInventarioComponent } from './registro-inventario/registro-inventario.component';
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
+import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 
 const routes : Routes = [
   {path:"admin", component:PagesComponent,
@@ -31,7 +32,8 @@ const routes : Routes = [
     {path:"regisProvee", component:RegistroProveedorComponent},
     {path:"crudInvent", component:CrudInventarioComponent},
     {path:"regisInvent", component:RegistroInventarioComponent},
-    {path:"reporte", component:ReporteVentasComponent}
+    {path:"reporte", component:ReporteVentasComponent},
+    {path:"editProve", component:EditarProveedorComponent}
   ]}
 ]
 

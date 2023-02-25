@@ -16,7 +16,7 @@ export class PersonaService {
   private elimi:string="http://localhost:8080/api/delP";
   
 
-personaObj: Persona[] = [];
+  personaObj: Persona[] = [];
 
   private httpHeaders= new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http:HttpClient) { }

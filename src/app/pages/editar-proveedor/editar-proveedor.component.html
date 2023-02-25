@@ -1,10 +1,10 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
-            <h1>Agregar Proveedores</h1>
+            <h1>Modificar Proveedores</h1>
         </div>
         <div class="card-body">
-            <form action="">
+            <form action="" (ngSubmit)="Editar()">
                 <div class="form-group">
                     <label for="">Nombre</label>
                     <input  name="nombre_proveedor" type="text" class="form-control" 
@@ -21,7 +21,7 @@
                     [(ngModel)] ="proveedor.telefono_proveedor">
                 </div>
         
-                <button (click)="guardar(proveedor)" class="btn btn-danger">Guardar</button>
+                <button (click)="Actualizar(proveedor)" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>

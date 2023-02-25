@@ -20,8 +20,8 @@
                         <td>{{item.nombre_persona}} {{item.apellido_persona}}</td>
                         <td>{{item.telefono_persona}}</td>
                         <td>
-                            <button (click)="editar(personas[item.id_persona])" class="btn btn-warning">editar</button>
-                            <button (click)="eliminar(personas[item.id_persona])" class="btn btn-danger">delete</button>
+                            <button (click)="editar(item)" class="btn btn-warning">editar</button>
+                            <button (click)="eliminar(item)" class="btn btn-danger" style="margin-left: 10px;">delete</button>
                         </td>
                     </tr>
                 </tbody>

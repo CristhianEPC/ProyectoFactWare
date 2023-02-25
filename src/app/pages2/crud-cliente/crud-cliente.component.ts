@@ -35,20 +35,20 @@ export class CrudClienteComponent implements OnInit {
       // );
       // this.issloading=false;
     });
-    //this.persona=this.personas[];
+
   }
 
-  editar(personas:Persona):void{
+  editar(perso:Persona):void{
     this.listarPerso();
-    localStorage.setItem("id_persona",personas.id_persona.toString());
-    console.log(personas.id_persona);
+    localStorage.setItem("id",perso.id_persona.toString());
+    console.log(perso.id_persona);
     this.router.navigate(['vendedor/editCliente']);
   }
 
-  eliminar(persona:Persona):void{
-    this.personaService.deletePersona(persona)
+  eliminar(pers:Persona):void{
+    this.personaService.deletePersona(pers)
     .subscribe(data=>{
-      this.personas = this.personas.filter(p=>p!==persona);
+      this.personas = this.personas.filter(p=>p!==pers);
       alert("Se elimino");
     })
   }
