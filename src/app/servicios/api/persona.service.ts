@@ -12,7 +12,7 @@ export class PersonaService {
   private guardar:string="http://localhost:8080/api/savP";
   private listar:string="http://localhost:8080/api/lisP";
 
-personaObj: Persona[] = [];
+  personaObj: Persona[] = [];
 
   private httpHeaders= new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http:HttpClient) { }

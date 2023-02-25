@@ -15,8 +15,6 @@ import { RegistroProveedorComponent } from './registro-proveedor/registro-provee
 import { CrudInventarioComponent } from './crud-inventario/crud-inventario.component';
 import { RegistroInventarioComponent } from './registro-inventario/registro-inventario.component';
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
-import { AddComponent } from './registro-producto/add/add.component';
-import { EditarComponent } from './registro-producto/editar/editar.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table' 
 import { MatError, MatFormFieldModule } from "@angular/material/form-field";
@@ -31,12 +29,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {MatListModule} from '@angular/material/list';
-import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
-import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
-import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
-
-
+import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
+import { EditarInventarioComponent } from './editar-inventario/editar-inventario.component';
+import { GuardarInventarioComponent } from './guardar-inventario/guardar-inventario.component';
+import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -52,12 +49,11 @@ import { ListadousuariosComponent } from './listadousuarios/listadousuarios.comp
     CrudInventarioComponent,
     RegistroInventarioComponent,
     ReporteVentasComponent,
-    AddComponent,
-    EditarComponent,
-    EditarinventarioComponent,
-    GuardarinventarioComponent,
+    ListadousuariosComponent,
     EditarusuarioComponent,
-    ListadousuariosComponent
+    EditarInventarioComponent,
+    GuardarInventarioComponent,
+    EditarProveedorComponent
   ],
   imports: [
     CommonModule,
@@ -79,7 +75,6 @@ import { ListadousuariosComponent } from './listadousuarios/listadousuarios.comp
     MatIconModule,
     MatTableModule,
     MatListModule
-    
   ],
   exports:[
     AdmiComponent,
@@ -93,7 +88,9 @@ import { ListadousuariosComponent } from './listadousuarios/listadousuarios.comp
     RegistroProveedorComponent,
     CrudInventarioComponent,
     RegistroInventarioComponent,
-    ReporteVentasComponent
+    ReporteVentasComponent,
+    ListadousuariosComponent,
+    EditarusuarioComponent
   ]
 })
 export class PagesModule { }
