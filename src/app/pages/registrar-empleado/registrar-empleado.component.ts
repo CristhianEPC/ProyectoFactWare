@@ -70,7 +70,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
   
 
   selectionPersona( event: MatSelectionListChange){
-    this.personasselect=  event.options[0].value;
+   // this.personasselect=  event.options[0].value;
 
 
   }

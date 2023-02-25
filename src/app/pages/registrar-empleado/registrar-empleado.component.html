@@ -25,10 +25,10 @@
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
       <div class="card-body">
-
-   <form [formGroup]="secondFormGroup" class="formulario">
+<!---
+   <form [formGroup]="secondFormGroup" class="formulario">---->
           
-
+    <form  class="formulario">
 
           <mat-form-field appearance="outline">
            <mat-label>BUSCAR PERSONA</mat-label>
@@ -38,7 +38,7 @@
    
          <mat-card-content>
          <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-         <mat-selection-list #shoes [multiple]="false" 
+         <mat-selection-list #shoes 
          (selectionChange)=" selectionPersona($event)" 
  
          formControlName="secondCtrl" required>
@@ -73,8 +73,9 @@
   <div class="col-sm-6">
     <div class="card2">
       <div class="card-body">
-
-     <form [formGroup]="secondFormGroup" class="formulario">
+<!---
+   <form [formGroup]="secondFormGroup" class="formulario">---->
+     <form  class="formulario">
 
           <mat-card >
             <mat-card-header>
