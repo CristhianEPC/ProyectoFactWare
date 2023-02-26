@@ -18,6 +18,7 @@ import { ListadousuariosComponent } from './listadousuarios/listadousuarios.comp
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
 import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
+import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
 const routes : Routes = [
   {path:"admin", component:PagesComponent,
   children : [
@@ -25,6 +26,7 @@ const routes : Routes = [
     {path:"crudempl", component:CrudEmpleadoComponent},
     {path:"regisempl", component:RegistrarEmpleadoComponent},
     {path:"listadousua", component:ListadousuariosComponent},
+    {path:"editusuario", component: EditarusuarioComponent},
     {path:"crudAdmin", component:CrudAdministradorComponent},
     {path:"regisAdmin", component:RegistroAdministradorComponent},
     {path:"crudProduc", component:CrudProductoComponent},

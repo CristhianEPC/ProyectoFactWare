@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class ListadousuariosComponent implements OnInit {
   listaUsuarios: Usuarios[]=[];
 
-  
+usuarioss = new Usuarios();
+
   constructor(private usuariosService: UsuariosService, public dialog: MatDialog , private router: Router
     ) { }
 
@@ -51,6 +52,12 @@ AgregarNuevo() {
 
 
 
+EditarUsuari(usuario: Usuarios): void {
+  localStorage.setItem("id", usuario.id_usuario.toString());
+  console.log(usuario.id_usuario)
+  this.usuarioss  = usuario
+  this.router.navigate(['admin/editusuario']);
+}
 
 
 

@@ -1,33 +1,62 @@
 
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+      <div class="row mb-2">
+          <div class="col-sm-6">
+              <h1>Usuario</h1>
+          </div>
+          <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                  <li class="breadcrumb-item active">Modificar Usuario</li>
+              </ol>
+          </div>
+      </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
 
+
+  <div class="container col-md-6">
+    <div class="card">
+        
 <strong> <h4> Datos del usuario seleccionado</h4></strong>
               
-<div mat-dialog-content>
+
+
+<div class="card-body">
 
   <div class="card-body">
-          <mat-form-field class="example-full-width">
-            <mat-label>Usuario</mat-label>
-            <input matInput type="text" placeholder="usuario"   class="form-control"  [(ngModel)]="texusuario"  >
-          </mat-form-field>
+    <form action="" (ngSubmit)="Editar()">
+        <div class="form-group">
+            <label for="">Usuario</label>
+            <input  name="usuario_user" type="text" class="form-control" 
+            [(ngModel)] ="usuario.user">
+        </div>
+        <div class="form-group">
+            <label for="">Contraseña</label>
+            <input name="usuario_password" type="text" class="form-control"
+            [(ngModel)] ="usuario.password">
+        </div>
         
 
-          <mat-form-field class="example-full-width">
-            <mat-label>Contraseña</mat-label>
-            <input matInput placeholder="contraseña"  name="contrasenia" [(ngModel)]="texcontrasenia">
-          </mat-form-field>
-        
-
-
-  </div>
-  <div class="card-footer text-muted">
-    <div class="buttons">
-
-      <a class="btn btn-2"  (click)="update(idusuario)">Modificar</a>
-
-  </div>
-
-  </div>
+        <button (click)="Actualizar(usuario)" class="btn btn-success">Guardar usuario</button>
+    </form>
 </div>
 
 
+
+
+</div>
+<div class="card-footer text-muted">
+  <div class="buttons">
+
+    <a  class="btn btn-3 " (click)="Listado()">Listado</a>
+
+</div>
+
+</div>
+
+    </div>
 

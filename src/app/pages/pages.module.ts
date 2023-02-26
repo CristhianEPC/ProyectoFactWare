@@ -25,10 +25,23 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatListModule} from '@angular/material/list';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatSliderModule } from "@angular/material/slider";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatIconModule } from "@angular/material/icon";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
 import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
@@ -72,9 +85,22 @@ import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.co
     FormsModule,
     MatSelectModule,
     MatDialogModule,
+    MatPaginatorModule,
+    MatTooltipModule ,
+    MatButtonToggleModule,
+    MatSliderModule,
     MatIconModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatStepperModule,
+    MatSidenavModule ,
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    MatBottomSheetModule
   ],
   exports:[
     AdmiComponent,

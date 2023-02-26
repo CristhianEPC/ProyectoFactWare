@@ -13,7 +13,6 @@ export class SidebarService {
         submenu: [
             { titulo: 'Crud Empleado', url: 'crudempl', icono: 'fas fa-cubes' },
             { titulo: 'Registro Empleado', url: 'regisempl', icono: 'fas fa-users' },
-            { titulo: 'Listado de Usuarios', url: 'listadousua', icono: 'fas fa-list' },
             { titulo: 'Crud Administrador', url: 'crudAdmin', icono: 'fas fa-cubes' },
             { titulo: 'Registro Administrador', url: 'regisAdmin', icono: 'fas fa-users' }
         ]

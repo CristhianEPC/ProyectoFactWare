@@ -39,7 +39,7 @@ AgregarNuevo() {
 }
 
 eliminar(id_inventario: number) {
-  if(confirm('¿Seguro que desea eliminar este usuario?')){  
+  if(confirm('¿Seguro que desea eliminar este registro?')){  
     this.inventarioService.eliminarInventario(id_inventario).subscribe(
       res => this.inventarioService.getInventario().subscribe(
         listainvent=>this. listaInventario=listainvent
