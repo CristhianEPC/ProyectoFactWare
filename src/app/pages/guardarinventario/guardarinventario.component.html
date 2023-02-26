@@ -1,1 +1,77 @@
-<p>guardarinventario works!</p>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Inventario</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item active">Registro</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+
+  
+
+  <div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h1>Agregar Inventario</h1>
+        </div>
+        <div class="card-body">
+            <form action="">
+
+                <div class="form-group" id="left">
+                    <label for="">Producto</label>
+                    <div class="select">
+                      <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="inventarios.id_producto">
+                        <option  selected disabled> Seleccione el producto </option>
+                        <option *ngFor="let produc of  listaProductos" [value]="produc.id_producto">  {{produc.nombre_producto}} </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Cantidad</label>
+                    <input  name="inventario" type="text" class="form-control" 
+                    [(ngModel)] ="inventarios.cantidad_inventario">
+                </div>
+                <div class="form-group">
+                    <label for="">Fecha</label>
+                    <input name="inventario" type="text" class="form-control"
+                    [(ngModel)] ="inventarios.fechaEntrega">
+                </div>
+                <div class="form-group">
+                    <label for="">Stock</label>
+                    <input name="inventario" type="text" class="form-control"
+                    [(ngModel)] ="inventarios.stock">
+                </div>
+
+         
+                <button (click)="guardarInventario(inventarios)" class="btn btn-success">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+  
+    <div class="card">
+        <h5 class="card-header">Acciones</h5>
+        <div class="card-body">
+            <div class="buttons">
+                <a href="#" class="btn btn-1 ">Limpiar</a>
+                <a  class="btn btn-3 " (click)="Listado()">Ver Listado</a>
+            </div>
+        </div>
+      </div>
+<!---
+<pre>
+    
+   {{inventarios | json}} 
+</pre>
+--->

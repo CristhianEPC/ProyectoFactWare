@@ -3,6 +3,7 @@ import { Usuarios } from 'src/app/modelo/Usuarios';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 import { EditarusuarioComponent } from '../editarusuario/editarusuario.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listadousuarios',
@@ -13,7 +14,7 @@ export class ListadousuariosComponent implements OnInit {
   listaUsuarios: Usuarios[]=[];
 
   
-  constructor(private usuariosService: UsuariosService, public dialog: MatDialog 
+  constructor(private usuariosService: UsuariosService, public dialog: MatDialog , private router: Router
     ) { }
 
 
@@ -43,7 +44,9 @@ eliminar(id_usuario: number) {
 
 
 
-
+AgregarNuevo() {
+  this.router.navigate(['admin/regisempl']);
+}
 
 
 

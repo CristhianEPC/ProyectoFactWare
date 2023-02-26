@@ -16,7 +16,8 @@ import { RegistroInventarioComponent } from './registro-inventario/registro-inve
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
-
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 const routes : Routes = [
   {path:"admin", component:PagesComponent,
   children : [
@@ -32,6 +33,8 @@ const routes : Routes = [
     {path:"regisProvee", component:RegistroProveedorComponent},
     {path:"crudInvent", component:CrudInventarioComponent},
     {path:"regisInvent", component:RegistroInventarioComponent},
+    {path:"formuinventario", component:GuardarinventarioComponent},
+    {path:"editinventario", component:EditarinventarioComponent },
     {path:"reporte", component:ReporteVentasComponent},
     {path:"editProve", component:EditarProveedorComponent}
   ]}

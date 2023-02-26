@@ -21,13 +21,13 @@
 
   <div style=" padding: 70px;">
     <div class="card border-primary mb-3  container-xxl" style="max-width: 100rem;">
-        <div class="card-header text-center">Listado deInventario</div>
+        <div class="card-header text-center">Listado de Inventario</div>
         <div class="card-body text-primary">
 
             <div class="my-2 text-left ">
 
                 <button class="btn btn-rounded btn-primary botonAsignar" type="button"
-                    [routerLink]="['/usuarios']">Agregar nuevo</button>
+                    (click)="AgregarNuevo()">Agregar nuevo</button>
 
             </div>
 
@@ -42,14 +42,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let inventario of   listaInventario">
+                    <tr *ngFor="let inventario of  listaInventario">
                         <td> {{inventario.id_inventario}} </td>
                         <td> {{inventario.id_producto}} </td>
                         <td> {{inventario.stock}} </td>
                         <td> {{inventario.fechaEntrega}} </td>
                         <td> {{inventario.cantidad_inventario}} </td>
                         <td> 
-                            <button type="button" class="btn btn-warning">Editar</button>
+                            <button type="button" class="btn btn-warning"   (click)="EditarInve(inventario)" >Editar</button>
                             <button type="button" class="btn btn-danger"style="margin-left: 10px;"  (click)= "eliminar(inventario.id_inventario)">Eliminar</button>
 
                         </td>

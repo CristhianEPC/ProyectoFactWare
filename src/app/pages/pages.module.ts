@@ -31,8 +31,8 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {MatListModule} from '@angular/material/list';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
-import { EditarInventarioComponent } from './editar-inventario/editar-inventario.component';
-import { GuardarInventarioComponent } from './guardar-inventario/guardar-inventario.component';
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 @NgModule({
   declarations: [
@@ -51,8 +51,8 @@ import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.co
     ReporteVentasComponent,
     ListadousuariosComponent,
     EditarusuarioComponent,
-    EditarInventarioComponent,
-    GuardarInventarioComponent,
+    GuardarinventarioComponent,
+    EditarinventarioComponent,
     EditarProveedorComponent
   ],
   imports: [
