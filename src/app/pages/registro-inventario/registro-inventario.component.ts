@@ -13,8 +13,8 @@ export class RegistroInventarioComponent implements OnInit {
 
   listaInventario: Inventario[]=[];
  inven: Inventario[] = [];
-  
- inventarios = new Inventario();
+ inventar = new Inventario();
+
   
   constructor(private inventarioService: InventarioService, public dialog: MatDialog ,private router: Router
     ) { }
@@ -48,12 +48,11 @@ eliminar(id_inventario: number) {
   }
 }
 
-EditarInve(inventarios:Inventario): void {
+
+EditarInve(inventarios:Inventario): void  {
   localStorage.setItem("id", inventarios.id_inventario.toString());
-  console.log(inventarios.id_producto)
-
+    this.inventar = inventarios
   this.router.navigate(['admin/editinventario']);
-
 }
 
 }

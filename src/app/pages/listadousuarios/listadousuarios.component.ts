@@ -54,25 +54,9 @@ AgregarNuevo() {
 
 EditarUsuari(usuario: Usuarios): void {
   localStorage.setItem("id", usuario.id_usuario.toString());
-  console.log(usuario.id_usuario)
   this.usuarioss  = usuario
   this.router.navigate(['admin/editusuario']);
 }
 
 
-
-openDialog(usuario: Usuarios ) {
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.width = "55%";
-  dialogConfig.autoFocus = true;
-  const dialogRef = this.dialog.open(EditarusuarioComponent,{
-    width: "55%",
-    data: usuario
-  });
-
-  dialogRef.afterClosed().subscribe(result =>{
-    this.listarUsuarios();
-  })
-
-}
 }

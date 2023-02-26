@@ -26,19 +26,11 @@ usuario:Usuarios= new Usuarios();
     Editar() {
 
       let id = localStorage.getItem("id");
-      console.log(id);
       this.usuarioService.getUsuarioId(Number(id))
       .subscribe(data=>{
         this.usuario = data;
       })
-  
-      // if (id != null) {
-      //   this.service.getProveedorId(+id)
-      //     .subscribe(data => {
-      //       console.log(data);
-      //       this.proveedor = data;
-      //     })
-      // }
+
   
     }
     

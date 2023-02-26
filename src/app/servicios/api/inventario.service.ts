@@ -43,7 +43,7 @@ inventarioObj: Inventario[] = [];
   }
 
       //Metodo para buscar
-      getProveedorId(id:number):Observable<Inventario>{
+      getInventarioId(id:number):Observable<Inventario>{
         return this.http.get<Inventario>(this.buscar+"/"+id);
     }
 
