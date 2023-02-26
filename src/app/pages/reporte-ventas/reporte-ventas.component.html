@@ -1,1 +1,159 @@
-<p>reporte-ventas works!</p>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Reportes</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item active">Reporte de ventas</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+
+            <div class="card-header">
+                <h2> <strong>Productos Registrados</strong></h2>              </div>
+              <div class="card-body">
+              <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>DESCRIPCION</th>
+                        <th>CODIGO BARRAS</th>
+                        <th>COSTO PRODUCTO</th>
+                        <th>PVP</th>
+                        <th>UTILIDAD</th>
+                        <th>ESTADO IVA </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let Producto of productos " class="text-center">
+                        <td>{{Producto.id_producto}}</td>
+                        <td>{{Producto.nombre_producto}}</td>
+                        <td>{{Producto.descripcion_producto}}</td>
+                        <td>{{Producto.codigoBarras_producto}}</td>
+                        <td>{{Producto.costo_producto}}</td>
+                        <td>{{Producto.pvp_producto}}</td>
+                        <td>{{Producto.utilidad_producto}}</td>
+                        <td>{{Producto.estadoIVA_producto}}</td>
+                   
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+            <div class="card-footer text-muted">
+                <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
+                    <div>
+                        <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                            <button type="button" class="btn btn-outline-dark"  > 
+                                Exportar
+                                 <i class="fas fa-file-pdf"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-dark">Middle</button>
+                            <button type="button" class="btn btn-outline-dark">Right</button>
+            
+                
+                        </div>
+                    </div>
+                
+                  </div>
+              </div>
+
+              </div>
+            
+
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">
+           <h2> <strong>Ventas</strong></h2>
+              </div>
+              <div class="card-body">
+
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>DESCRIPCION</th>
+                            <th>CODIGO BARRAS</th>
+                            <th>COSTO PRODUCTO</th>
+                            <th>PVP</th>
+                            <th>UTILIDAD</th>
+                            <th>ESTADO IVA </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Producto of productos " class="text-center">
+                            <td>{{Producto.id_producto}}</td>
+                            <td>{{Producto.nombre_producto}}</td>
+                            <td>{{Producto.descripcion_producto}}</td>
+                            <td>{{Producto.codigoBarras_producto}}</td>
+                            <td>{{Producto.costo_producto}}</td>
+                            <td>{{Producto.pvp_producto}}</td>
+                            <td>{{Producto.utilidad_producto}}</td>
+                            <td>{{Producto.estadoIVA_producto}}</td>
+                       
+                        </tr>
+                    </tbody>
+                </table>
+    
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <div class="card-footer text-muted">
+                <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
+                    <div>
+                        <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                            <button type="button" class="btn btn-outline-dark"  > 
+                                Exportar
+                                 <i class="fas fa-file-pdf"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-dark">Middle</button>
+                            <button type="button" class="btn btn-outline-dark">Right</button>
+            
+                
+                        </div>
+                    </div>
+                
+                  </div>
+        
+              </div>
+
+
+
+          </div>
+        </div>
+      </div>
+<br>
+     
+
+
+
+
+
+
+
