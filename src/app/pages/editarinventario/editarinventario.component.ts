@@ -14,6 +14,7 @@ export class EditarinventarioComponent implements OnInit {
   constructor(private router: Router,private serviceInventario:InventarioService) { }
 
   ngOnInit(): void {
+  this.Editar();
   }
 
 
@@ -35,7 +36,7 @@ export class EditarinventarioComponent implements OnInit {
       this.serviceInventario.updateInventario(inventario)
       .subscribe(data =>  
         Swal.fire({
-          title: 'Usuario modificado éxitosamente',
+          title: 'Inventario modificado éxitosamente',
           icon: 'success',
           iconColor :'#17550c',
           color: "#0c3255",
