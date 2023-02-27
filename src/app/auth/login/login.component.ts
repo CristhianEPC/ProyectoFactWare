@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       // this.snack.open('El nombre de usuario es requerido !!', 'Aceptar', {
       //   duration: 3000
       // })
+      alert("campo de usuario vacio");
       console.log("campo de usuario vacio")
       return;
     }
@@ -43,29 +44,36 @@ export class LoginComponent implements OnInit {
       // this.snack.open('La contraseña es requerida !!', 'Aceptar', {
       //   duration: 3000
       // })
+      alert("campo la clave vacio");
       console.log("campo de contraeña vacio")
       return;
     }
 
     this.api.getCurrentUser(this.login)
-    .subscribe((data) =>{
-        console.log(data.toString + " primero");
-        this.json = data.toString();
-        console.log(this.json + " segundo");
+      .subscribe((data) => {
+        //console.log(data.toString + " primero");
+        //this.json = data.toString();
+        //console.log(this.json + " segundo");
         this.json = JSON.stringify(data);
         console.log(this.json + " tercero");
         this.usuar = JSON.parse(this.json);
-        console.log(this.json + " cuarto");
-        this.iRol = this.usuar.rol?.id_rol;
-        console.log(this.iRol + " quinto" );
+        console.log(this.usuar + " cuarto");
 
-        if(this.iRol == 1){
-          this.router.navigate(['admin']);
-          console.log("administrador");
-        }else{
-          this.router.navigate(['vendedor']);
-          console.log("vendedor");
+
+        if (this.usuar != null) {
+          this.iRol = this.usuar.rol?.id_rol;
+          console.log(this.iRol + " quinto");
+          if (this.iRol == 1) {
+            this.router.navigate(['admin']);
+            console.log("administrador");
+          } else {
+            this.router.navigate(['vendedor/vendedor']);
+            console.log("vendedor");
+          }
+        } else {
+          alert("El usuario no existe");
         }
+
 
       });
 

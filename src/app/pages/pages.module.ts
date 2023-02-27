@@ -34,6 +34,7 @@ import { EditarusuarioComponent } from './editarusuario/editarusuario.component'
 import { EditarInventarioComponent } from './editar-inventario/editar-inventario.component';
 import { GuardarInventarioComponent } from './guardar-inventario/guardar-inventario.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
+import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -53,7 +54,8 @@ import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.co
     EditarusuarioComponent,
     EditarInventarioComponent,
     GuardarInventarioComponent,
-    EditarProveedorComponent
+    EditarProveedorComponent,
+    EditarProductoComponent
   ],
   imports: [
     CommonModule,

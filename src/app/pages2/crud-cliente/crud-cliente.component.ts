@@ -11,23 +11,23 @@ import { PersonaService } from 'src/app/servicios/api/persona.service';
 export class CrudClienteComponent implements OnInit {
 
   //persona=new Persona;
-  personas:Persona[]=[];
-  
-  constructor(private personaService:PersonaService,private router: Router) { }
+  personas: Persona[] = [];
+
+  constructor(private personaService: PersonaService, private router: Router) { }
 
   ngOnInit(): void {
     this.listarPerso();
   }
 
-  nuevo(){
+  nuevo() {
     this.router.navigate(['vendedor/regCliente']);
   }
 
 
-  listarPerso(){
+  listarPerso() {
 
-    this.personaService.listarPersona().subscribe(data=>{
-      this.personas=data;
+    this.personaService.listarPersona().subscribe(data => {
+      this.personas = data;
       console.log(this.personas);
       // this.filteredOptions = this.myControl.valueChanges.pipe(
       //   startWith(''),
@@ -38,19 +38,22 @@ export class CrudClienteComponent implements OnInit {
 
   }
 
-  editar(perso:Persona):void{
+  editar(perso: Persona): void {
     this.listarPerso();
-    localStorage.setItem("id",perso.id_persona.toString());
+    localStorage.setItem("id", perso.id_persona.toString());
     console.log(perso.id_persona);
     this.router.navigate(['vendedor/editCliente']);
   }
 
-  eliminar(pers:Persona):void{
-    this.personaService.deletePersona(pers)
-    .subscribe(data=>{
-      this.personas = this.personas.filter(p=>p!==pers);
-      alert("Se elimino");
-    })
+  eliminar(pers: Persona): void {
+    if (confirm('¿Seguro deseas eliminar este proveedor?')) {
+      this.personaService.deletePersona(pers)
+        .subscribe(data => {
+          this.personas = this.personas.filter(p => p !== pers);
+          alert("Se elimino");
+        });
+    }
+
   }
 
 }

@@ -37,10 +37,13 @@ export class CrudProveedorComponent implements OnInit {
   }
 
   eliminar(proveedor: Proveedor): void {
-    this.proveedorService.deleteProveedor(proveedor)
-      .subscribe(data => {
-        this.proveedor = this.proveedor.filter(p => p !== proveedor);
-        alert("Se elimino...!!")
-      })
+    if (confirm('¿Seguro deseas eliminar este proveedor?')) {
+      this.proveedorService.deleteProveedor(proveedor)
+        .subscribe(data => {
+          this.proveedor = this.proveedor.filter(p => p !== proveedor);
+          alert("Se elimino...!!")
+        });
+    }
+
   }
 }
