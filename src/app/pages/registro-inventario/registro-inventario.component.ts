@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Inventario } from 'src/app/modelo/Inventario';
+import { InventarioService } from 'src/app/servicios/api/inventario.service';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-inventario',
@@ -7,9 +11,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroInventarioComponent implements OnInit {
 
-  constructor() { }
+  listaInventario: Inventario[]=[];
+ inven: Inventario[] = [];
+ inventar = new Inventario();
+
+  
+  constructor(private inventarioService: InventarioService, public dialog: MatDialog ,private router: Router
+    ) { }
+
+
+
 
   ngOnInit(): void {
+ this.listarInventario();
+
+ 
   }
+  listarInventario():void{
+    this.inventarioService.getInventario().subscribe(
+      listainvent=>this. listaInventario=listainvent );
+  
+
+}
+
+AgregarNuevo() {
+  this.router.navigate(['admin/formuinventario']);
+}
+
+eliminar(id_inventario: number) {
+  if(confirm('¿Seguro que desea eliminar este registro?')){  
+    this.inventarioService.eliminarInventario(id_inventario).subscribe(
+      res => this.inventarioService.getInventario().subscribe(
+        listainvent=>this. listaInventario=listainvent
+      )
+    );
+  }
+}
+
+
+EditarInve(inventarios:Inventario): void  {
+  localStorage.setItem("id", inventarios.id_inventario.toString());
+    this.inventar = inventarios
+  this.router.navigate(['admin/editinventario']);
+}
 
 }

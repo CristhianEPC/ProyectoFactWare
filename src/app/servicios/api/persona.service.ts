@@ -1,8 +1,8 @@
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Persona } from '../../modelo/Persona';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { Persona } from 'src/app/modelo/Persona';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,10 +11,6 @@ export class PersonaService {
 
   private guardar:string="http://localhost:8080/api/savP";
   private listar:string="http://localhost:8080/api/lisP";
-  private buscar:string="http://localhost:8080/api/busc";
-  private edit:string="http://localhost:8080/api/modiP";
-  private elimi:string="http://localhost:8080/api/delP";
-  
 
   personaObj: Persona[] = [];
 
@@ -43,21 +39,4 @@ export class PersonaService {
       map(response=> response as Persona[])
     );
   }
-
-
-  //Metodo de buscar
-  getPersonaId(id:number){
-    return this.http.get<Persona>(this.buscar+"/"+id);
-  }
-
-  //Metodo modificar
-  updatePersona(persona:Persona){
-    return this.http.put<Persona>(this.edit+"/"+persona.id_persona,persona);
-  }
-
-  //Metodo de eliminar
-  deletePersona(persona:Persona){
-return this.http.delete<Persona>(this.elimi+"/"+persona.id_persona)
-  }
-
 }

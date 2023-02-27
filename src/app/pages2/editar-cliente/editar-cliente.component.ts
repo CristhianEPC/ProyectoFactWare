@@ -6,7 +6,6 @@ import { PersonaService } from 'src/app/servicios/api/persona.service';
 @Component({
   selector: 'app-editar-cliente',
   templateUrl: './editar-cliente.component.html',
-  styleUrls: ['./editar-cliente.component.css']
 })
 export class EditarClienteComponent implements OnInit {
 
@@ -15,10 +14,10 @@ export class EditarClienteComponent implements OnInit {
   constructor(private router: Router, private service: PersonaService) { }
 
   ngOnInit(): void {
-    this.Editar();
+    //this.Editar();
   }
 
-
+/*
   Editar() {
 
     let id = localStorage.getItem("id");
@@ -37,7 +36,6 @@ export class EditarClienteComponent implements OnInit {
     // }
 
   }
-
   Actualizar(persona: Persona) {
     this.service.updatePersona(persona)
       .subscribe(data => {
@@ -45,6 +43,7 @@ export class EditarClienteComponent implements OnInit {
         alert("Se Actualiazo");
         this.router.navigate(['vendedor/crudCliente'])
       })
-  }
+  }*/
+
 
 }

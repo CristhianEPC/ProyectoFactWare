@@ -44,13 +44,13 @@ export class CrudClienteComponent implements OnInit {
     console.log(perso.id_persona);
     this.router.navigate(['vendedor/editCliente']);
   }
-
+/*
   eliminar(pers:Persona):void{
     this.personaService.deletePersona(pers)
     .subscribe(data=>{
       this.personas = this.personas.filter(p=>p!==pers);
       alert("Se elimino");
     })
-  }
+  }*/
 
 }

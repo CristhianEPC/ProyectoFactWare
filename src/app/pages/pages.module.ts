@@ -16,23 +16,20 @@ import { CrudInventarioComponent } from './crud-inventario/crud-inventario.compo
 import { RegistroInventarioComponent } from './registro-inventario/registro-inventario.component';
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { MatTableModule } from '@angular/material/table' 
 import { MatError, MatFormFieldModule } from "@angular/material/form-field";
 import {MatCardModule} from '@angular/material/card';
-import {CdkAccordionModule} from '@angular/cdk/accordion';
-import {CdkStepperModule} from '@angular/cdk/stepper';
-import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
-import { EditarInventarioComponent } from './editar-inventario/editar-inventario.component';
-import { GuardarInventarioComponent } from './guardar-inventario/guardar-inventario.component';
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 @NgModule({
   declarations: [
@@ -51,8 +48,8 @@ import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.co
     ReporteVentasComponent,
     ListadousuariosComponent,
     EditarusuarioComponent,
-    EditarInventarioComponent,
-    GuardarInventarioComponent,
+    GuardarinventarioComponent,
+    EditarinventarioComponent,
     EditarProveedorComponent
   ],
   imports: [
@@ -61,10 +58,7 @@ import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.co
     SharedModule,
     MatDividerModule,
     MatFormFieldModule,
-    CdkStepperModule,
     MatCardModule,
-    ScrollingModule,
-    CdkAccordionModule,
     MatInputModule,
     MatButtonModule,
     FormsModule  ,
@@ -73,8 +67,9 @@ import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.co
     MatSelectModule,
     MatDialogModule,
     MatIconModule,
-    MatTableModule,
-    MatListModule
+    MatListModule,
+    
+    MatBottomSheetModule
   ],
   exports:[
     AdmiComponent,
