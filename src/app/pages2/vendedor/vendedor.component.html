@@ -66,21 +66,33 @@
                                 <table id="lstProductosVenta" class="display nowrap table-striped w-100 shadow ">
                                     <thead class="bg-gray text-left fs-6">
                                         <tr>
-                                            <th>Item</th>
-                                            <th>Codigo</th>
-                                            <th>Id Categoria</th>
-                                            <th>Categoria</th>
-                                            <th>Producto</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio</th>
-                                            <th>Total</th>
-                                            <th class="text-center">Opciones</th>
-                                            <th>Aplica Peso</th>
-                                            <th>Precio Por Mayor</th>
-                                            <th>Precio Oferta</th>
+                                            <th>ID</th>
+                                            <th>NOMBRE</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>CODIGO BARRAS</th>
+                                            <th>COSTO PRODUCTO</th>
+                                            <th>PVP</th>
+                                            <th>UTILIDAD</th>
+                                            <th>ESTADO IVA </th>
                                         </tr>
                                     </thead>
                                     <tbody class="small text-left fs-6">
+
+                                        <tr *ngFor="let Producto of productos " class="text-center">
+                                            <td>{{Producto.id_producto}}</td>
+                                            <td>{{Producto.nombre_producto}}</td>
+                                            <td>{{Producto.descripcion_producto}}</td>
+                                            <td>{{Producto.codigoBarras_producto}}</td>
+                                            <td>{{Producto.costo_producto}}</td>
+                                            <td>{{Producto.pvp_producto}}</td>
+                                            <td>{{Producto.utilidad_producto}}</td>
+                                            <td>{{Producto.estadoIVA_producto}}</td>
+                                            <td>
+                                                <button class="btn btn-secondary">Seleccionar</button>
+                                            </td>
+                                        </tr>
+
+
                                     </tbody>
                                 </table>
                                 <!-- / table -->
