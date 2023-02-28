@@ -11,8 +11,8 @@ export class SidebarService {
         icono: 'nav-icon  fas fa-user',
         titulo: "Empleado",
         submenu: [
-            { titulo: 'Crud Empleado', url: 'crudempl', icono: 'fas fa-cubes' },
-            { titulo: 'Registro Empleado', url: 'regisempl', icono: 'fas fa-users' },
+         /*   { titulo: 'Crud Empleado', url: 'crudempl', icono: 'fas fa-cubes' },*/
+            { titulo: 'Asignar usuarios', url: 'regisempl', icono: 'fas fa-users' },
             { titulo: 'Crud Administrador', url: 'crudAdmin', icono: 'fas fa-cubes' },
             { titulo: 'Registro Administrador', url: 'regisAdmin', icono: 'fas fa-users' }
         ]
@@ -42,7 +42,7 @@ export class SidebarService {
         icono: 'nav-icon fas fa-tachometer-alt',
         titulo: "Inventario",
         submenu: [
-            { titulo: 'Crud Inventario', url: 'crudInvent', icono: 'fas fa-cubes' },
+         /*   { titulo: 'Crud Inventario', url: 'crudInvent', icono: 'fas fa-cubes' },*/
             { titulo: 'Registro Inventario', url: 'regisInvent', icono: 'fas fa-users' }
 
         ]

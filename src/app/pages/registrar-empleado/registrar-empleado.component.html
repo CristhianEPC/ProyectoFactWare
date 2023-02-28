@@ -76,7 +76,7 @@
                 <h5><strong>Apellido:  {{personaSele.apellido_persona}}</strong></h5>
                 <h5><strong>Dirección:  {{personaSele.direccion_persona}}</strong></h5>
                 <h5><strong>Teléfono:  {{personaSele. telefono_persona}}</strong></h5>
-                <h5><strong>Correo:   {{personaSele.correo_persona}}  </strong></h5>
+                <h5><strong>Correo:  {{personaSele.correo_persona}}  </strong></h5>
 
                 <br>
               <mat-divider></mat-divider>
@@ -94,32 +94,31 @@
               <mat-card-content>
             
                 <br>
-                <form >
-                  <div class="form-group">
-                  <input type="text" class="form-control" id="persona"  name="idpersona"  [(ngModel)] ="usua.id_persona"  />
+                <form id="formulario" >
+              
+                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [(ngModel)] ="usua.id_persona"   />
 
-                </div>
                 <br>
-                <div class="form-group">
-              <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"    [(ngModel)] ="usua.user" />
-            </div>
+                
+              <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"      [(ngModel)] ="usua.user" />
+     
                  
               <br>
          
-              <div class="form-group">
+            
               <input type="text" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"   [(ngModel)] ="usua.password"  />
-            </div>
+      
     
               <br>
         
-              <div class="form-group" id="left">
+             
               <div class="select">
-                <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr"   [(ngModel)] ="usua.id_rol">
+                <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr" id="rols"   [(ngModel)] ="usua.id_rol">
                   <option  selected disabled> Seleccione un rol </option>
                   <option *ngFor="let roles of  listaRoles"  [value]="roles.id_rol" > {{roles.nombre_rol}} </option>
               </select>
             </div>
-          </div>
+       
         </form>
             </mat-card-content>
 
@@ -133,7 +132,7 @@
           <br>
 
             <div class="buttons">
-                <a href="#" class="btn btn-1 ">Limpiar</a>
+                <a href="#" class="btn btn-1 " (click)="limpiarFormulario()">Limpiar</a>
                 <a class="btn btn-2 "  (click)="guardarUsuario(usua)">Agregar</a>
                 <a  class="btn btn-3 " (click)="Listado()">Listado</a>
             </div>
@@ -143,9 +142,5 @@
       </div>
     </div>
   
-  
-    <pre>
-    
-      {{usua | json}} 
-   </pre>
-  
+
+

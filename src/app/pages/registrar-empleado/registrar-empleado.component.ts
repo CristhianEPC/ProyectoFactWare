@@ -10,6 +10,7 @@ import { RolesService } from 'src/app/servicios/api/roles.service';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 import Swal from 'sweetalert2';
 
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registrar-empleado',
@@ -17,8 +18,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./registrar-empleado.component.css']
 })
 export class RegistrarEmpleadoComponent implements OnInit {
+  formulario: FormGroup;
   listaPersonas: Persona[]=[];
- usua= new Usuarios();
+  usua= new Usuarios();
+
+
 
  personaSele = new Persona();
  listaRoles: Rol[]=[];
@@ -26,8 +30,8 @@ export class RegistrarEmpleadoComponent implements OnInit {
     private personaService:PersonaService,
     private usuarioService:UsuariosService,
     private rolesService:RolesService,
-    private router: Router) {}
-
+    private router: Router,  private formBuilder: FormBuilder)
+     {}
 
   ngOnInit(): void {
    
@@ -35,7 +39,16 @@ export class RegistrarEmpleadoComponent implements OnInit {
       listaPerso=>this. listaPersonas=listaPerso );
       this.rolesService.getRoles().subscribe(
         listaRol=>this. listaRoles=listaRol );
-   
+
+ 
+  }
+  
+  limpiarFormulario() {
+    this.formulario = this.formBuilder.group({
+      idpersona: '',
+      usuario: '',
+      pass: ''
+    });
   }
 
  
@@ -47,8 +60,9 @@ export class RegistrarEmpleadoComponent implements OnInit {
   }
 
 
-  guardarUsuario(inventario:Usuarios){
-    this.usuarioService.create(inventario)
+  guardarUsuario(usuario:Usuarios){
+    console.log(usuario);
+    this.usuarioService.create(usuario)
     .subscribe(data=>  
       Swal.fire({
         title: 'Usuarios Guardado éxitosamente',
@@ -59,6 +73,8 @@ export class RegistrarEmpleadoComponent implements OnInit {
         background: "#63B68B",
       }))
   }
+
+
 
   Listado() {
     this.router.navigate(['admin/listadousua']);

@@ -1,35 +1,47 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { HttpClient, HttpHeaders} from '@angular/common/http'
-import { Observable, Subject} from 'rxjs'
-
+import { map, Observable } from 'rxjs';
 import { Producto } from 'src/app/modelo/Producto';
 
-const USER_KEY = 'auth-user';
-
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ProductoService {
 
-  private httpHeaders = new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' })
+    private guardar: string = "http://localhost:8080/api/productos/savPr";
+    private listar: string = "http://localhost:8080/api/productos/lisPr";
+    private buscar: string = "http://localhost:8080/api/productos";
+    private edit: string = "http://localhost:8080/api/productos";
+    private elimi: string = "http://localhost:8080/api/productos";
 
+    productoObj: Producto[]=[];
 
-  url:string = 'http://localhost:8080/api/productos/lisPr';
-  url2:string = 'http://localhost:8080/api/productos//guPr';
+    constructor(private http:HttpClient){}
 
-  constructor(private http: HttpClient) { }
+    //Metodo para guardar
+    createProducto(productoObj:Producto):Observable<Producto>{
+        return this.http.post<Producto>(this.guardar,productoObj);
+    }
 
-  getProducto(){
-    return this.http.get<Producto[]>(this.url);
-  }
+    //Metodo para listar
+    getProducto():Observable<Producto[]>{
+        return this.http
+        .get(this.listar)
+        .pipe(map((response) => response as Producto[]));
+    }
 
-  createProducto(producto:Producto){
-  return this.http.post<Producto>(this.url2, producto);
-  }
-  }
+    //Metodo para buscar
+    getProductoId(id:number):Observable<Producto>{
+        return this.http.get<Producto>(this.buscar+"/"+id);
+    }
 
-  
+    //Metodo para modificar
+    updateProducto(productoObj:Producto){
+        return this.http.put<Producto>(this.edit+"/"+productoObj.id_producto,productoObj);
+    }
 
-
-
+    //Metodo eliminar
+    deleteProducto(productoObj:Producto){
+        return this.http.delete<Producto>(this.elimi+"/"+productoObj.id_producto);
+    }
+}  
