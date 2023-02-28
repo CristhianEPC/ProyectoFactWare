@@ -18,6 +18,8 @@ import { ListadousuariosComponent } from './listadousuarios/listadousuarios.comp
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 
 const routes : Routes = [
   {path:"admin", component:PagesComponent,
@@ -34,6 +36,8 @@ const routes : Routes = [
     {path:"regisProvee", component:RegistroProveedorComponent},
     {path:"crudInvent", component:CrudInventarioComponent},
     {path:"regisInvent", component:RegistroInventarioComponent},
+    {path:"formuinventario", component:GuardarinventarioComponent},
+    {path:"editinventario", component:EditarinventarioComponent},
     {path:"reporte", component:ReporteVentasComponent},
     {path:"editProve", component:EditarProveedorComponent},
     {path:"editProduc", component:EditarProductoComponent},

@@ -31,11 +31,12 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {MatListModule} from '@angular/material/list';
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
-import { EditarInventarioComponent } from './editar-inventario/editar-inventario.component';
-import { GuardarInventarioComponent } from './guardar-inventario/guardar-inventario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
+import { BuscarPipe } from './listadousuarios/buscar.pipe';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -53,11 +54,12 @@ import { EditarPersonaComponent } from './editar-persona/editar-persona.componen
     ReporteVentasComponent,
     ListadousuariosComponent,
     EditarusuarioComponent,
-    EditarInventarioComponent,
-    GuardarInventarioComponent,
+    GuardarinventarioComponent,
+    EditarinventarioComponent,
     EditarProveedorComponent,
     EditarProductoComponent,
-    EditarPersonaComponent
+    EditarPersonaComponent,
+    BuscarPipe
   ],
   imports: [
     CommonModule,
