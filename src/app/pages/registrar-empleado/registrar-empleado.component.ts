@@ -48,6 +48,9 @@ usuarii:any ={
    
     this.personaService.getPersonas().subscribe(
       listaPerso=>this. listaPersonas=listaPerso );
+
+
+      
       this.rolesService.getRoles().subscribe(
         listaRol=>this. listaRoles=listaRol );
    
