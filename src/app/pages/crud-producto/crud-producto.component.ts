@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/Producto';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crud-producto',
@@ -41,7 +42,15 @@ export class CrudProductoComponent implements OnInit {
       this.productoService.deleteProducto(producto)
         .subscribe(data => {
           this.producto = this.producto.filter(p => p !== producto);
-          alert("Se elimino...!!")
+          Swal.fire({
+            title: 'Producto Eliminado éxitosamente',
+            icon: 'success',
+            iconColor :'#17550c',
+            color: "#0c3255",
+            confirmButtonColor:"#0c3255",
+            background: "#63B68B",
+          })
+          //alert("Se elimino...!!")
         });
     }
 

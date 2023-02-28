@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Inventario } from 'src/app/modelo/Inventario';
+import { Inventario2 } from 'src/app/modelo/inventario2';
 import { Producto } from 'src/app/modelo/Producto';
 import { InventarioService } from 'src/app/servicios/api/inventario.service';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
@@ -12,7 +13,7 @@ import jsPDF from 'jspdf';
 })
 export class ReporteVentasComponent implements OnInit {
   productos: Producto[] = [];
-  listaInventario: Inventario[]=[];
+  listaInventario: Inventario2[]=[];
 
   constructor(private service:ProductoService, private inventarioService: InventarioService) { }
 

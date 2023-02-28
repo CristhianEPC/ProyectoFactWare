@@ -31,7 +31,7 @@
                 <div class="form-group" id="left">
                     <label for="">Producto</label>
                     <div class="select">
-                      <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="inventarios.id_producto">
+                      <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="inventarios.producto">
                         <option  selected disabled> Seleccione el producto </option>
                         <option *ngFor="let produc of  listaProductos" [value]="produc.id_producto">  {{produc.nombre_producto}} </option>
                     </select>

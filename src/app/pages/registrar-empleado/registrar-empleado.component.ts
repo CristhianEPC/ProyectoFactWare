@@ -11,6 +11,7 @@ import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 import Swal from 'sweetalert2';
 
 import { NgForm } from '@angular/forms';
+import { Usuario } from 'src/app/modelo/usuario';
 
 @Component({
   selector: 'app-registrar-empleado',
@@ -18,11 +19,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./registrar-empleado.component.css']
 })
 export class RegistrarEmpleadoComponent implements OnInit {
-  formulario: FormGroup;
   listaPersonas: Persona[]=[];
-  usua= new Usuarios();
+ usua : Usuario = new Usuario();
 
+usuarii:any ={
+  idpero:null,
+  idrol:null,
+  user:null,
+  pas:null
+}
 
+// SaveData(form:NgForm){
+// console.log('emviandodatos')
+// console.log(form);
+// console.log(form);
+// }
 
  personaSele = new Persona();
  listaRoles: Rol[]=[];
@@ -30,8 +41,8 @@ export class RegistrarEmpleadoComponent implements OnInit {
     private personaService:PersonaService,
     private usuarioService:UsuariosService,
     private rolesService:RolesService,
-    private router: Router,  private formBuilder: FormBuilder)
-     {}
+    private router: Router) {}
+
 
   ngOnInit(): void {
    
@@ -39,16 +50,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
       listaPerso=>this. listaPersonas=listaPerso );
       this.rolesService.getRoles().subscribe(
         listaRol=>this. listaRoles=listaRol );
-
- 
-  }
-  
-  limpiarFormulario() {
-    this.formulario = this.formBuilder.group({
-      idpersona: '',
-      usuario: '',
-      pass: ''
-    });
+   
   }
 
  
@@ -60,10 +62,9 @@ export class RegistrarEmpleadoComponent implements OnInit {
   }
 
 
-  guardarUsuario(usuario:Usuarios){
-    console.log(usuario);
+  guardarUsuario(usuario:Usuario){
     this.usuarioService.create(usuario)
-    .subscribe(data=>  
+    .subscribe(data=> 
       Swal.fire({
         title: 'Usuarios Guardado éxitosamente',
         icon: 'success',
@@ -72,9 +73,9 @@ export class RegistrarEmpleadoComponent implements OnInit {
         confirmButtonColor:"#0c3255",
         background: "#63B68B",
       }))
+
+      console.log(usuario) ;
   }
-
-
 
   Listado() {
     this.router.navigate(['admin/listadousua']);
