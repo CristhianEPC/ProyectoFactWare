@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Producto } from 'src/app/modelo/Producto';
+import { Producto2 } from 'src/app/modelo/producto2';
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +20,8 @@ export class ProductoService {
     constructor(private http:HttpClient){}
 
     //Metodo para guardar
-    createProducto(productoObj:Producto):Observable<Producto>{
-        return this.http.post<Producto>(this.guardar,productoObj);
+    createProducto(productoObj:Producto2):Observable<Producto2>{
+        return this.http.post<Producto2>(this.guardar,productoObj);
     }
 
     //Metodo para listar

@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
 import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-empleado.component';
-import { CrudAdministradorComponent } from './crud-administrador/crud-administrador.component';
-import { RegistroAdministradorComponent } from './registro-administrador/registro-administrador.component';
 import { CrudProductoComponent } from './crud-producto/crud-producto.component';
 import { RegistroProductoComponent } from './registro-producto/registro-producto.component';
 import { CrudProveedorComponent } from './crud-proveedor/crud-proveedor.component';
@@ -32,26 +30,32 @@ import { GuardarinventarioComponent } from './guardarinventario/guardarinventari
 import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 import { BuscarPipe } from './listadousuarios/buscar.pipe';
+import { CrudAdministradorComponent } from './crud-administrador/crud-administrador.component';
+import { EditarProductoComponent } from './editar-producto/editar-producto.component';
+import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
+import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
 @NgModule({
   declarations: [
     PagesComponent,
     AdmiComponent,
     CrudEmpleadoComponent,
-    RegistrarEmpleadoComponent,
     CrudAdministradorComponent,
-    RegistroAdministradorComponent,
     CrudProductoComponent,
-    RegistroProductoComponent,
     CrudProveedorComponent,
-    RegistroProveedorComponent,
+    ListadousuariosComponent,
     CrudInventarioComponent,
+    RegistrarEmpleadoComponent,
+    RegistroAdministradorComponent,
+    RegistroProductoComponent,
+    RegistroProveedorComponent,
     RegistroInventarioComponent,
     ReporteVentasComponent,
-    ListadousuariosComponent,
     EditarusuarioComponent,
     GuardarinventarioComponent,
     EditarinventarioComponent,
     EditarProveedorComponent,
+    EditarProductoComponent,
+    EditarPersonaComponent,
     BuscarPipe
   ],
   imports: [
@@ -87,7 +91,9 @@ import { BuscarPipe } from './listadousuarios/buscar.pipe';
     RegistroInventarioComponent,
     ReporteVentasComponent,
     ListadousuariosComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    EditarProductoComponent,
+    EditarPersonaComponent,
   ]
 })
 export class PagesModule { }

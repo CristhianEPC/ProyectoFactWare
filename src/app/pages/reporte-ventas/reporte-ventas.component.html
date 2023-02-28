@@ -105,7 +105,7 @@
                 <tbody>
                     <tr *ngFor="let inventario of  listaInventario">
                         <td> {{inventario.id_inventario}} </td>
-                        <td> {{inventario.id_producto}} </td>
+                        <td> {{inventario.producto.nombre_producto}} </td>
                         <td> {{inventario.stock}} </td>
                         <td> {{inventario.fechaEntrega}} </td>
                         <td> {{inventario.cantidad_inventario}} </td>

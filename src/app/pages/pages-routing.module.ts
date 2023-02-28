@@ -5,8 +5,7 @@ import { AdmiComponent } from './admi/admi.component';
 import { PagesComponent } from './pages.component';
 import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
 import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-empleado.component';
-import { CrudAdministradorComponent } from './crud-persona/crud-administrador.component';
-import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
+import { CrudAdministradorComponent } from './crud-administrador/crud-administrador.component';
 import { CrudProductoComponent } from './crud-producto/crud-producto.component';
 import { RegistroProductoComponent } from './registro-producto/registro-producto.component';
 import { CrudProveedorComponent } from './crud-proveedor/crud-proveedor.component';
@@ -18,6 +17,10 @@ import { ListadousuariosComponent } from './listadousuarios/listadousuarios.comp
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
+import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
+import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
 
 const routes : Routes = [
   {path:"admin", component:PagesComponent,
@@ -37,7 +40,10 @@ const routes : Routes = [
     {path:"reporte", component:ReporteVentasComponent},
     {path:"editProve", component:EditarProveedorComponent},
     {path:"editProduc", component:EditarProductoComponent},
-    {path:"editPerso", component:EditarPersonaComponent}
+    {path:"editPerso", component:EditarPersonaComponent},
+    {path:"editusuario", component:EditarusuarioComponent},
+    {path:"formuinventario", component:GuardarinventarioComponent},
+    {path:"editinventario", component:EditarinventarioComponent}
 
   ]}
 ]

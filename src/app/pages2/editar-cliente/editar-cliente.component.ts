@@ -14,10 +14,10 @@ export class EditarClienteComponent implements OnInit {
   constructor(private router: Router, private service: PersonaService) { }
 
   ngOnInit(): void {
-    //this.Editar();
+    this.Editar();
   }
 
-/*
+
   Editar() {
 
     let id = localStorage.getItem("id");
@@ -43,7 +43,7 @@ export class EditarClienteComponent implements OnInit {
         alert("Se Actualiazo");
         this.router.navigate(['vendedor/crudCliente'])
       })
-  }*/
+  }
 
 
 }

@@ -5,6 +5,7 @@ import { ApiService } from '../../servicios/api/api.service'
 import { Router } from '@angular/router'
 import { LoginUsuario } from 'src/app/modelo/login';
 import { Usuario } from 'src/app/modelo/usuario';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -66,12 +67,30 @@ export class LoginComponent implements OnInit {
           if (this.iRol == 1) {
             this.router.navigate(['admin']);
             console.log("administrador");
-          } else {
+          } 
+          else if(this.iRol == 2){
             this.router.navigate(['vendedor/vendedor']);
             console.log("vendedor");
           }
+          else {
+            Swal.fire({
+              title: 'No esta asignado un Rol',
+              icon: 'success',
+              iconColor :'#b83e1f',
+              color: "#0c3255",
+              confirmButtonColor:"#0c3255",
+              background: "#b0b01e",
+            })
+          }
         } else {
-          alert("El usuario no existe");
+          Swal.fire({
+            title: 'Datos Incorrectos',
+            icon: 'error',
+            iconColor :'#b0b01e',
+            color: "#0c3255",
+            confirmButtonColor:"#0c3255",
+            background: "#9e0e0e",
+          })
         }
 
 

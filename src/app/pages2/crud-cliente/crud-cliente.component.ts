@@ -46,7 +46,7 @@ export class CrudClienteComponent implements OnInit {
   }
 
   eliminar(pers: Persona): void {
-    if (confirm('¿Seguro deseas eliminar este proveedor?')) {
+    if (confirm('¿Seguro deseas eliminar este Persona?')) {
       this.personaService.deletePersona(pers)
         .subscribe(data => {
           this.personas = this.personas.filter(p => p !== pers);

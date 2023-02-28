@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CrudClienteComponent } from './crud-cliente/crud-cliente.component';
 import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente.component';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
+import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 
 
 
@@ -15,12 +16,14 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms'
         Pages2Component,
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent
+        RegistrarClienteComponent,
+        EditarClienteComponent
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent
+        RegistrarClienteComponent,
+        EditarClienteComponent
     ],
     imports: [
         CommonModule,

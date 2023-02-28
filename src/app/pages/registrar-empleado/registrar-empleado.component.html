@@ -96,7 +96,7 @@
                 <br>
                 <form >
               
-                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [(ngModel)] ="usua.id_persona"  />
+                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [(ngModel)] ="usua.persona"  />
 
                 <br>
                 
@@ -113,7 +113,7 @@
         
              
               <div class="select">
-                <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr" id="rols"   [(ngModel)] ="usua.id_rol">
+                <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr" id="rols"   [(ngModel)] ="usua.rol">
                   <option  selected disabled> Seleccione un rol </option>
                   <option *ngFor="let roles of  listaRoles"  [value]="roles.id_rol" > {{roles.nombre_rol}} </option>
               </select>
