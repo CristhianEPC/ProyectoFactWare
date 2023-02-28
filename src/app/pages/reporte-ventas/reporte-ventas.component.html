@@ -20,6 +20,7 @@
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card">
+        <div id="htmlData">
         <div class="card-header">
             <h2> <strong>Productos Registrados</strong></h2>              </div>
         <div class="card-body">
@@ -61,12 +62,12 @@
 
 
         </div>
-
+        </div>
         <div class="card-footer text-muted">
             <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
                 <div>
                     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-                        <button type="button" class="btn btn-outline-dark"  > 
+                        <button type="button" class="btn btn-outline-dark"   (click)="  downloadPDF()" > 
                             Exportar
                              <i class="fas fa-file-pdf"></i>
                         </button>

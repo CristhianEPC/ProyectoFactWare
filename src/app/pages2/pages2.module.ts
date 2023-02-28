@@ -6,8 +6,9 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CrudClienteComponent } from './crud-cliente/crud-cliente.component';
 import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente.component';
-import { ReactiveFormsModule, FormsModule} from '@angular/forms'
-import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { BuscarproducventPipe } from './vendedor/buscarproducvent.pipe';
+import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
 
 
 
@@ -17,13 +18,13 @@ import { EditarClienteComponent } from './editar-cliente/editar-cliente.componen
         VendedorComponent,
         CrudClienteComponent,
         RegistrarClienteComponent,
-        EditarClienteComponent
+        BuscarproducventPipe,
+        BuscarClientPipe
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent,
-        EditarClienteComponent
+        RegistrarClienteComponent
     ],
     imports: [
         CommonModule,
