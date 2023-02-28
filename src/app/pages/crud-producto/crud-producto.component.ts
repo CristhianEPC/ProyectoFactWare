@@ -37,7 +37,7 @@ export class CrudProductoComponent implements OnInit {
   }
 
   eliminar(producto: Producto): void {
-    if (confirm('¿Seguro deseas eliminar este proveedor?')) {
+    if (confirm('¿Seguro deseas eliminar este Producto?')) {
       this.productoService.deleteProducto(producto)
         .subscribe(data => {
           this.producto = this.producto.filter(p => p !== producto);

@@ -5,8 +5,8 @@ import { AdmiComponent } from './admi/admi.component';
 import { PagesComponent } from './pages.component';
 import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
 import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-empleado.component';
-import { CrudAdministradorComponent } from './crud-administrador/crud-administrador.component';
-import { RegistroAdministradorComponent } from './registro-administrador/registro-administrador.component';
+import { CrudAdministradorComponent } from './crud-persona/crud-administrador.component';
+import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
 import { CrudProductoComponent } from './crud-producto/crud-producto.component';
 import { RegistroProductoComponent } from './registro-producto/registro-producto.component';
 import { CrudProveedorComponent } from './crud-proveedor/crud-proveedor.component';
@@ -17,6 +17,7 @@ import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.componen
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
+import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
 
 const routes : Routes = [
   {path:"admin", component:PagesComponent,
@@ -35,7 +36,9 @@ const routes : Routes = [
     {path:"regisInvent", component:RegistroInventarioComponent},
     {path:"reporte", component:ReporteVentasComponent},
     {path:"editProve", component:EditarProveedorComponent},
-    {path:"editProduc", component:EditarProductoComponent}
+    {path:"editProduc", component:EditarProductoComponent},
+    {path:"editPerso", component:EditarPersonaComponent}
+
   ]}
 ]
 
