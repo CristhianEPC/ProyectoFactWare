@@ -11,6 +11,7 @@ export class PersonaService {
 
   private guardar:string="http://localhost:8080/api/savP";
   private listar:string="http://localhost:8080/api/lisP";
+  private borrar: string = 'http://localhost:8080/api/delInvent';
 
   personaObj: Persona[] = [];
 
@@ -39,4 +40,10 @@ export class PersonaService {
       map(response=> response as Persona[])
     );
   }
+
+  //Metodo para eliminar
+  deletePersona(id: any): Observable<Persona> {
+    return this.http.delete<Persona>(this.borrar + '/' + id);
+  }
+
 }

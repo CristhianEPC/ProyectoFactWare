@@ -19,7 +19,7 @@ export class ProductoService {
     constructor(private http:HttpClient){}
 
     //Metodo para guardar
-    create(productoObj:Producto):Observable<Producto>{
+    createProducto(productoObj:Producto):Observable<Producto>{
         return this.http.post<Producto>(this.guardar,productoObj);
     }
 

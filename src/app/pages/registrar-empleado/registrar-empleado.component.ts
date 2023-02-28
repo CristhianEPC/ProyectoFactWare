@@ -10,6 +10,7 @@ import { RolesService } from 'src/app/servicios/api/roles.service';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 import Swal from 'sweetalert2';
 
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registrar-empleado',
@@ -19,6 +20,18 @@ import Swal from 'sweetalert2';
 export class RegistrarEmpleadoComponent implements OnInit {
   listaPersonas: Persona[]=[];
  usua= new Usuarios();
+usuarii:any ={
+  idpero:null,
+  idrol:null,
+  user:null,
+  pas:null
+}
+
+SaveData(form:NgForm){
+console.log('emviandodatos')
+console.log(form);
+console.log(form);
+}
 
  personaSele = new Persona();
  listaRoles: Rol[]=[];
@@ -47,8 +60,8 @@ export class RegistrarEmpleadoComponent implements OnInit {
   }
 
 
-  guardarUsuario(inventario:Usuarios){
-    this.usuarioService.create(inventario)
+  guardarUsuario(usuario:Usuarios){
+    this.usuarioService.create(usuario)
     .subscribe(data=>  
       Swal.fire({
         title: 'Usuarios Guardado éxitosamente',
