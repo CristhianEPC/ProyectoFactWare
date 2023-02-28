@@ -1,10 +1,10 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
-            <h1>Agregar Proveedores</h1>
+            <h1>Modificar Producto</h1>
         </div>
         <div class="card-body">
-            <form action="">
+            <form action="" (ngSubmit)="Editar()">
                 <div class="form-group">
                     <label for="">Nombre</label>
                     <input  name="nombre_producto" type="text" class="form-control" 
@@ -40,8 +40,9 @@
                     <input name="estadoIVA_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.estadoIVA_producto">
                 </div>
-                
-                <button (click)="guardar(producto)" class="btn btn-danger">Guardar</button>
+        
+                <button (click)="Actualizar(producto)" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>
+

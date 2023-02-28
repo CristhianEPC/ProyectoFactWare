@@ -1,1 +1,31 @@
-<p>crud-producto works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Productos</h1>
+            <button (click)="nuevo()" class="btn btn-info" style="margin-left: 90%;">Crear</button>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>DESCRIPCION</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let item of producto">
+                        <td>{{item.id_producto}}</td>
+                        <td>{{item.nombre_producto}}</td>
+                        <td>{{item.descripcion_producto}}</td>
+                        <td>
+                            <button (click)="editar(item)" class="btn btn-warning"><span class="icon-house"></span>
+                                editar</button>
+                            <button (click)="eliminar(item)" class="btn btn-danger" style="margin-left: 10px;">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

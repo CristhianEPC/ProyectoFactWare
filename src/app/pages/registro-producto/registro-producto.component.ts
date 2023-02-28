@@ -10,29 +10,19 @@ import { ProductoService } from 'src/app/servicios/api/producto.service';
 })
 export class RegistroProductoComponent implements OnInit {
 
-  productos: Producto[] = [];
-  constructor(private router: Router, private service:ProductoService) { }
-  Listar(){
-    this.router.navigate(["listar"])
-  }
-  Nuevo(){
-    this.router.navigate(["add"])
-  }
-  Editar(){
-    this.router.navigate(["editar"])
+  producto = new Producto();
+
+  constructor(private router:Router,private service:ProductoService) { }
+
+  ngOnInit(): void {
   }
 
- 
-  ngOnInit(): void {
-    this.service.getProducto()
+  guardar(producto:Producto){
+    this.service.create(producto)
     .subscribe(data=>{
-      this.productos=data;
+      alert("Se guardo...!!")
+      this.router.navigate(['admin/crudProduc']);
     })
   }
-  
- 
-  }
 
- 
-
-
+}
