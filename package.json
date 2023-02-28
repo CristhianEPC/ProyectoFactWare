@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
-    "@angular/cdk": "^15.2.0",
+    "@angular/cdk": "~15.2.0",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@material/list": "^14.0.0",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "rxjs": "~7.5.0",

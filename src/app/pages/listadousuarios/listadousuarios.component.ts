@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Usuarios } from 'src/app/modelo/Usuarios';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 import { EditarusuarioComponent } from '../editarusuario/editarusuario.component';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Router } from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {map, Observable, startWith} from "rxjs";
 @Component({
   selector: 'app-listadousuarios',
   templateUrl: './listadousuarios.component.html',
@@ -11,8 +14,11 @@ import { EditarusuarioComponent } from '../editarusuario/editarusuario.component
 export class ListadousuariosComponent implements OnInit {
   listaUsuarios: Usuarios[]=[];
 
-  
-  constructor(private usuariosService: UsuariosService, public dialog: MatDialog 
+usuarioss = new Usuarios();
+
+filterPost = '';
+
+  constructor(private usuariosService: UsuariosService, public dialog: MatDialog , private router: Router
     ) { }
 
 
@@ -20,8 +26,15 @@ export class ListadousuariosComponent implements OnInit {
   ngOnInit(): void {
  this.listarUsuarios();
 
- 
+
   }
+
+
+
+
+
+
+
   listarUsuarios():void{
     this.usuariosService.getUsuarios().subscribe(
       listausua=>this. listaUsuarios=listausua );
@@ -42,26 +55,18 @@ eliminar(id_usuario: number) {
 
 
 
-
-
-
-
-
-
-
-
-openDialog(usuario: Usuarios ) {
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.width = "55%";
-  dialogConfig.autoFocus = true;
-  const dialogRef = this.dialog.open(EditarusuarioComponent,{
-    width: "55%",
-    data: usuario
-  });
-
-  dialogRef.afterClosed().subscribe(result =>{
-    this.listarUsuarios();
-  })
-
+AgregarNuevo() {
+  this.router.navigate(['admin/regisempl']);
 }
+
+
+
+
+EditarUsuari(usuario: Usuarios): void {
+  localStorage.setItem("id", usuario.id_usuario.toString());
+  this.usuarioss  = usuario
+  this.router.navigate(['admin/editusuario']);
+}
+
+
 }

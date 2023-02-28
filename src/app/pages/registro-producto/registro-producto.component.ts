@@ -18,7 +18,7 @@ export class RegistroProductoComponent implements OnInit {
   }
 
   guardar(producto:Producto){
-    this.service.create(producto)
+    this.service.createProducto(producto)
     .subscribe(data=>{
       alert("Se guardo...!!")
       this.router.navigate(['admin/crudProduc']);

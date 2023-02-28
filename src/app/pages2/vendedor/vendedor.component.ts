@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ApiService } from 'src/app/servicios/api/api.service';
+import { Producto } from 'src/app/modelo/Producto';
+import { ProductoService } from 'src/app/servicios/api/producto.service';
 
 @Component({
   selector: 'app-vendedor',
@@ -8,21 +8,14 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   styleUrls: ['./vendedor.component.css']
 })
 export class VendedorComponent implements OnInit {
-
-  var: String = "";
-  
-  constructor(private apiSer:ApiService,private router: Router) { }
+  productos: Producto[] = [];
+  constructor(private service:ProductoService) { }
 
   ngOnInit(): void {
-  }
-
-  haceClic() {
-    this.var = "soy un cliente";
-    console.log(this.var);
-  }
-
-  crearPerson() {
-    this.router.navigateByUrl('vendedor/regCliente');
+    this.service.getProducto()
+    .subscribe(data=>{
+      this.productos=data;
+    })
   }
 
 }

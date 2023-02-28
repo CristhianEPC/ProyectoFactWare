@@ -1,0 +1,72 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Inventario</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item active">Editar</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+
+  
+
+  <div class="container col-md-6">
+    
+    <div class="container col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h1>Modificar Inventario</h1>
+            </div>
+            <div class="card-body">
+                <form action="" (ngSubmit)="Editar()">
+
+                    <div class="form-group">
+                        <label for="">Producto</label>
+                        <input  name="id_producto" type="text" class="form-control" disabled
+                        [(ngModel)] ="inventario.id_producto">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Cantidad</label>
+                        <input  name="cantidad_inventario" type="text" class="form-control" 
+                        [(ngModel)] ="inventario.cantidad_inventario">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Fecha</label>
+                        <input name="inventario" type="date" class="form-control"
+                        [(ngModel)] ="inventario.fechaEntrega">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Stock</label>
+                        <input name="stock" type="text" class="form-control"
+                        [(ngModel)] ="inventario.stock">
+                    </div>
+    
+
+
+
+                    <button (click)="Actualizar(inventario)" class="btn btn-success">Guardar</button>
+                </form>
+            </div>
+        </div>
+  
+    <div class="card">
+        <h5 class="card-header">Acciones</h5>
+        <div class="card-body">
+            <div class="buttons">
+                <a href="#" class="btn btn-1 ">Limpiar</a>
+                <a  class="btn btn-3 " (click)="Listado()">Ver Listado</a>
+            </div>
+        </div>
+      </div>
+

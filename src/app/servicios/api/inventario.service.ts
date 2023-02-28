@@ -7,10 +7,13 @@ import { Inventario } from 'src/app/modelo/Inventario';
   providedIn: 'root'
 })
 export class InventarioService {
+
   private guardar:string="http://localhost:8080/api/savInvent";
   private listar:string="http://localhost:8080/api/lisInvent";
   private actualizar: string = 'http://localhost:8080/api/modiU';
   private borrar: string = 'http://localhost:8080/api/delInvent';
+  private edit: string = "http://localhost:8080/api/modiInvent";
+  private buscar: string = "http://localhost:8080/api/buscInvent";
 
 inventarioObj: Inventario[] = [];
 
@@ -39,12 +42,20 @@ inventarioObj: Inventario[] = [];
     );
   }
 
-  
+      //Metodo para buscar
+      getInventarioId(id:number):Observable<Inventario>{
+        return this.http.get<Inventario>(this.buscar+"/"+id);
+    }
+
   //Metodo para eliminar
   eliminarInventario(id: any): Observable<Inventario> {
     return this.http.delete<Inventario>(this.borrar + '/' + id);
   }
 
+    //Metodo para modificar
+    updateInventario(inventarioObj:Inventario){
+      return this.http.put<Inventario>(this.edit+"/"+inventarioObj.id_inventario,inventarioObj);
+  }
 
 
 }

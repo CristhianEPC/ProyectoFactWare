@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
 import { Usuarios } from 'src/app/modelo/Usuarios';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editarusuario',
@@ -10,47 +11,49 @@ import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 })
 export class EditarusuarioComponent implements OnInit {
 
-usuariosss:Usuarios[]=[];
-public texusuario:string="";
-public texcontrasenia:string="";
-public idusuario:number=0;
 
-listaUsuarios: Usuarios[]=[];
-  constructor(    @Inject(MAT_DIALOG_DATA) public usuarioedi:Usuarios,     private usuarioService:UsuariosService,) {
+usuario:Usuarios= new Usuarios();
 
-
-    if(this.usuarioedi !==null){
-this.texusuario=usuarioedi.user;
-this.texcontrasenia=usuarioedi.password;
-this.idusuario=usuarioedi.id_usuario;
+    constructor( private usuarioService:UsuariosService,private router: Router,) {
+  
+  
     }
-  }
-
-  ngOnInit() {
+  
+    ngOnInit() {
+      this.Editar();
+    }
    
-  }
-  usuarioss:Usuarios = new Usuarios();
-  obtnerdatos(usuarioedi:Usuarios):Usuarios{
-this.usuarioss.user=usuarioedi.user;
-this.usuarioss.password=usuarioedi.password;
-    return this.usuarioss;
-  }
+    Editar() {
+
+      let id = localStorage.getItem("id");
+      this.usuarioService.getUsuarioId(Number(id))
+      .subscribe(data=>{
+        this.usuario = data;
+      })
+
   
-  listarUsuarios():void{
-    this.usuarioService.getUsuarios().subscribe(
-      listausua=>this. listaUsuarios=listausua );
-  
-
-}
-
-
-  public update(id_usuario: number):void {
-    this.usuarioService.actualizarUsuario(this.usuarioss).subscribe(
-      res => this.usuarioService.getUsuarios().subscribe(
-        listausua=>this. listaUsuarios=listausua 
-      )
-    );
-
+    }
     
-   }
+
+  
+    Actualizar(usuarios: Usuarios) {
+      this.usuarioService.updateUsuario(usuarios)
+      .subscribe(data=>  
+        Swal.fire({
+          title: 'Usuario modificado éxitosamente',
+          icon: 'success',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        }))
+    }
+  
+  
+    Listado() {
+      this.router.navigate(['admin/listadousua']);
+    }
+    
+  
+    
 }
