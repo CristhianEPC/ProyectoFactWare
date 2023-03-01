@@ -30,7 +30,20 @@
 
 
             <div class="form-group" id="left">
+              
             <h2><label>Listado de Personas</label></h2>  
+            <br>
+
+            <div class="form-group">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" 
+                name="filterPost" placeholder="Nombre o apellido" [(ngModel)]="filterPost" >
+                <label for="floatingInput">BUSCAR PERSONA</label>
+              </div>
+
+
+            
+            </div>
               <table class="table table-bordered table-striped-columns">
                 <thead>
                     <tr>
@@ -41,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let person of  listaPersonas">
+                    <tr *ngFor="let person of  listaPersonas  | buscarperson:filterPost">
                         <td> {{person.id_persona}}
                         <td> {{person.nombre_persona}} </td>
                         <td> {{person.apellido_persona}} </td>
@@ -49,6 +62,8 @@
                     </tr>
                 </tbody>
             </table>
+
+
             </div>
         </div>
       </div>
@@ -96,22 +111,43 @@
                 <br>
                 <form >
               
-                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [(ngModel)] ="usua.persona"  />
+                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [value]=" personaSele.id_persona " [(ngModel)] ="usua.persona"   />
 
                 <br>
-                
+
+
+
+                <div class="input-group mb-3">
               <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"    [(ngModel)] ="usua.user" />
-     
+              <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                </div>
+            </div>
+          </div>
                  
               <br>
          
-            
-              <input type="text" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"   [(ngModel)] ="usua.password"  />
-      
-    
+               <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"   [(ngModel)] ="usua.password"  />
+                          <div class="input-group-append">
+                            <div class="input-group-text">
+                             <span class="fas fa-lock"></span>
+                            </div>
+                          </div>
+
+              </div>
+          
+
+
+
+  
               <br>
         
-             
+              
+
+              
               <div class="select">
                 <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr" id="rols"   [(ngModel)] ="usua.rol">
                   <option  selected disabled> Seleccione un rol </option>
@@ -142,9 +178,9 @@
       </div>
     </div>
   
-  <!--------
+<!-------
     <pre>
     
       {{usua | json}} 
    </pre>
-  ------->
+------>

@@ -22,7 +22,7 @@
   <div class="container-fluid">
   <div class="card">
     <div class="card-header">
-      Featured
+
     </div>
     <div class="card-body">
      
@@ -43,13 +43,23 @@
 
 
 
-                 <div class="input-group mb-3">
-                     <input type="text" class="form-control form-control-sm" id="iptCodigoVenta" name="filterPost" 
-                     placeholder="Ingrese el nombre del cliente" [(ngModel)]="filterPost">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Agregar Nuevo</button>
-                              </div>
 
 
+                              <br>
+                              <label for="exampleDataList" class="form-label">Buscar</label> <br>
+                              <div class="input-group mb-3">
+                              <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Nombre o apellido">
+                              <datalist id="datalistOptions" >
+                                <option *ngFor="let person of personas"   >
+                                    {{person.nombre_persona}}    {{person.apellido_persona}}
+                                </option>
+                             </datalist>
+                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="Agregar()">Agregar Nuevo</button>
+                            </div>
+<br>
+      
+
+                             
 
 
 
@@ -174,7 +184,7 @@
 
           <div class="row">
             <div class="col-sm-6 mb-3 mb-sm-0">
-              <div class="card">
+              <div class="card  w-400 mb-3">
                 <div class="card-body">
                  
 
@@ -182,22 +192,25 @@
                     <div class="row">
                         <!-- INPUT PARA INGRESO DEL CODIGO DE BARRAS O DESCRIPCION DEL PRODUCTO -->
 
+                        
+                        <br>
 
-                        <div class="col-md-12 mb-3">
-
-                            <div class="form-group mb-2">
-
-                                <label class="col-form-label" for="iptCodigoVenta">
+                      <label class="col-form-label" for="iptCodigoVenta">
                                     <i class="fas fa-barcode fs-6"></i>
                                 <h1>   <span class="small">Productos</span></h1> 
                                 </label>
+                        <div class="input-group mb-3">
+                        <input class="form-control" list="datalistOptions2" id="exampleDataList" placeholder="Código de barras o nombre">
+                        <datalist id="datalistOptions2" >
+                          <option *ngFor="let produc of productos" >
+                              {{produc.codigoBarras_producto}}    |||   {{produc.nombre_producto}}
+                          </option>
+                       </datalist>
+                       <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="Agregar()">Agregar Producto</button>
+                      </div>
+                  
 
-                        <input type="text" class="form-control form-control-sm" id="iptCodigoVenta" name="filterPost" 
-                         placeholder="Ingrese el código de barras o el nombre del producto" [(ngModel)]="filterPost">
-                            </div>
-
-                        </div>
-
+                      <br>
 
                         <!-- ETIQUETA QUE MUESTRA LA SUMA TOTAL DE LOS PRODUCTOS AGREGADOS AL LISTADO -->
                         <div class="col-md-7 mb-3 rounded-3" style="background-color: gray;color: white;text-align:center;border:1px solid gray;">
@@ -206,12 +219,14 @@
 
                         <!-- BOTONES PARA VACIAR LISTADO Y COMPLETAR LA VENTA -->
                         <div class="col-md-5 text-right">
+                           
                             <button class="btn btn-primary" id="btnIniciarVenta">
                                 <i class="fas fa-shopping-cart"></i> Realizar Venta
                             </button>
                             <button class="btn btn-danger" id="btnVaciarListado">
                                 <i class="far fa-trash-alt"></i> Vaciar Listado
                             </button>
+
                         </div>
 
                         <!-- LISTADO QUE CONTIENE LOS PRODUCTOS QUE SE VAN AGREGANDO PARA LA COMPRA -->
@@ -220,30 +235,23 @@
                             <table id="lstProductosVenta" class="display nowrap table-striped w-100 shadow ">
                                 <thead class="bg-gray text-left fs-6">
                                     <tr>
-                                        <th>ID</th>
-                                        <th>NOMBRE</th>
-                                        <th>DESCRIPCION</th>
-                                        <th>CODIGO BARRAS</th>
-                                        <th>COSTO PRODUCTO</th>
-                                        <th>PVP</th>
-                                        <th>UTILIDAD</th>
-                                        <th>ESTADO IVA </th>
+                                 
+                                        <th>Codigo</th>
+                                        <th>Id Categoria</th>
+                                        <th>Categoria</th>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th>Total</th>
+                                        <th class="text-center">Opciones</th>
+                                    
                                     </tr>
                                 </thead>
                                 <tbody class="small text-left fs-6">
 
-                                    <tr *ngFor="let Producto of productos  | buscarproducvent:filterPost"  >
-                                        <td>{{Producto.id_producto}}</td>
-                                        <td>{{Producto.nombre_producto}}</td>
-                                        <td>{{Producto.descripcion_producto}}</td>
-                                        <td>{{Producto.codigoBarras_producto}}</td>
-                                        <td>{{Producto.costo_producto}}</td>
-                                        <td>{{Producto.pvp_producto}}</td>
-                                        <td>{{Producto.utilidad_producto}}</td>
-                                        <td>{{Producto.estadoIVA_producto}}</td>
-                                        <td>
-                                            <button class="btn btn-secondary">Seleccionar</button>
-                                        </td>
+                                    <tr  >
+                                        
+                                            
                                     </tr>
 
 
@@ -290,13 +298,13 @@
 
             
             <div class="col">
-              <div class="card">
+              <div class="card ">
                 <div class="card-body">
                 
 
                     <div class="col">
 
-                        <div class="card card-gray shadow">
+                        <div class="card card-gray shadow ">
         
                             <!-- <h5 class="card-header py-1 bg-primary text-white text-center">
                                 Total Venta: S./ <span id="totalVentaRegistrar">0.00</span>

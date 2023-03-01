@@ -9,8 +9,12 @@ import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BuscarproducventPipe } from './vendedor/buscarproducvent.pipe';
 import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ import { MatFormFieldModule } from '@angular/material';
+ import { MatInputModule } from '@angular/material';
+ import { MatAutocompleteModule } from '@angular/material';
+ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { AgregarProducComponent } from './agregar-produc/agregar-produc.component';
 
 @NgModule({
     declarations: [
@@ -19,18 +23,28 @@ import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
         CrudClienteComponent,
         RegistrarClienteComponent,
         BuscarproducventPipe,
-        BuscarClientPipe
+        BuscarClientPipe,
+        AgregarProducComponent
+     
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent
+        RegistrarClienteComponent,
+        BuscarClientPipe
     ],
     imports: [
         CommonModule,
         RouterModule,
         SharedModule,
-        ReactiveFormsModule, FormsModule
+        ReactiveFormsModule, 
+        FormsModule ,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    AutocompleteLibModule
+
     ]
 })
 export class Pages2Module { }
