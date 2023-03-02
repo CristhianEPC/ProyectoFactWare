@@ -10,6 +10,7 @@ export class Producto {
     utilidad_producto: number = 0;
     estadoIVA_producto: string = "";
     id_proveedor: number;
+    stock: number=0;
 
 
 

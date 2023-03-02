@@ -10,6 +10,7 @@ export class Producto2{
     pvp_producto : number=0.0;
     utilidad_producto: number=0;
     estadoIVA_producto : string="";
+    stock: number = 0;
     proveedor : Proveedor |undefined;
 
 }
