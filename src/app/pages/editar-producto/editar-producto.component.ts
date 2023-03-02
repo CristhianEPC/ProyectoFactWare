@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/Producto';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-producto',
@@ -41,7 +42,15 @@ export class EditarProductoComponent implements OnInit {
     this.service.updateProducto(producto)
       .subscribe(data => {
         this.producto = data;
-        alert("Se Actualiazo");
+        Swal.fire({
+          title: 'Producto Modificada éxitosamente',
+          icon: 'success',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        })
+        //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProduc'])
       })
   }

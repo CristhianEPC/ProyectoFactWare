@@ -1,6 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import { Usuario } from 'src/app/modelo/usuario';
 import { Usuarios } from 'src/app/modelo/Usuarios';
 
 @Injectable({
@@ -23,8 +24,8 @@ usuarioObj: Usuarios[] = [];
 
 
   //Metodo para guardar
-  create(usuarioObj: Usuarios):Observable<Usuarios>{
-    return this.http.post<Usuarios>(this.guardar, usuarioObj,{headers:this.httpHeaders})
+  create(usuarioObj: Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>(this.guardar, usuarioObj,{headers:this.httpHeaders})
   }
 
   //Metodo para listar

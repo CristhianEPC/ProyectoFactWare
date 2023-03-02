@@ -1,7 +1,7 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
-            <h1>Agregar Proveedores</h1>
+            <h1>Agregar Producto</h1>
         </div>
         <div class="card-body">
             <form action="">
@@ -40,7 +40,14 @@
                     <input name="estadoIVA_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.estadoIVA_producto">
                 </div>
-                
+                <div class="select">
+                    <label for="">Proveedor</label>
+                    <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="producto.proveedor">
+                      <option  selected disabled> Seleccione el producto </option>
+                      <option *ngFor="let provee of listaProveedor" [value]="provee.id_proveedor">  {{provee.nombre_proveedor}} </option>
+                  </select>
+                </div>
+
                 <button (click)="guardar(producto)" class="btn btn-danger">Guardar</button>
             </form>
         </div>

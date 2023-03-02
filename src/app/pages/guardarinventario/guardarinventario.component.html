@@ -31,7 +31,7 @@
                 <div class="form-group" id="left">
                     <label for="">Producto</label>
                     <div class="select">
-                      <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="inventarios.id_producto">
+                      <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="inventarios.producto">
                         <option  selected disabled> Seleccione el producto </option>
                         <option *ngFor="let produc of  listaProductos" [value]="produc.id_producto">  {{produc.nombre_producto}} </option>
                     </select>
@@ -47,11 +47,11 @@
                     <input name="inventario" type="date" class="form-control"
                     [(ngModel)] ="inventarios.fechaEntrega">
                 </div>
-                <div class="form-group">
+               <!-- <div class="form-group">
                     <label for="">Stock</label>
                     <input name="inventario" type="text" class="form-control"
                     [(ngModel)] ="inventarios.stock">
-                </div>
+                </div>   -->
 
          
                 <button (click)="guardarInventario(inventarios)" class="btn btn-success">Guardar</button>

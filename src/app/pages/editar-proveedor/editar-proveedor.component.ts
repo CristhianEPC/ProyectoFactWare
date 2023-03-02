@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proveedor } from 'src/app/modelo/Proveedor';
 import { ProveedorService } from 'src/app/servicios/api/proveedor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-proveedor',
@@ -41,7 +42,15 @@ export class EditarProveedorComponent implements OnInit {
     this.service.updateProveedor(proveedor)
       .subscribe(data => {
         this.proveedor = data;
-        alert("Se Actualiazo");
+        Swal.fire({
+          title: 'Proveedor Modificada éxitosamente',
+          icon: 'success',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        })
+        //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProvee'])
       })
   }

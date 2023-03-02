@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CrudEmpleadoComponent } from './crud-empleado/crud-empleado.component';
 import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-empleado.component';
-import { CrudAdministradorComponent } from './crud-persona/crud-administrador.component';
-import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
 import { CrudProductoComponent } from './crud-producto/crud-producto.component';
 import { RegistroProductoComponent } from './registro-producto/registro-producto.component';
 import { CrudProveedorComponent } from './crud-proveedor/crud-proveedor.component';
@@ -16,50 +14,51 @@ import { CrudInventarioComponent } from './crud-inventario/crud-inventario.compo
 import { RegistroInventarioComponent } from './registro-inventario/registro-inventario.component';
 import { ReporteVentasComponent } from './reporte-ventas/reporte-ventas.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { MatTableModule } from '@angular/material/table' 
 import { MatError, MatFormFieldModule } from "@angular/material/form-field";
 import {MatCardModule} from '@angular/material/card';
-import {CdkAccordionModule} from '@angular/cdk/accordion';
-import {CdkStepperModule} from '@angular/cdk/stepper';
-import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
 import { ListadousuariosComponent } from './listadousuarios/listadousuarios.component';
 import { EditarusuarioComponent } from './editarusuario/editarusuario.component';
-import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 import { GuardarinventarioComponent } from './guardarinventario/guardarinventario.component';
+import { EditarinventarioComponent } from './editarinventario/editarinventario.component';
 import { EditarProveedorComponent } from './editar-proveedor/editar-proveedor.component';
+import { BuscarPipe } from './listadousuarios/buscar.pipe';
+import { CrudAdministradorComponent } from './crud-administrador/crud-administrador.component';
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
-import { BuscarPipe } from './listadousuarios/buscar.pipe';
+import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
+import { BuscarpersonPipe } from './registrar-empleado/buscarperson.pipe';
 @NgModule({
   declarations: [
     PagesComponent,
     AdmiComponent,
     CrudEmpleadoComponent,
-    RegistrarEmpleadoComponent,
     CrudAdministradorComponent,
-    RegistroAdministradorComponent,
     CrudProductoComponent,
-    RegistroProductoComponent,
     CrudProveedorComponent,
-    RegistroProveedorComponent,
+    ListadousuariosComponent,
     CrudInventarioComponent,
+    RegistrarEmpleadoComponent,
+    RegistroAdministradorComponent,
+    RegistroProductoComponent,
+    RegistroProveedorComponent,
     RegistroInventarioComponent,
     ReporteVentasComponent,
-    ListadousuariosComponent,
     EditarusuarioComponent,
     GuardarinventarioComponent,
     EditarinventarioComponent,
     EditarProveedorComponent,
     EditarProductoComponent,
     EditarPersonaComponent,
-    BuscarPipe
+    BuscarPipe,
+    BuscarpersonPipe
   ],
   imports: [
     CommonModule,
@@ -67,10 +66,7 @@ import { BuscarPipe } from './listadousuarios/buscar.pipe';
     SharedModule,
     MatDividerModule,
     MatFormFieldModule,
-    CdkStepperModule,
     MatCardModule,
-    ScrollingModule,
-    CdkAccordionModule,
     MatInputModule,
     MatButtonModule,
     FormsModule  ,
@@ -79,8 +75,9 @@ import { BuscarPipe } from './listadousuarios/buscar.pipe';
     MatSelectModule,
     MatDialogModule,
     MatIconModule,
-    MatTableModule,
-    MatListModule
+    MatListModule,
+    
+    MatBottomSheetModule
   ],
   exports:[
     AdmiComponent,
@@ -96,7 +93,9 @@ import { BuscarPipe } from './listadousuarios/buscar.pipe';
     RegistroInventarioComponent,
     ReporteVentasComponent,
     ListadousuariosComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    EditarProductoComponent,
+    EditarPersonaComponent,
   ]
 })
 export class PagesModule { }

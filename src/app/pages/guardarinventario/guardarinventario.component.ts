@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Inventario } from 'src/app/modelo/Inventario';
+import { Inventario2 } from 'src/app/modelo/inventario2';
 import { Producto } from 'src/app/modelo/Producto';
 import { InventarioService } from 'src/app/servicios/api/inventario.service';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 export class GuardarinventarioComponent implements OnInit {
   listaProductos: Producto[]=[];
 
- inventarios= new Inventario();
+ inventarios= new Inventario2();
 /*inven:any ={
   fecha:null,
   stock:null,
@@ -41,7 +42,7 @@ Listado() {
 }
 
 
-  guardarInventario(inventario:Inventario){
+  guardarInventario(inventario:Inventario2){
     this.serviceInventario.createInventario(inventario)
     .subscribe(data=>  
       Swal.fire({
