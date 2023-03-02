@@ -9,9 +9,12 @@ import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BuscarproducventPipe } from './vendedor/buscarproducvent.pipe';
 import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
-import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ import { MatFormFieldModule } from '@angular/material';
+ import { MatInputModule } from '@angular/material';
+ import { MatAutocompleteModule } from '@angular/material';
+ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { AgregarProducComponent } from './agregar-produc/agregar-produc.component';
 
 @NgModule({
     declarations: [
@@ -21,19 +24,27 @@ import { EditarClienteComponent } from './editar-cliente/editar-cliente.componen
         RegistrarClienteComponent,
         BuscarproducventPipe,
         BuscarClientPipe,
-        EditarClienteComponent
+        AgregarProducComponent
+     
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
         RegistrarClienteComponent,
-        EditarClienteComponent
+        BuscarClientPipe
     ],
     imports: [
         CommonModule,
         RouterModule,
         SharedModule,
-        ReactiveFormsModule, FormsModule
+        ReactiveFormsModule, 
+        FormsModule ,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    AutocompleteLibModule
+
     ]
 })
 export class Pages2Module { }

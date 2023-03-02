@@ -21,7 +21,7 @@ import { Usuario } from 'src/app/modelo/usuario';
 export class RegistrarEmpleadoComponent implements OnInit {
   listaPersonas: Persona[]=[];
  usua : Usuario = new Usuario();
-
+ hide = true;
 usuarii:any ={
   idpero:null,
   idrol:null,
@@ -35,6 +35,7 @@ usuarii:any ={
 // console.log(form);
 // }
 
+filterPost = '';
  personaSele = new Persona();
  listaRoles: Rol[]=[];
   constructor(private _formBuilder: FormBuilder,
@@ -48,21 +49,20 @@ usuarii:any ={
    
     this.personaService.getPersonas().subscribe(
       listaPerso=>this. listaPersonas=listaPerso );
-
-
-      
       this.rolesService.getRoles().subscribe(
         listaRol=>this. listaRoles=listaRol );
    
   }
 
  
+
   seleccionar(persona:Persona): void {
     localStorage.setItem("id",persona.id_persona.toString());
     console.log(persona.id_persona)
     this. personaSele= persona;
     
   }
+
 
 
   guardarUsuario(usuario:Usuario){
@@ -79,6 +79,9 @@ usuarii:any ={
 
       console.log(usuario) ;
   }
+
+
+
 
   Listado() {
     this.router.navigate(['admin/listadousua']);

@@ -34,6 +34,7 @@ import { CrudAdministradorComponent } from './crud-administrador/crud-administra
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 import { EditarPersonaComponent } from './editar-persona/editar-persona.component';
 import { RegistroAdministradorComponent } from './registro-persona/registro-administrador.component';
+import { BuscarpersonPipe } from './registrar-empleado/buscarperson.pipe';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -56,7 +57,8 @@ import { RegistroAdministradorComponent } from './registro-persona/registro-admi
     EditarProveedorComponent,
     EditarProductoComponent,
     EditarPersonaComponent,
-    BuscarPipe
+    BuscarPipe,
+    BuscarpersonPipe
   ],
   imports: [
     CommonModule,
