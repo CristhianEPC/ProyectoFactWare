@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from 'src/app/modelo/Persona';
 import { PersonaService } from 'src/app/servicios/api/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-persona',
@@ -33,7 +34,15 @@ export class EditarPersonaComponent implements OnInit {
     this.service.updatePersona(persona)
       .subscribe(data => {
         this.persona = data;
-        alert("Se Actualiazo");
+        Swal.fire({
+          title: 'Persona Modificada éxitosamente',
+          icon: 'success',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        })
+        //alert("Se Actualiazo");
         this.router.navigate(['admin/crudAdmin'])
       })
   }

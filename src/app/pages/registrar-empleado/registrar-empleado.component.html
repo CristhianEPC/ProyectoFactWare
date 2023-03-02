@@ -30,7 +30,20 @@
 
 
             <div class="form-group" id="left">
+              
             <h2><label>Listado de Personas</label></h2>  
+            <br>
+
+            <div class="form-group">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" 
+                name="filterPost" placeholder="Nombre o apellido" [(ngModel)]="filterPost" >
+                <label for="floatingInput">BUSCAR PERSONA</label>
+              </div>
+
+
+            
+            </div>
               <table class="table table-bordered table-striped-columns">
                 <thead>
                     <tr>
@@ -41,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let person of  listaPersonas">
+                    <tr *ngFor="let person of  listaPersonas  | buscarperson:filterPost">
                         <td> {{person.id_persona}}
                         <td> {{person.nombre_persona}} </td>
                         <td> {{person.apellido_persona}} </td>
@@ -49,6 +62,8 @@
                     </tr>
                 </tbody>
             </table>
+
+
             </div>
         </div>
       </div>
@@ -76,7 +91,7 @@
                 <h5><strong>Apellido:  {{personaSele.apellido_persona}}</strong></h5>
                 <h5><strong>Dirección:  {{personaSele.direccion_persona}}</strong></h5>
                 <h5><strong>Teléfono:  {{personaSele. telefono_persona}}</strong></h5>
-                <h5><strong>Correo:  {{personaSele.correo_persona}}  </strong></h5>
+                <h5><strong>Correo:   {{personaSele.correo_persona}}  </strong></h5>
 
                 <br>
               <mat-divider></mat-divider>
@@ -94,26 +109,47 @@
               <mat-card-content>
             
                 <br>
-                <form id="formulario" >
+                <form >
               
-                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [(ngModel)] ="usua.id_persona"   />
+                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [value]=" personaSele.id_persona " [(ngModel)] ="usua.persona"   />
 
                 <br>
-                
-              <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"      [(ngModel)] ="usua.user" />
-     
+
+
+
+                <div class="input-group mb-3">
+              <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"    [(ngModel)] ="usua.user" />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                </div>
+            </div>
+          </div>
                  
               <br>
          
-            
-              <input type="text" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"   [(ngModel)] ="usua.password"  />
-      
-    
+               <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"   [(ngModel)] ="usua.password"  />
+                          <div class="input-group-append">
+                            <div class="input-group-text">
+                             <span class="fas fa-lock"></span>
+                            </div>
+                          </div>
+
+              </div>
+          
+
+
+
+  
               <br>
         
-             
+              
+
+              
               <div class="select">
-                <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr" id="rols"   [(ngModel)] ="usua.id_rol">
+                <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionarr" id="rols"   [(ngModel)] ="usua.rol">
                   <option  selected disabled> Seleccione un rol </option>
                   <option *ngFor="let roles of  listaRoles"  [value]="roles.id_rol" > {{roles.nombre_rol}} </option>
               </select>
@@ -132,7 +168,7 @@
           <br>
 
             <div class="buttons">
-                <a href="#" class="btn btn-1 " (click)="limpiarFormulario()">Limpiar</a>
+                <a href="#" class="btn btn-1 ">Limpiar</a>
                 <a class="btn btn-2 "  (click)="guardarUsuario(usua)">Agregar</a>
                 <a  class="btn btn-3 " (click)="Listado()">Listado</a>
             </div>
@@ -142,5 +178,9 @@
       </div>
     </div>
   
-
-
+<!-------
+    <pre>
+    
+      {{usua | json}} 
+   </pre>
+------>

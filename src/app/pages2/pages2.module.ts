@@ -9,6 +9,7 @@ import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BuscarproducventPipe } from './vendedor/buscarproducvent.pipe';
 import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
+import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 
 
 
@@ -19,12 +20,14 @@ import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
         CrudClienteComponent,
         RegistrarClienteComponent,
         BuscarproducventPipe,
-        BuscarClientPipe
+        BuscarClientPipe,
+        EditarClienteComponent
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
-        RegistrarClienteComponent
+        RegistrarClienteComponent,
+        EditarClienteComponent
     ],
     imports: [
         CommonModule,

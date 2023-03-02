@@ -36,7 +36,15 @@ export class LoginComponent implements OnInit {
       // this.snack.open('El nombre de usuario es requerido !!', 'Aceptar', {
       //   duration: 3000
       // })
-      alert("campo de usuario vacio");
+      //alert("campo de usuario vacio");
+      Swal.fire({
+        title: 'Campo de usuario esta vacio',
+        icon: 'warning',
+        iconColor :'#0a0a0a', //color negro
+        color: "#9e0e0e", //color rojo
+        confirmButtonColor:"#0c3255", //color azul
+        background: "#baba20", //color blanco
+      })
       console.log("campo de usuario vacio")
       return;
     }
@@ -45,7 +53,15 @@ export class LoginComponent implements OnInit {
       // this.snack.open('La contraseña es requerida !!', 'Aceptar', {
       //   duration: 3000
       // })
-      alert("campo la clave vacio");
+      //alert("campo la clave vacio");
+      Swal.fire({
+        title: 'Campo de contraseña esta vacio',
+        icon: 'warning',
+        iconColor :'#0a0a0a', //color negro
+        color: "#9e0e0e", //color rojo
+        confirmButtonColor:"#0c3255", //color azul
+        background: "#baba20", //color blanco
+      })
       console.log("campo de contraeña vacio")
       return;
     }
@@ -86,10 +102,10 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             title: 'Datos Incorrectos',
             icon: 'error',
-            iconColor :'#b0b01e',
-            color: "#0c3255",
-            confirmButtonColor:"#0c3255",
-            background: "#9e0e0e",
+            iconColor :'#0a0a0a', //color negro
+            color: "#9e0e0e", //color rojo
+            confirmButtonColor:"#0c3255", //color azul
+            background: "#fcfcfc", //color blanco
           })
         }
 

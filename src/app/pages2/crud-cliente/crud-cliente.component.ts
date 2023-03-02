@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from 'src/app/modelo/Persona';
 import { PersonaService } from 'src/app/servicios/api/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crud-cliente',
@@ -50,7 +51,15 @@ export class CrudClienteComponent implements OnInit {
       this.personaService.deletePersona(pers)
         .subscribe(data => {
           this.personas = this.personas.filter(p => p !== pers);
-          alert("Se elimino");
+          Swal.fire({
+            title: 'Cliente Eliminado éxitosamente',
+            icon: 'success',
+            iconColor :'#17550c',
+            color: "#0c3255",
+            confirmButtonColor:"#0c3255",
+            background: "#63B68B",
+          })
+          //alert("Se elimino");
         });
     }
 
