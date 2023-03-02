@@ -17,13 +17,13 @@ import { AgregarProducComponent } from '../agregar-produc/agregar-produc.compone
 })
 export class VendedorComponent implements OnInit {
   productos: Producto[] = [];
-  
+  producto: Producto[] = [];
   personas: Persona[] = [];
 
 filterPost = '';
 filterPost2 = '';
 
-  constructor(private service:ProductoService, private personaService: PersonaService, private router: Router,  private matdialog: MatDialog) {  
+  constructor(private service:ProductoService, private personaService: PersonaService, private router: Router, private productoService: ProductoService,) {  
   
   
   }
@@ -39,66 +39,22 @@ filterPost2 = '';
     this.listarPerso();
 
 
+  }
 
-
-
-
-
-
-
-   /*
-    this.Finaldata = this.control.valueChanges.pipe(
-      startWith(''),
-      map(item => {
-        const name = item;
-        return name ? this._filter(name as string) : this.options
-          console.log(this.Finaldata)
+ 
+  listaProducto() {
+    this.productoService.getProducto()
+      .subscribe(data => {
+        this.producto = data;
       })
-    )
-*/
-
-  }
-
- 
-/*
-  private _filter(value: string): string[] {
-    const filterValue = this._normalizeValue(value);
-    return this.streets.filter(street => this._normalizeValue(street).includes(filterValue));
-  }
-
-  private _normalizeValue(value: string): string {
-    return value.toLowerCase().replace(/\s/g, '');
-  }*/
-
-
-  /*
-  SelectCustomer(name: any) {
-    console.log(name);
-  }
-
- 
-  private _filter(name: string): Persona[] {
-    const filtervalue = name.toLocaleLowerCase();
-    return this.options.filter(opt => opt.nombre_persona.toLocaleLowerCase().includes(filtervalue));
   }
 
 
-*/
 
 
-  OpenPopup() {
-    const popup= this.matdialog.open(AgregarProducComponent,{
-      width:'60%',height:'420px',
 
-     data:{
-       name:"Techiees",
-       type:'Tech'
-     }
-   });
-   popup.afterClosed().subscribe(item=>{
- console.log(item);
-   });
-   }
+
+
 
 
 

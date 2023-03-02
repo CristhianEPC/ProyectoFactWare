@@ -13,8 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  import { MatFormFieldModule } from '@angular/material';
  import { MatInputModule } from '@angular/material';
  import { MatAutocompleteModule } from '@angular/material';
- import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { AgregarProducComponent } from './agregar-produc/agregar-produc.component';
+import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
 
 @NgModule({
     declarations: [
@@ -24,14 +24,19 @@ import { AgregarProducComponent } from './agregar-produc/agregar-produc.componen
         RegistrarClienteComponent,
         BuscarproducventPipe,
         BuscarClientPipe,
-        AgregarProducComponent
+        AgregarProducComponent,
+        EditarClienteComponent
+
      
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
         RegistrarClienteComponent,
-        BuscarClientPipe
+        BuscarClientPipe,
+        EditarClienteComponent
+        
+        
     ],
     imports: [
         CommonModule,
@@ -39,11 +44,10 @@ import { AgregarProducComponent } from './agregar-produc/agregar-produc.componen
         SharedModule,
         ReactiveFormsModule, 
         FormsModule ,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    AutocompleteLibModule
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatAutocompleteModule,
 
     ]
 })
