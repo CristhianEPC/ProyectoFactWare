@@ -111,8 +111,16 @@
                 <br>
                 <form >
               
-                  <input type="text" class="form-control" id="idpersona"  name="idpers"  [value]=" personaSele.id_persona " [(ngModel)] ="usua.persona"   />
-
+                <!---- <input type="text" class="form-control" id="idpersona"  name="idpers"  [value]=" personaSele.id_persona " [(ngModel)] ="usua.persona"   />------> 
+                <div class="input-group mb-3">
+                  <input type="text"  class="form-control" id="idpersona"  name="idpers"  list="datalistOptions" id="exampleDataList"
+                   placeholder="Nombre o apellido" [(ngModel)] ="usua.persona" > 
+                  <datalist id="datalistOptions" >
+                    <option *ngFor="let person of listaPersonas"  [value]="person.id_persona"  >
+                        {{person.nombre_persona}}    {{person.apellido_persona}}
+                    </option>
+                 </datalist>
+                </div>
                 <br>
 
 
@@ -178,9 +186,9 @@
       </div>
     </div>
   
-<!-------
+<!----
     <pre>
     
       {{usua | json}} 
    </pre>
------->
+--------->
