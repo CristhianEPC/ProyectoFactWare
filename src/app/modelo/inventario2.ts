@@ -2,7 +2,6 @@ export class Inventario2 {
 
     id_inventario: number = 0;
     cantidad_inventario: number = 0;
-    stock: number = 0;
     fechaEntrega: Date;
     producto: Producto | undefined;
 
