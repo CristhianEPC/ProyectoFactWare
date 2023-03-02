@@ -195,22 +195,102 @@
                         
                         <br>
 
+
                       <label class="col-form-label" for="iptCodigoVenta">
                                     <i class="fas fa-barcode fs-6"></i>
                                 <h1>   <span class="small">Productos</span></h1> 
                                 </label>
+                            <form >
                         <div class="input-group mb-3">
-                        <input class="form-control" list="datalistOptions2" id="exampleDataList" placeholder="Código de barras o nombre">
+                     <!------- <input class="form-control" list="datalistOptions2" id="exampleDataList" placeholder="Código de barras o nombre">
                         <datalist id="datalistOptions2" >
                           <option *ngFor="let produc of productos" >
                               {{produc.codigoBarras_producto}}    |||   {{produc.nombre_producto}}
                           </option>
                        </datalist>
-                       <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="Agregar()">Agregar Producto</button>
+                       <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Agregar Producto</button>------->  
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Agregar Productos
+                    </button>
+   
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>ID</th>
+                                            <th>Código barras</th>
+                                            <th>NOMBRE</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>ACCIONES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-center" *ngFor="let item of producto">
+                                            <td>{{item.id_producto}}</td>
+                                            <td>{{item.codigoBarras_producto}}</td>
+                                            <td>{{item.nombre_producto}}</td>
+                                            <td>{{item.descripcion_producto}}</td>
+                                            
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+
+
+
+
                       </div>
                   
-
+                    </form>
                       <br>
+
+
+
+
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <!-- ETIQUETA QUE MUESTRA LA SUMA TOTAL DE LOS PRODUCTOS AGREGADOS AL LISTADO -->
                         <div class="col-md-7 mb-3 rounded-3" style="background-color: gray;color: white;text-align:center;border:1px solid gray;">
@@ -516,5 +596,3 @@
 
 
 
-
-   
