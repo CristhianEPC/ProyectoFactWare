@@ -10,6 +10,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BuscarproducventPipe } from './vendedor/buscarproducvent.pipe';
 import { BuscarClientPipe } from './vendedor/buscar-client.pipe'
 import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 
 
 
@@ -21,19 +22,24 @@ import { EditarClienteComponent } from './editar-cliente/editar-cliente.componen
         RegistrarClienteComponent,
         BuscarproducventPipe,
         BuscarClientPipe,
-        EditarClienteComponent
+        EditarClienteComponent,
+        
     ],
     exports: [
         VendedorComponent,
         CrudClienteComponent,
         RegistrarClienteComponent,
-        EditarClienteComponent
+        EditarClienteComponent,
+        MatFormFieldModule,
+        MatSelectModule
     ],
     imports: [
         CommonModule,
         RouterModule,
         SharedModule,
-        ReactiveFormsModule, FormsModule
+        ReactiveFormsModule, FormsModule,
+        MatFormFieldModule,
+        MatSelectModule
     ]
 })
 export class Pages2Module { }

@@ -2,6 +2,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { DetalleFact } from 'src/app/modelo/DetalleFact';
+import { DetalleFactura2 } from 'src/app/modelo/detalleFactura';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class DetalleFacturaService {
   private buscar: string = "http://localhost:8080/api/buscD";
   private edit: string = "http://localhost:8080/api/modiD";
 
-detalleObj: DetalleFact[] = [];
+detalleObj: DetalleFactura2[] = [];
 
   private httpHeaders= new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http:HttpClient) { }
@@ -22,8 +23,8 @@ detalleObj: DetalleFact[] = [];
 
 
   //Metodo para guardar
-  create(detalleObj: DetalleFact):Observable<DetalleFact>{
-    return this.http.post<DetalleFact>(this.guardar, detalleObj,{headers:this.httpHeaders})
+  create(detalleObj: DetalleFactura2):Observable<DetalleFactura2>{
+    return this.http.post<DetalleFactura2>(this.guardar, detalleObj,{headers:this.httpHeaders})
   }
 
   //Metodo para listar
