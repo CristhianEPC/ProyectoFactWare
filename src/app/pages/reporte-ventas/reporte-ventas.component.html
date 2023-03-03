@@ -8,7 +8,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                    <li class="breadcrumb-item active">Reporte de ventas</li>
+                    <li class="breadcrumb-item active">Generar reportes</li>
                 </ol>
             </div>
         </div>
@@ -22,58 +22,46 @@
       <div class="card">
         <div id="htmlData">
         <div class="card-header">
-            <h2> <strong>Productos Registrados</strong></h2>              </div>
+            <h2> <strong>Registros de productos</strong></h2>
+               </div>
         <div class="card-body">
-         
-            <table class="table table-striped table-hover ">
+            <table class="table table-hover">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>ID</th>
+                        <th>CÓDIGO DE BARRAS</th>
                         <th>NOMBRE</th>
-                        <th>DESCRIPCION</th>
-                        <th>CODIGO BARRAS</th>
-                        <th>COSTO PRODUCTO</th>
-                        <th>PVP</th>
-                        <th>UTILIDAD</th>
-                        <th>ESTADO IVA </th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>STOCK</th>
+                 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let Producto of productos " class="text-center">
-                        <td>{{Producto.id_producto}}</td>
-                        <td>{{Producto.nombre_producto}}</td>
-                        <td>{{Producto.descripcion_producto}}</td>
-                        <td>{{Producto.codigoBarras_producto}}</td>
-                        <td>{{Producto.costo_producto}}</td>
-                        <td>{{Producto.pvp_producto}}</td>
-                        <td>{{Producto.utilidad_producto}}</td>
-                        <td>{{Producto.estadoIVA_producto}}</td>
-                   
+                    <tr class="text-center" *ngFor="let item of productos">
+                        <td>{{item.id_producto}}</td>
+                        <td>{{item. codigoBarras_producto}}</td>
+                        <td>{{item.nombre_producto}}</td>
+                        <td>{{item.descripcion_producto}}</td>
+                        <td>{{item.stock}}</td>
+                       
                     </tr>
                 </tbody>
             </table>
-
-
-
-
-
-
-
-
-
+         
         </div>
-        </div>
+
+        
         <div class="card-footer text-muted">
             <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
                 <div>
                     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-                        <button type="button" class="btn btn-outline-dark"   (click)="  downloadPDF()" > 
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
+                        <button type="button" class="btn btn-outline-dark"  > 
                             Exportar
                              <i class="fas fa-file-pdf"></i>
                         </button>
-                        <button type="button" class="btn btn-outline-dark">Middle</button>
-                        <button type="button" class="btn btn-outline-dark">Right</button>
-        
+                     
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
             
                     </div>
                 </div>
@@ -82,12 +70,13 @@
           </div>
       </div>
     </div>
+    </div>
 
 
 
     <div class="col">
       <div class="card">
-       
+        <div id="htmlDataInventario">
         <div class="card-header">
             <h2> <strong>Inventario</strong></h2>
                </div>
@@ -98,7 +87,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Producto</th>
-                        <th>Stock</th>
                         <th>Fecha de entrega</th>
                         <th>Cantidad existente</th>
                     </tr>
@@ -106,8 +94,7 @@
                 <tbody>
                     <tr *ngFor="let inventario of  listaInventario">
                         <td> {{inventario.id_inventario}} </td>
-                        <td> {{inventario.producto.nombre_producto}} </td>
-                        <!-- <td> {{inventario.stock}} </td> -->
+                        <td> {{inventario.producto.nombre_producto}} </td> 
                         <td> {{inventario.fechaEntrega}} </td>
                         <td> {{inventario.cantidad_inventario}} </td>
                      
@@ -117,16 +104,18 @@
             </table>
          
         </div>
+    </div>
+        
         <div class="card-footer text-muted">
             <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
                 <div>
                     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-                        <button type="button" class="btn btn-outline-dark"  > 
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
+                        <button type="button" class="btn btn-outline-dark" (click)="downloadPDFInventario()"  > 
                             Exportar
                              <i class="fas fa-file-pdf"></i>
                         </button>
-                        <button type="button" class="btn btn-outline-dark">Middle</button>
-                        <button type="button" class="btn btn-outline-dark">Right</button>
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
         
             
                     </div>
@@ -134,42 +123,97 @@
             
               </div>
           </div>
-      </div>
+ 
+    </div>
     </div>
 
     
+
+
+<br>
+
+
+
+
+
     <div class="col">
-      <div class="card">
-        <div class="card-header">
-            <h2> <strong>Ventas</strong></h2>
-               </div>
-        <div class="card-body">
-   
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer text-muted">
-            <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
-                <div>
-                    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-                        <button type="button" class="btn btn-outline-dark"  > 
-                            Exportar
-                             <i class="fas fa-file-pdf"></i>
-                        </button>
-                        <button type="button" class="btn btn-outline-dark">Middle</button>
-                        <button type="button" class="btn btn-outline-dark">Right</button>
-        
-            
-                    </div>
-                </div>
-            
-              </div>
+        <div class="container-fluid">
+        <div class="card">
+            <div id="htmlDataPersonas">
+          <div class="card-header">
+              <h2> <strong>Registro de personas</strong></h2>
+                 </div>
+          <div class="card-body">
+              
+            <table class="table table-bordered border-primary">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>TELEFONO</th>
+                        <th>CORREO</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let item of personas">
+                        <td>{{item.id_persona}}</td>
+                        <td>{{item.nombre_persona}} </td>
+                        <td>  {{item.apellido_persona}}</td>
+                        <td>{{item.telefono_persona}}</td>
+                        <td>{{item.correo_persona}}</td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+           
           </div>
-      </div>
+  
+        </div>
+
+          
+          <div class="card-footer text-muted">
+              <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
+                  <div>
+                      <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
+                          <button type="button" class="btn btn-outline-dark"(click)="downloadPDFPersonas()"  > 
+                              Exportar
+                               <i class="fas fa-file-pdf"></i>
+                          </button>
+                          <button type="button" class="btn btn-outline-dark" disabled></button>
+                      
+          
+              
+                      </div>
+                  </div>
+              
+                </div>
+            </div>
+        </div>
+
     </div>
 
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="col">
       <div class="card">
+        <div id="htmlDataVentas">
         <div class="card-header">
             <h2> <strong>Ventas</strong></h2>
                </div>
@@ -177,16 +221,17 @@
           
         
         </div>
+    </div>
         <div class="card-footer text-muted">
             <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
                 <div>
                     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-                        <button type="button" class="btn btn-outline-dark"  > 
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
+                        <button type="button" class="btn btn-outline-dark"  (click)="downloadPDFVentas()" > 
                             Exportar
                              <i class="fas fa-file-pdf"></i>
                         </button>
-                        <button type="button" class="btn btn-outline-dark">Middle</button>
-                        <button type="button" class="btn btn-outline-dark">Right</button>
+                        <button type="button" class="btn btn-outline-dark" disabled></button>
         
             
                     </div>
@@ -194,9 +239,70 @@
             
               </div>
           </div>
-      </div>
+   
     </div>
   </div>
+
+
+
+
+
+
+
+  <div class="col">
+    <div class="card">
+      <div id="htmlDataProveedores">
+      <div class="card-header">
+          <h2> <strong> Registro de Proveedores</strong></h2>
+             </div>
+      <div class="card-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>DIRECCIÓN</th>
+                    <th>TELÉFONO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let item of proveedor">
+                    <td>{{item.id_proveedor}}</td>
+                    <td>{{item.nombre_proveedor}}</td>
+                    <td>{{item.direccion_proveedor}}</td>
+                    <td>{{item.telefono_proveedor }}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      </div>
+  </div>
+      <div class="card-footer text-muted">
+          <div class="grid text-center" style="--bs-rows: 3; --bs-columns: 3;">
+              <div>
+                  <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                      <button type="button" class="btn btn-outline-dark" disabled></button>
+                      <button type="button" class="btn btn-outline-dark"  (click)="downloadPDFProveedores()" > 
+                          Exportar
+                           <i class="fas fa-file-pdf"></i>
+                      </button>
+                      <button type="button" class="btn btn-outline-dark" disabled></button>
+      
+          
+                  </div>
+              </div>
+          
+            </div>
+        </div>
+ 
+  </div>
+</div>
+
+
+
+
+
 
 
 

@@ -50,9 +50,9 @@ export class SidebarService {
 
     {
         icono: 'nav-icon fas fas fa-balance-scale',
-        titulo: "Reporte",
+        titulo: "Reportes",
         submenu: [
-            { titulo: 'Reporte de Ventas', url: 'reporte', icono: 'fas fa-shopping-cart' }
+            { titulo: 'Generar', url: 'reporte', icono: 'fas  fa-folder' }
 
         ]
     },
