@@ -1,6 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import { Factura2 } from 'src/app/modelo/factur';
 import { Factura } from 'src/app/modelo/Factura';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class FacturaService {
   private buscar: string = "http://localhost:8080/api/buscF";
   private edit: string = "http://localhost:8080/api/modiF";
 
-factuObj: Factura[] = [];
+factuObj: Factura2[] = [];
 
   private httpHeaders= new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http:HttpClient) { }
@@ -22,8 +23,8 @@ factuObj: Factura[] = [];
 
 
   //Metodo para guardar
-  create(factuObj: Factura):Observable<Factura>{
-    return this.http.post<Factura>(this.guardar, factuObj,{headers:this.httpHeaders})
+  create(factuObj: Factura2):Observable<Factura2>{
+    return this.http.post<Factura2>(this.guardar, factuObj,{headers:this.httpHeaders})
   }
 
   //Metodo para listar
