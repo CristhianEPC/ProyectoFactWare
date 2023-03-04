@@ -116,10 +116,10 @@ export class VendedorComponent implements OnInit {
       this.fac=data;
       this.facN = data;
       console.log(data.length)
-      for (let index = 0; index < data.length; index++) {
+      for (let index = 1; index <= data.length; index++) {
         console.log("en el for")
         console.log(this.fact2.id_factura)
-        console.log(this.fac[index].id_factura)
+        console.log(data[index].id_factura)
         if(this.fact2.id_factura==this.fac[index].id_factura){
           this.facN=this.fac[index];
       }
@@ -165,7 +165,7 @@ export class VendedorComponent implements OnInit {
   //LISTANDO EN LA NUEVA LISTA
   listaDetalle() {
 
-    this.idFactura = 1;
+    //this.idFactura = 1;
     //this.idProducto = this.productos[0].id_producto;
     this.cantidad = this.verSeleccion;
     this.subTotal = (+this.verSeleccion * this.iva) + this.verSeleccion;
@@ -187,7 +187,7 @@ export class VendedorComponent implements OnInit {
 
     console.log(this.detalle);
 
-    //METODO PARA CREAR EL DETALLE
+    //METODO PARA CREAR EL DETALLE EN LA BASE
     this.detalleService.create(this.detalle)
     .subscribe(data=>{
       this.listarDeta();

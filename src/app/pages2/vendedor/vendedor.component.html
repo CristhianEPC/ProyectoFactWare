@@ -348,9 +348,7 @@
                                 <!-- BOTONES PARA VACIAR LISTADO Y COMPLETAR LA VENTA -->
                                 <div class="col-md-5 text-right">
 
-                                    <button class="btn btn-primary" id="btnIniciarVenta">
-                                        <i class="fas fa-shopping-cart"></i> Realizar Venta
-                                    </button>
+                                 
                                     <button class="btn btn-danger" id="btnVaciarListado">
                                         <i class="far fa-trash-alt"></i> Vaciar Listado
                                     </button>
@@ -384,18 +382,17 @@
                                         </thead>
                                         <tbody class="small text-left fs-6">
 
-                                            <tr class="text-center" *ngFor="let item of facN">
+                                            <tr class="text-center" *ngFor="let item2 of facN">
                                                 <!-- LISTA DE PRODCUTOS EN LA TABLA NUEVA-->
-                                                <td>{{item.id_detalle}}</td>
-                                                <td>{{item.producto.nombre_producto}}</td>
-                                                <td>{{item.cantidad}}</td>
-                                                <td>{{item.producto.costo_producto}}</td>
+                                                <td>{{item2.id_detalle}}</td>
+                                                <td>{{item2.producto.nombre_producto}}</td>
+                                                <td>{{item2.cantidad}}</td>
+                                                <td>{{item2.producto.costo_producto}}</td>
                                                 <!-- <td><input type="number" min="0" name="iptEfectivo" id="iptEfectivoRecibido" class="form-control form-control-sm" placeholder="Cantidad de productos"
                                             [(ngModel)]="detalle.cantidad"></td> -->
-                                                <td>{{item.total}}</td>
+                                                <td>{{item2.total}}</td>
                                                 <td>
-                                                    <button (click)="eliminar(item)" class="btn btn-danger"
-                                                        style="margin-left: 10px;">quitar</button>
+                                                    <button (click)="eliminar(item2)" class="btn btn-danger">quitar</button>
                                                 </td>
 
                                             </tr>
@@ -458,28 +455,7 @@
 
                                     <div class="card-body p-2">
 
-                                        <!-- SELECCIONAR TIPO DE DOCUMENTO -->
-                                        <div class="form-group mb-2">
-
-                                            <label class="col-form-label p-0" for="selCategoriaReg">
-                                                <i class="fas fa-file-alt fs-6"></i>
-                                                <span class="small">Documento</span><span class="text-danger">*</span>
-                                            </label>
-
-                                            <select class="form-select form-select-sm"
-                                                aria-label=".form-select-sm example" id="selDocumentoVenta" disabled>
-                                                <option value="0">Seleccione Documento</option>
-                                                <option value="1" selected="true">Boleta</option>
-                                                <option value="2">Factura</option>
-                                                <option value="3">Ticket</option>
-                                            </select>
-
-                                            <span id="validate_categoria" class="text-danger small fst-italic"
-                                                style="display:none">
-                                                Debe Seleccione documento
-                                            </span>
-
-                                        </div>
+                                       
 
                                         <!-- SELECCIONAR TIPO DE PAGO -->
                                         <div class="form-group mb-2">
@@ -505,34 +481,7 @@
 
                                         </div>
 
-                                        <!-- SERIE Y NRO DE BOLETA -->
-                                        <div class="form-group">
-
-                                            <div class="row">
-
-                                                <div class="col-md-4">
-
-                                                    <label for="iptNroSerie" class="p-0 m-0">Serie</label>
-
-                                                    <input type="text" min="0" name="iptEfectivo" id="iptNroSerie"
-                                                        class="form-control form-control-sm" placeholder="nro Serie"
-                                                        disabled>
-                                                </div>
-
-                                                <div class="col-md-8">
-
-                                                    <label for="iptNroVenta" class="p-0 m-0">Correlativo</label>
-
-                                                    <input type="text" min="0" name="iptEfectivo" id="iptNroVenta"
-                                                        class="form-control form-control-sm" placeholder="Nro Venta"
-                                                        disabled>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
+                                      
                                         <!-- INPUT DE EFECTIVO ENTREGADO -->
                                         <div class="form-group">
                                             <label for="iptEfectivoRecibido" class="p-0 m-0">Efectivo recibido</label>
