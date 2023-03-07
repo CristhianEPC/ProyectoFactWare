@@ -26,19 +26,33 @@ export class RegistroProductoComponent implements OnInit {
   }
 
   guardar(producto:Producto2){
-    this.service.createProducto(producto)
-    .subscribe(data=>{
+    if(producto.nombre_producto != "" && producto.descripcion_producto !="" && producto.codigoBarras_producto>0 && producto.costo_producto>0 
+    && producto.pvp_producto && producto.utilidad_producto>0 && producto.estadoIVA_producto !="" && producto.proveedor  != null){
+      this.service.createProducto(producto)
+      .subscribe(data=>{
+        Swal.fire({
+          title: 'Producto Guardado éxitosamente',
+          icon: 'success',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        })
+        //alert("Se guardo...!!")
+        this.router.navigate(['admin/crudProduc']);
+      })
+    }else{
       Swal.fire({
-        title: 'Producto Guardado éxitosamente',
-        icon: 'success',
+        title: 'existen campos vacios',
+        icon: 'error',
         iconColor :'#17550c',
         color: "#0c3255",
         confirmButtonColor:"#0c3255",
         background: "#63B68B",
       })
-      //alert("Se guardo...!!")
-      this.router.navigate(['admin/crudProduc']);
-    })
-  }
+    }
+
+    }
+   
 
 }
