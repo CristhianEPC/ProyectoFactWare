@@ -31,12 +31,12 @@
                     [(ngModel)] ="producto.nombre_producto">
                 </div>
                 <div class="form-group">
-                    <label for="">Descripcion</label>
+                    <label for="">Descripción</label>
                     <input name="descripcion_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.descripcion_producto">
                 </div>
                 <div class="form-group">
-                    <label for="">Codigo</label>
+                    <label for="">Código</label>
                     <input name="codigoBarras_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.codigoBarras_producto">
                 </div>
@@ -63,7 +63,7 @@
                 <div class="select">
                     <label for="">Proveedor</label>
                     <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="producto.proveedor">
-                      <option  selected disabled> Seleccione el producto </option>
+                      <option  selected disabled> Seleccione un proveedor </option>
                       <option *ngFor="let provee of listaProveedor" [value]="provee.id_proveedor">  {{provee.nombre_proveedor}} </option>
                   </select>
                 </div>
