@@ -3,6 +3,9 @@ import { Inventario } from 'src/app/modelo/Inventario';
 import { InventarioService } from 'src/app/servicios/api/inventario.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { data } from 'jquery';
+import { Producto } from 'src/app/modelo/Producto';
+import { ProductoService } from 'src/app/servicios/api/producto.service';
 
 @Component({
   selector: 'app-editarinventario',
@@ -11,7 +14,8 @@ import Swal from 'sweetalert2';
 })
 export class EditarinventarioComponent implements OnInit {
  inventario:Inventario = new Inventario();
-  constructor(private router: Router,private serviceInventario:InventarioService) { }
+producto:Producto = new Producto();
+  constructor(private router: Router,private serviceInventario:InventarioService, private serviceProducto:ProductoService) { }
 
   ngOnInit(): void {
   this.Editar();
@@ -21,10 +25,18 @@ export class EditarinventarioComponent implements OnInit {
   Editar() {
 
     let id = localStorage.getItem("id");
+    let id2 = localStorage.getItem("id2");
+    this.serviceProducto.getProductoId(Number(id))
+    .subscribe(data=>{
+      this.producto = data;
+      console.log(data);
+    })
     this.serviceInventario.getInventarioId(Number(id))
     .subscribe(data=>{
       this.inventario = data;
+      console.log(data);
     })
+
 
  
 
@@ -51,5 +63,7 @@ export class EditarinventarioComponent implements OnInit {
       this.router.navigate(['admin/regisInvent']);
     }
     
+    
+   
 
 }

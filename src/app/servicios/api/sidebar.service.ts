@@ -12,18 +12,18 @@ export class SidebarService {
         titulo: "Empleado",
         submenu: [
          /*   { titulo: 'Crud Empleado', url: 'crudempl', icono: 'fas fa-cubes' },*/
-            { titulo: 'Asignar usuarios', url: 'regisempl', icono: 'fas fa-users' },
-            { titulo: 'Crud Persona', url: 'crudAdmin', icono: 'fas fa-cubes' },
-            { titulo: 'Registro Persona', url: 'regisAdmin', icono: 'fas fa-users' }
+            { titulo: 'Asignar Usuarios', url: 'regisempl', icono: 'fas  fa-street-view' },
+            { titulo: 'Listado de Personas', url: 'crudAdmin', icono: 'fas fa-tasks' },
+            { titulo: 'Registro de Personas', url: 'regisAdmin', icono: 'fas  fa-user-plus' }
         ]
     },
 
     {
-        icono: 'nav-icon  fas fa-tasks',
+        icono: 'nav-icon  fas fa-cubes ',
         titulo: "Producto",
         submenu: [
-            { titulo: 'Crud Producto', url: 'crudProduc', icono: 'fas fa-cubes' },
-            { titulo: 'Registro Producto', url: 'regisProduc', icono: 'fa-plus-square' }
+            { titulo: 'Listado de Productos', url: 'crudProduc', icono: 'fas fa-tasks' },
+            { titulo: 'Registro de Productos', url: 'regisProduc', icono: ' fas fa-check-circle' }
 
         ]
     },
@@ -32,18 +32,18 @@ export class SidebarService {
         icono: 'nav-icon fas fa-truck',
         titulo: "Proveedor",
         submenu: [
-            { titulo: 'Crud Proveedor', url: 'crudProvee', icono: 'fas fa-users' },
-            { titulo: 'Registro Proveedor', url: 'regisProvee', icono: 'fas fa-users' }
+            { titulo: 'Listado de Proveedores', url: 'crudProvee', icono: 'fas fa-tasks' },
+            { titulo: 'Registro de Proveedor', url: 'regisProvee', icono: 'fas  fa-check-circle' }
 
         ]
     },
 
     {
-        icono: 'nav-icon fas fa-tachometer-alt',
+        icono: 'nav-icon fas  fa-archive',
         titulo: "Inventario",
         submenu: [
          /*   { titulo: 'Crud Inventario', url: 'crudInvent', icono: 'fas fa-cubes' },*/
-            { titulo: 'Registro Inventario', url: 'regisInvent', icono: 'fas fa-users' }
+            { titulo: 'Registro de Inventario', url: 'regisInvent', icono: 'fas fa-check-square' }
 
         ]
     },
@@ -52,7 +52,7 @@ export class SidebarService {
         icono: 'nav-icon fas fas fa-balance-scale',
         titulo: "Reportes",
         submenu: [
-            { titulo: 'Generar', url: 'reporte', icono: 'fas  fa-folder' }
+            { titulo: 'Generar reporte', url: 'reporte', icono: 'fas  fa-download' }
 
         ]
     },

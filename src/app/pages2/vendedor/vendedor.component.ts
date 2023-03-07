@@ -32,7 +32,7 @@ export class VendedorComponent implements OnInit {
   iva: number = 0.12;
 
   //VARIABLES PARA FACTURA
-  fact2 = new Factura2;
+  fact2:Factura2 = new Factura2();
   fac=[];
   facN=[];
   idfact;
@@ -115,8 +115,11 @@ export class VendedorComponent implements OnInit {
     this.detalleService.getDetalle().subscribe(data =>{
       this.fac=data;
       this.facN = data;
-      console.log(this.fac.length)
-      for (let index = 0; index < this.fac.length; index++) {
+      console.log(data.length)
+      for (let index = 0; index < data.length; index++) {
+        console.log("en el for")
+        console.log(this.fact2.id_factura)
+        console.log(this.fac[index].id_factura)
         if(this.fact2.id_factura==this.fac[index].id_factura){
           this.facN=this.fac[index];
       }

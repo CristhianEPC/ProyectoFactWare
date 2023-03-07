@@ -48,9 +48,9 @@
                                     <label for="exampleDataList" class="form-label">Buscar</label> <br>
                                     <div class="input-group mb-3">
                                         <input class="form-control" list="datalistOptions" id="exampleDataList"
-                                            placeholder="Nombre o apellido">
+                                            placeholder="Nombre o apellido" [(ngModel)]="fact2.persona">
                                         <datalist id="datalistOptions">
-                                            <option *ngFor="let person of personas" value="person.id_persona" [(ngModel)]="fact2.persona">
+                                            <option *ngFor="let person of personas" [value]="person.id_persona" >
                                                 {{person.nombre_persona}} {{person.apellido_persona}}
                                             </option>
                                         </datalist>
