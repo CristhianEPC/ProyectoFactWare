@@ -1,9 +1,8 @@
 export class Factura2{
 
     id_factura: number=0;
-    num_factura:number=0;
-    stock: number=0;
-    fecha :string="";
+    numeroFact:string="";
+    fecha :Date;
     persona:Persona | undefined;
    
    }

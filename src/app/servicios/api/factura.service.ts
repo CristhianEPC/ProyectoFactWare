@@ -35,8 +35,8 @@ factuObj: Factura2[] = [];
   }
   
     //Metodo para buscar
-    getFacturaId(id:number):Observable<Factura>{
-      return this.http.get<Factura>(this.buscar+"/"+id);
+    getFacturaId(id:number):Observable<Factura2>{
+      return this.http.get<Factura2>(this.buscar+"/"+id);
   }
 
   
