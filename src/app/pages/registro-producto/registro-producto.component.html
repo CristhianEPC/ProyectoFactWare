@@ -27,12 +27,12 @@
             <form action="">
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input  name="nombre_producto" type="text" onkeydown="return /[a-zA-Z ]/i.test(event.key)" class="form-control" 
+                    <input  name="nombre_producto" placeholder="Ingrese solo letras" type="text" onkeydown="return /[a-zA-Z ]/i.test(event.key)" class="form-control" 
                     [(ngModel)] ="producto.nombre_producto" >
                 </div>
                 <div class="form-group">
                     <label for="">Descripción</label>
-                    <input name="descripcion_producto" type="text" onkeydown="return /[a-z, ]/i.test(event.key)"   class="form-control"
+                    <input name="descripcion_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.descripcion_producto">
                 </div>
                 <div class="form-group">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Estado del Producto</label>
-                    <input name="estadoIVA_producto" type="text" onkeydown="return /[a-z, ]/i.test(event.key)"   class="form-control"
+                    <input name="estadoIVA_producto" type="text" placeholder="Ingrese solo letras" onkeydown="return /[a-z, ]/i.test(event.key)"   class="form-control"
                     [(ngModel)] ="producto.estadoIVA_producto">
                 </div>
                 <div class="select">
