@@ -27,7 +27,7 @@
 
             <div class="row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <div class="card">
+                    <div class="card" style="background-color: rgb(235, 234, 234);">
                         <div class="card-body">
 
 
@@ -47,14 +47,15 @@
                                     <br>
                                     <label for="exampleDataList" class="form-label">Buscar</label> <br>
                                     <div class="input-group mb-3">
-                                        <input class="form-control" list="datalistOptions" id="exampleDataList"
-                                            placeholder="Nombre o apellido" [(ngModel)]="fact2.persona">
+                                        <input type="text" class="form-control" list="datalistOptions" id="idpersona"
+                                            name="idpers" list="datalistOptions" id="exampleDataList"
+                                            placeholder="Nombre o apellido" [(ngModel)]="fac.persona">
                                         <datalist id="datalistOptions">
-                                            <option *ngFor="let person of personas" [value]="person.id_persona" >
+                                            <option *ngFor="let person of personas" [value]="person.id_persona">
                                                 {{person.nombre_persona}} {{person.apellido_persona}}
                                             </option>
                                         </datalist>
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                        <button class="btn btn-secondary" type="button" id="button-addon2"
                                             (click)="Agregar()">Agregar Nuevo</button>
                                     </div>
                                     <br>
@@ -92,7 +93,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="card">
+                    <div class="card" style="background-color: rgb(235, 234, 234);">
                         <div class="card-body">
 
                             <div class="row g-3">
@@ -101,7 +102,7 @@
 
                                     <div class="form-floating">
                                         <input name="factufecha" type="date" class="form-control"
-                                            [(ngModel)]="fact2.fecha">
+                                            [(ngModel)]="fac.fecha">
                                         <label for="floatingInputGrid">Fecha</label>
                                     </div>
 
@@ -111,9 +112,10 @@
 
 
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="" name="consum" [value]="consumidorfinal" disabled>
+                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder=""
+                                            name="consum" [value]="consumidorfinal" disabled>
                                         <label for="floatingInputGrid">Consumidor final</label>
-                                      </div>
+                                    </div>
 
 
 
@@ -122,15 +124,16 @@
                                 <div class="col-md">
 
 
-                         
+
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="inlineFormCheck" name="si"  id ="check" (change)="consumidor()">
+                                        <input class="form-check-input" type="checkbox" id="inlineFormCheck" name="si"
+                                            id="check" (change)="consumidor()">
                                         <label class="form-check-label" for="inlineFormCheck">
-                                       Si
+                                            Si
                                         </label>
-                                      </div>
-                                      
-                                  
+                                    </div>
+
+
                                 </div>
 
                             </div>
@@ -145,12 +148,16 @@
                                             value="">
                                         <label for="floatingInputGrid">Punto de emisión</label>
                                     </div> -->
-                                    <label for="floatingInputGrid"><h6> Punto de emisión</h6></label>
+                                    <label for="floatingInputGrid">
+                                        <h6> Punto de emisión</h6>
+                                    </label>
                                     <div class="input-group mb-3">
-                                      <input type="text" class="form-control" placeholder="Username" value="001" disabled>
-                                      
-                                      <input type="text" class="form-control" placeholder="Server" value="001"  disabled>
-                                      <input [(ngModel)]="fact2.num_factura" type="text" class="form-control" placeholder="numero factura" >
+                                        <input type="text" class="form-control" placeholder="Username" value="001"
+                                            disabled>
+
+                                        <input type="text" class="form-control" placeholder="Server" value="001"
+                                            disabled>
+                                        <input type="text" class="form-control" [value]="numfac" disabled>
                                     </div>
 
 
@@ -169,17 +176,17 @@
 
 
 
-                                </div>
-
-
                             </div>
 
 
                         </div>
+
+
                     </div>
-                    <button (click)="guardar(fact2)" class="btn btn-rounded">Asignar factura</button>
                 </div>
+                <button (click)="guardar(fac)" class="btn btn-secondary">Asignar factura</button>
             </div>
+        </div>
 
 
 
@@ -206,27 +213,27 @@
 
 
 
-            <div class="row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <div class="card  w-400 mb-3">
-                        <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card  w-400 mb-3" style="background-color: rgb(235, 234, 234);">
+                    <div class="card-body">
 
 
 
-                            <div class="row">
-                                <!-- INPUT PARA INGRESO DEL CODIGO DE BARRAS O DESCRIPCION DEL PRODUCTO -->
+                        <div class="row">
+                            <!-- INPUT PARA INGRESO DEL CODIGO DE BARRAS O DESCRIPCION DEL PRODUCTO -->
 
 
-                                <br>
+                            <br>
 
 
-                                <label class="col-form-label" for="iptCodigoVenta">
-                                    <i class="fas fa-barcode fs-6"></i>
-                                    <h1> <span class="small">Productos</span></h1>
-                                </label>
-                                <form>
-                                    <div class="input-group mb-3">
-                                        <!------- <input class="form-control" list="datalistOptions2" id="exampleDataList" placeholder="Código de barras o nombre">
+                            <label class="col-form-label" for="iptCodigoVenta">
+                                <i class="fas fa-barcode fs-6"></i>
+                                <h1> <span class="small">Productos</span></h1>
+                            </label>
+                            <form>
+                                <div class="input-group mb-3">
+                                    <!------- <input class="form-control" list="datalistOptions2" id="exampleDataList" placeholder="Código de barras o nombre">
                         <datalist id="datalistOptions2" >
                           <option *ngFor="let produc of productos" >
                               {{produc.codigoBarras_producto}}    |||   {{produc.nombre_producto}}
@@ -235,388 +242,400 @@
                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Agregar Producto</button>------->
 
 
-                                        <!-- Button trigger modal -->
+                                    <!-- Button trigger modal -->
+                                    <div class="form-group">
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">
-                                            Agregar Productos
-                                        </button>
+                                        data-bs-target="#staticBackdrop">
+                                        Agregar Productos
+                                    </button>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Productos
-                                                        </h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <table class="table table-hover">
-                                                            <thead>
-                                                                <tr class="text-center">
-                                                                    <th>ID</th>
-                                                                    <th>Código barras</th>
-                                                                    <th>NOMBRE</th>
-                                                                    <th>DESCRIPCION</th>
-                                                                    <th>CANTIDAD</th>
-                                                                    <th>ACCIONES</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr class="text-center" *ngFor="let item of productos">
-                                                                    <td>{{item.id_producto}}</td>
-                                                                    <td>{{item.codigoBarras_producto}}</td>
-                                                                    <td>{{item.nombre_producto}}</td>
-                                                                    <td>{{item.descripcion_producto}}</td>
-                                                                    <td>
+                                    <button (click)="escaner()" class="btn btn-secondary" style="margin-left: 10px; background-color: cornflowerblue;">Lector de Código</button>
+                                    </div>
+                                    
 
-                                                                        <input #identificador type="text"
-                                                                            placeholder="Para testear"
-                                                                            autocomplete="off">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Productos
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr class="text-center">
+                                                                <th>ID</th>
+                                                                <th>Código barras</th>
+                                                                <th>NOMBRE</th>
+                                                                <th>DESCRIPCION</th>
+                                                                <th>CANTIDAD</th>
+                                                                <th>ACCIONES</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="text-center" *ngFor="let item of productos">
+                                                                <td>{{item.id_producto}}</td>
+                                                                <td>{{item.codigoBarras_producto}}</td>
+                                                                <td>{{item.nombre_producto}}</td>
+                                                                <td>{{item.descripcion_producto}}</td>
+                                                                <td>
+
+                                                                    <input #identificador type="number" placeholder="0"
+                                                                        autocomplete="off">
 
 
-                                                                    </td>
-                                                                    <td>
-                                                                        <button
-                                                                            (click)="agregarProduc(item,identificador.value)"
-                                                                            type="button" class="btn btn-secondary"
-                                                                            data-bs-dismiss="modal">Agregar</button>
-                                                                    </td>
+                                                                </td>
+                                                                <td>
+                                                                    <button
+                                                                        (click)="agregarProduc(item,identificador.value)"
+                                                                        type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Agregar</button>
+                                                                </td>
 
-                                                                    <!-- <button (click)="agregarProduc(item)" class="btn btn-lg">Agregar</button> -->
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                        <button type="button"
-                                                            class="btn btn-primary">Understood</button>
-                                                    </div>
+                                                                <!-- <button (click)="agregarProduc(item)" class="btn btn-lg">Agregar</button> -->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <!-- <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Understood</button> -->
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
 
 
 
+
+                                </div>
+
+                            </form>
+                            <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- ETIQUETA QUE MUESTRA LA SUMA TOTAL DE LOS PRODUCTOS AGREGADOS AL LISTADO -->
+                            <div class="col-md-7 mb-3 rounded-3"
+                                style="background-color: gray;color: white;text-align:center;border:1px solid gray;">
+                                <h2 class="fw-bold m-0">S/ <span class="fw-bold" id="totalVenta">{{totalFinal}}</span>
+                                </h2>
+                            </div>
+
+                            <!-- BOTONES PARA VACIAR LISTADO Y COMPLETAR LA VENTA -->
+                            <div class="col-md-5 text-right">
+
+
+                            </div>
+
+                            <!-- LISTADO QUE CONTIENE LOS PRODUCTOS QUE SE VAN AGREGANDO PARA LA COMPRA -->
+                            <div class="col-md-12">
+
+                                <!-- <table id="lstProductosVenta" class="display nowrap table-striped w-100 shadow"> -->
+                                <table class="table">
+                                    <thead class="bg-gray text-left fs-6">
+                                        <tr>
+
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio</th>
+                                            <th>Total</th>
+                                            <th class="text-center">Opciones</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small text-left fs-6">
+
+                                        <tr class="text-center" *ngFor="let item2 of facN">
+                                            <!-- LISTA DE PRODCUTOS EN LA TABLA NUEVA-->
+                                            <td>{{item2.id_detalle}}</td>
+                                            <td>{{item2.producto.nombre_producto}}</td>
+                                            <td>{{item2.cantidad}}</td>
+                                            <td>{{item2.producto.pvp_producto}}</td>
+                                            <!-- <td><input type="number" min="0" name="iptEfectivo" id="iptEfectivoRecibido" class="form-control form-control-sm" placeholder="Cantidad de productos"
+                                            [(ngModel)]="detalle.cantidad"></td> -->
+                                            <td>{{item2.total}}</td>
+                                            <td>
+                                                <button (click)="eliminar(item2)" class="btn btn-danger">Quitar</button>
+                                            </td>
+
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                                <!-- / table -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col">
+                <div class="card " style="background-color: rgb(235, 234, 234);">
+                    <div class="card-body">
+
+
+                        <div class="col">
+
+                            <div class="card card-gray shadow">
+                                <div class="card-body p-2">
+                                    <!-- INPUT DE DESCUENTO -->
+                                    <div class="form-group">
+                                        <label for="iptDescuento" class="p-0 m-0">Descuento (0%)</label>
+
+                                        <input [(ngModel)]="descuento1" type="number" min="0" name="iptDescuento"
+                                            id="iptDescuento" class="form-control-sm form-control "
+                                            placeholder="Porcentaje de descuento">
+
+                                            <!-- <button (click)="calcuDescuen()" class="btn btn-primary ">Aplicar</button> -->
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button (click)="calcuDescuen()" class="btn btn-primary ">Aplicar</button>
+                                    </div>
+                                    
+                                </div>
+
+
+                                
+                            </div>
+
+                            <div class="card card-gray shadow">
+
+                                <div class="card-body p-2">
+                                    <!-- SELECCIONAR TIPO DE PAGO -->
+                                    <div class="form-group mb-2">
+
+                                        <label class="col-form-label p-0" for="selCategoriaReg">
+                                            <i class="fas fa-money-bill-alt fs-6"></i>
+                                            <span class="small">Tipo Pago</span><span class="text-danger">*</span>
+                                        </label>
+
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                            id="selTipoPago">
+                                            <option value="0">Seleccione Tipo Pago</option>
+                                            <option value="1" selected="true">Efectivo</option>
+                                            <option value="2">Yape</option>
+                                            <option value="3">Plin</option>
+                                            <option value="4">Transferencia</option>
+                                        </select>
+
+                                        <span id="validate_categoria" class="text-danger small fst-italic"
+                                            style="display:none">
+                                            Debe Ingresar tipo de pago
+                                        </span>
 
                                     </div>
 
-                                </form>
-                                <br>
+                                    <!-- INPUT DE EFECTIVO ENTREGADO -->
+                                    <div class="form-group">
+                                        <label for="iptEfectivoRecibido" class="p-0 m-0">Efectivo recibido</label>
+                                        <input [(ngModel)]="vuelto1" type="number" min="0" name="iptEfectivo"
+                                            id="iptEfectivoRecibido" class="form-control form-control-sm"
+                                            placeholder="Cantidad de efectivo recibida" (click)="calcuVuelto()">
+                                    </div>
 
+                                    <!-- INPUT CHECK DE EFECTIVO EXACTO -->
+                                    <!-- <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="chkEfectivoExacto">
+                                        <label class="form-check-label" for="chkEfectivoExacto">
+                                            Efectivo Exacto
+                                        </label>
+                                    </div> -->
 
+                                    <!-- MOSTRAR MONTO EFECTIVO ENTREGADO Y EL VUELTO -->
+                                    <div class="row mt-2">
 
+                                        <div class="col-12">
+                                            <h6 class="text-start fw-bold">Monto Efectivo: S./ <span
+                                                    id="EfectivoEntregado">{{vuelto1}}</span></h6>
+                                        </div>
 
+                                        <div class="col-12">
+                                            <h6 class="text-start text-danger fw-bold">Vuelto: S./ <span
+                                                    id="EfectivoEntregado" step=".01">{{vuelto1-vuelto2}}</span>
+                                            </h6>
+                                        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <!-- ETIQUETA QUE MUESTRA LA SUMA TOTAL DE LOS PRODUCTOS AGREGADOS AL LISTADO -->
-                                <div class="col-md-7 mb-3 rounded-3"
-                                    style="background-color: gray;color: white;text-align:center;border:1px solid gray;">
-                                    <h2 class="fw-bold m-0">S/ <span class="fw-bold" id="totalVenta">0.00</span></h2>
-                                </div>
-
-                                <!-- BOTONES PARA VACIAR LISTADO Y COMPLETAR LA VENTA -->
-                                <div class="col-md-5 text-right">
-
-                                 
-                                    <button class="btn btn-danger" id="btnVaciarListado">
-                                        <i class="far fa-trash-alt"></i> Vaciar Listado
-                                    </button>
+                                    </div>
 
                                 </div>
-
-                                <!-- LISTADO QUE CONTIENE LOS PRODUCTOS QUE SE VAN AGREGANDO PARA LA COMPRA -->
-                                <div class="col-md-12">
-
-                                    <!-- <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     
-                            [(ngModel)] ="opcionSeleccionado" (change)="capturar()">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select> -->
-
-                                    <!-- <table id="lstProductosVenta" class="display nowrap table-striped w-100 shadow"> -->
-                                    <table class="table">
-                                        <thead class="bg-gray text-left fs-6">
-                                            <tr>
-
-                                                <th>Codigo</th>
-                                                <th>Nombre</th>
-                                                <th>Cantidad</th>
-                                                <th>Precio</th>
-                                                <th>Total</th>
-                                                <th class="text-center">Opciones</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody class="small text-left fs-6">
-
-                                            <tr class="text-center" *ngFor="let item2 of facN">
-                                                <!-- LISTA DE PRODCUTOS EN LA TABLA NUEVA-->
-                                                <td>{{item2.id_detalle}}</td>
-                                                <td>{{item2.producto.nombre_producto}}</td>
-                                                <td>{{item2.cantidad}}</td>
-                                                <td>{{item2.producto.costo_producto}}</td>
-                                                <!-- <td><input type="number" min="0" name="iptEfectivo" id="iptEfectivoRecibido" class="form-control form-control-sm" placeholder="Cantidad de productos"
-                                            [(ngModel)]="detalle.cantidad"></td> -->
-                                                <td>{{item2.total}}</td>
-                                                <td>
-                                                    <button (click)="eliminar(item2)" class="btn btn-danger">quitar</button>
-                                                </td>
-
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
-                                    <!-- / table -->
-                                </div>
-                                <!-- /.col -->
                             </div>
 
+                            <div class="card card-gray shadow ">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="col">
-                    <div class="card ">
-                        <div class="card-body">
-
-
-                            <div class="col">
-
-                                <div class="card card-gray shadow ">
-
-                                    <!-- <h5 class="card-header py-1 bg-primary text-white text-center">
+                                <!-- <h5 class="card-header py-1 bg-primary text-white text-center">
                                 Total Venta: S./ <span id="totalVentaRegistrar">0.00</span>
                             </h5> -->
 
-                                    <div class="card-body p-2">
 
-                                       
 
-                                        <!-- SELECCIONAR TIPO DE PAGO -->
-                                        <div class="form-group mb-2">
+                                <div class="card-body p-2">
 
-                                            <label class="col-form-label p-0" for="selCategoriaReg">
-                                                <i class="fas fa-money-bill-alt fs-6"></i>
-                                                <span class="small">Tipo Pago</span><span class="text-danger">*</span>
-                                            </label>
+                                    
 
-                                            <select class="form-select form-select-sm"
-                                                aria-label=".form-select-sm example" id="selTipoPago">
-                                                <option value="0">Seleccione Tipo Pago</option>
-                                                <option value="1" selected="true">Efectivo</option>
-                                                <option value="2">Yape</option>
-                                                <option value="3">Plin</option>
-                                                <option value="4">Transferencia</option>
-                                            </select>
+                                    <!-- MOSTRAR EL SUBTOTAL, IGV Y TOTAL DE LA VENTA -->
+                                    <div class="row fw-bold">
 
-                                            <span id="validate_categoria" class="text-danger small fst-italic"
-                                                style="display:none">
-                                                Debe Ingresar tipo de pago
-                                            </span>
-
+                                        <div class="col-md-7">
+                                            <span>SubTotal 0%</span>
+                                        </div>
+                                        <div class="col-md-5 text-right">
+                                            S./ <span class="" id="">{{totalFinal}}</span>
                                         </div>
 
-                                      
-                                        <!-- INPUT DE EFECTIVO ENTREGADO -->
-                                        <div class="form-group">
-                                            <label for="iptEfectivoRecibido" class="p-0 m-0">Efectivo recibido</label>
-                                            <input type="number" min="0" name="iptEfectivo" id="iptEfectivoRecibido"
-                                                class="form-control form-control-sm"
-                                                placeholder="Cantidad de efectivo recibida">
+                                        <div class="col-md-7">
+                                            <span>Subtotal 12%</span>
+                                        </div>
+                                        <div class="col-md-5 text-right">
+                                            S./ <span class="" id="">{{subtotaIva12}}</span>
                                         </div>
 
-                                        <!-- INPUT CHECK DE EFECTIVO EXACTO -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="chkEfectivoExacto">
-                                            <label class="form-check-label" for="chkEfectivoExacto">
-                                                Efectivo Exacto
-                                            </label>
+                                        <div class="col-md-7">
+                                            <span>Descuento</span>
+                                        </div>
+                                        <div class="col-md-5 text-right">
+                                            S./ <span class="" id="">{{descuento2}}</span>
                                         </div>
 
-                                        <!-- MOSTRAR MONTO EFECTIVO ENTREGADO Y EL VUELTO -->
-                                        <div class="row mt-2">
-
-                                            <div class="col-12">
-                                                <h6 class="text-start fw-bold">Monto Efectivo: S./ <span
-                                                        id="EfectivoEntregado">0.00</span></h6>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <h6 class="text-start text-danger fw-bold">Vuelto: S./ <span
-                                                        id="Vuelto">0.00</span>
-                                                </h6>
-                                            </div>
-
+                                        <div class="col-md-7">
+                                            <span>IVA 12%</span>
+                                        </div>
+                                        <div class="col-md-5 text-right">
+                                            S./ <span class="" id="boleta_igv">{{subtotaIva}}</span>
                                         </div>
 
-                                        <!-- MOSTRAR EL SUBTOTAL, IGV Y TOTAL DE LA VENTA -->
-                                        <div class="row fw-bold">
+                                        <div class="col-md-7">
+                                            <span>Total a pagar</span>
+                                        </div>
+                                        <div class="col-md-5 text-right">
+                                            S./ <span class="" id="boleta_subtotal">{{totalAPagar}}</span>
+                                        </div>
 
-                                            <div class="col-md-7">
-                                                <span>OPE. GRAVADAS</span>
-                                            </div>
-                                            <div class="col-md-5 text-right">
-                                                S./ <span class="" id="">0.00</span>
-                                            </div>
-
-                                            <div class="col-md-7">
-                                                <span>OPE. INAFECTAS</span>
-                                            </div>
-                                            <div class="col-md-5 text-right">
-                                                S./ <span class="" id="">0.00</span>
-                                            </div>
-
-                                            <div class="col-md-7">
-                                                <span>OPE. EXONERADAS</span>
-                                            </div>
-                                            <div class="col-md-5 text-right">
-                                                S./ <span class="" id="">0.00</span>
-                                            </div>
-
-                                            <div class="col-md-7">
-                                                <span>IGV (18%)</span>
-                                            </div>
-                                            <div class="col-md-5 text-right">
-                                                S./ <span class="" id="boleta_igv">0.00</span>
-                                            </div>
-
-                                            <div class="col-md-7">
-                                                <span>SUBTOTAL</span>
-                                            </div>
-                                            <div class="col-md-5 text-right">
-                                                S./ <span class="" id="boleta_subtotal">0.00</span>
-                                            </div>
-
-                                            <div class="col-md-7">
+                                        <!-- <div class="col-md-7">
                                                 <span>TOTAL</span>
                                             </div>
                                             <div class="col-md-5 text-right">
                                                 S./ <span class="" id="boleta_total">0.00</span>
-                                            </div>
-                                        </div>
+                                            </div> -->
+                                    </div>
 
-                                    </div><!-- ./ CARD BODY -->
+                                </div><!-- ./ CARD BODY -->
 
-                                </div><!-- ./ CARD -->
-                            </div>
-
-
-
-
-
-
+                            </div><!-- ./ CARD -->
                         </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="text-center"><strong> Acciones</strong> </h2>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-primary btn-lg">Generar factura</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Generar SRI</button>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
+
+
+
+
+
+
+
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center"><strong> Acciones</strong> </h2>
+            </div>
+            <div class="card-body">
+                <button (click)="generar()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(12, 131, 12);">Generar factura</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="background-color: rgb(117, 112, 9);">Generar SRI</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
+</div>
 
 <!-- /. CONTENEDOR-->

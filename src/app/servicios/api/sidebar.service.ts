@@ -13,7 +13,7 @@ export class SidebarService {
         submenu: [
          /*   { titulo: 'Crud Empleado', url: 'crudempl', icono: 'fas fa-cubes' },*/
             { titulo: 'Asignar usuarios', url: 'regisempl', icono: 'fas fa-users' },
-            { titulo: 'Crud Persona', url: 'crudAdmin', icono: 'fas fa-cubes' },
+            { titulo: 'Listado Persona', url: 'crudAdmin', icono: 'fas fa-cubes' },
             { titulo: 'Registro Persona', url: 'regisAdmin', icono: 'fas fa-users' }
         ]
     },
@@ -22,7 +22,7 @@ export class SidebarService {
         icono: 'nav-icon  fas fa-tasks',
         titulo: "Producto",
         submenu: [
-            { titulo: 'Crud Producto', url: 'crudProduc', icono: 'fas fa-cubes' },
+            { titulo: 'Listado Producto', url: 'crudProduc', icono: 'fas fa-cubes' },
             { titulo: 'Registro Producto', url: 'regisProduc', icono: 'fa-plus-square' }
 
         ]
@@ -32,7 +32,7 @@ export class SidebarService {
         icono: 'nav-icon fas fa-truck',
         titulo: "Proveedor",
         submenu: [
-            { titulo: 'Crud Proveedor', url: 'crudProvee', icono: 'fas fa-users' },
+            { titulo: 'Listado Proveedor', url: 'crudProvee', icono: 'fas fa-users' },
             { titulo: 'Registro Proveedor', url: 'regisProvee', icono: 'fas fa-users' }
 
         ]

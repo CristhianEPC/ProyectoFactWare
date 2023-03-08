@@ -17,7 +17,7 @@ export class Sidebar2Service {
         icono: 'nav-icon fas  fa-user',
         titulo: "Clientes",
         submenu: [
-            { titulo: 'Crud Cliente', url: 'crudCliente', icono: 'fas fa-cubes' },
+            { titulo: 'Listado Cliente', url: 'crudCliente', icono: 'fas fa-cubes' },
             { titulo: 'Registro Cliente', url: 'regCliente', icono: 'fas  fa-user-plus' }
         ]
     }]

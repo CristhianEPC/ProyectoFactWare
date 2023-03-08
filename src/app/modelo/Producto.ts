@@ -11,6 +11,7 @@ export class Producto {
     estadoIVA_producto: string = "";
     id_proveedor: number;
     stock: number=0;
+    constIva:boolean;
   //data: any;
 
 
