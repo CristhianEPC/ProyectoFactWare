@@ -45,7 +45,8 @@ producto:Producto = new Producto();
  
 
     Actualizar(inventario: Inventario) {
-      this.serviceInventario.updateInventario(inventario)
+      if(inventario.cantidad_inventario >0 && inventario.fechaEntrega != null){
+        this.serviceInventario.updateInventario(inventario)
       .subscribe(data =>  
         Swal.fire({
           title: 'Inventario modificado éxitosamente',
@@ -55,6 +56,17 @@ producto:Producto = new Producto();
           confirmButtonColor:"#0c3255",
           background: "#63B68B",
         }))
+      }else{
+        Swal.fire({
+          title: 'existen campos vacios',
+          icon: 'error',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        })
+      }
+      
     }
   
 
