@@ -39,7 +39,8 @@ export class EditarProveedorComponent implements OnInit {
   }
 
   Actualizar(proveedor: Proveedor) {
-    this.service.updateProveedor(proveedor)
+    if(proveedor.nombre_proveedor !="" && proveedor.telefono_proveedor !="" && proveedor.direccion_proveedor !=""){
+      this.service.updateProveedor(proveedor)
       .subscribe(data => {
         this.proveedor = data;
         Swal.fire({
@@ -53,6 +54,15 @@ export class EditarProveedorComponent implements OnInit {
         //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProvee'])
       })
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Existen campos vacios'
+       
+       
+      })
+    } 
+    
   }
 
 }
