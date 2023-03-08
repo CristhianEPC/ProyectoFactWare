@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class EditarProductoComponent implements OnInit {
 
   producto:Producto = new Producto();
-
+ // listaProveedor:Proveedor[]=[];
   constructor(private router: Router,private service:ProductoService) { }
 
   ngOnInit(): void {
@@ -39,6 +39,9 @@ export class EditarProductoComponent implements OnInit {
   }
 
   Actualizar(producto: Producto) {
+
+    if(producto.nombre_producto != "" && producto.descripcion_producto !="" && producto.codigoBarras_producto>0 && producto.costo_producto>0 
+    && producto.pvp_producto && producto.utilidad_producto>0 && producto.estadoIVA_producto !="" ){
     this.service.updateProducto(producto)
       .subscribe(data => {
         this.producto = data;
@@ -53,6 +56,16 @@ export class EditarProductoComponent implements OnInit {
         //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProduc'])
       })
+    }else{
+      Swal.fire({
+        title: 'existen campos vacios',
+        icon: 'error',
+        iconColor :'#17550c',
+        color: "#0c3255",
+        confirmButtonColor:"#0c3255",
+        background: "#63B68B",
+      })
+    }  
   }
 
 }
