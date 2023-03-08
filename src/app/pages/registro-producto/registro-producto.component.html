@@ -1,4 +1,3 @@
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -15,8 +14,8 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-  </section>
-  
+</section>
+
 
 <div class="container col-md-6">
     <div class="card">
@@ -27,46 +26,53 @@
             <form action="">
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input  name="nombre_producto" placeholder="Ingrese solo letras" type="text" onkeydown="return /[a-zA-Z ]/i.test(event.key)" class="form-control" 
-                    [(ngModel)] ="producto.nombre_producto" >
+                    <input name="nombre_producto" type="text" class="form-control"
+                        [(ngModel)]="producto.nombre_producto">
                 </div>
                 <div class="form-group">
-                    <label for="">Descripción</label>
+                    <label for="">Descripcion</label>
                     <input name="descripcion_producto" type="text" class="form-control"
-                    [(ngModel)] ="producto.descripcion_producto">
+                        [(ngModel)]="producto.descripcion_producto">
                 </div>
                 <div class="form-group">
-                    <label for="">Código</label>
+                    <label for="">Codigo</label>
                     <input name="codigoBarras_producto" type="text" class="form-control"
-                    [(ngModel)] ="producto.codigoBarras_producto">
+                        [(ngModel)]="producto.codigoBarras_producto">
                 </div>
                 <div class="form-group">
                     <label for="">Costo del Producto</label>
-                    <input name="costo_producto" type="text" class="form-control"
-                    [(ngModel)] ="producto.costo_producto">
+                    <input name="costo_producto" type="number" class="form-control" [(ngModel)]="producto.costo_producto">
                 </div>
                 <div class="form-group">
-                    <label for="">PVP del Producto</label>
-                    <input name="pvp_producto" type="text" class="form-control"
-                    [(ngModel)] ="producto.pvp_producto">
-                </div>
-                <div class="form-group">
-                    <label for="">Utilidad del Producto</label>
-                    <input name="utilidad_producto" type="text" class="form-control"
-                    [(ngModel)] ="producto.utilidad_producto">
+                    <label for="">Utilidad del Producto (0%)</label>
+                    <input name="utilidad_producto" type="number" class="form-control"
+                        [(ngModel)]="producto.utilidad_producto">
                 </div>
                 <div class="form-group">
                     <label for="">Estado del Producto</label>
-                    <input name="estadoIVA_producto" type="text" placeholder="Ingrese solo letras" onkeydown="return /[a-z, ]/i.test(event.key)"   class="form-control"
-                    [(ngModel)] ="producto.estadoIVA_producto">
+                    <input name="estadoIVA_producto" type="text" class="form-control"
+                        [(ngModel)]="producto.estadoIVA_producto">
                 </div>
                 <div class="select">
                     <label for="">Proveedor</label>
-                    <select class="form-select"  id="selecionarr" aria-label="Default select example" name="selecionar"     [(ngModel)] ="producto.proveedor">
-                      <option  selected disabled> Seleccione un proveedor </option>
-                      <option *ngFor="let provee of listaProveedor" [value]="provee.id_proveedor">  {{provee.nombre_proveedor}} </option>
-                  </select>
+                    <select class="form-select" id="selecionarr" aria-label="Default select example" name="selecionar"
+                        [(ngModel)]="producto.proveedor">
+                        <option selected disabled> Seleccione el producto </option>
+                        <option *ngFor="let provee of listaProveedor" [value]="provee.id_proveedor">
+                            {{provee.nombre_proveedor}} </option>
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label for="">Tiene IVA el producto</label>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineFormCheck" name="si" id="check"
+                        (change)="tieneIVA()">
+                    <label class="form-check-label" for="inlineFormCheck">
+                        Si
+                    </label>
+                </div>
+                </div>
+                
 
                 <button (click)="guardar(producto)" class="btn btn-danger">Guardar</button>
             </form>
