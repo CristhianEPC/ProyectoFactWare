@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/Producto';
+import { Producto2 } from 'src/app/modelo/producto2';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
 import Swal from 'sweetalert2';
 
@@ -11,8 +12,15 @@ import Swal from 'sweetalert2';
 })
 export class EditarProductoComponent implements OnInit {
 
+  //Variables de registrar el producto
+  constIva: boolean = false;
+  vali:number=0;
+  utilida:number;
+  pvp:number;
+
   producto:Producto = new Producto();
- // listaProveedor:Proveedor[]=[];
+  productoN = new Producto2();
+
   constructor(private router: Router,private service:ProductoService) { }
 
   ngOnInit(): void {
@@ -28,20 +36,9 @@ export class EditarProductoComponent implements OnInit {
       this.producto = data;
     })
 
-    // if (id != null) {
-    //   this.service.getProveedorId(+id)
-    //     .subscribe(data => {
-    //       console.log(data);
-    //       this.proveedor = data;
-    //     })
-    // }
-
   }
 
   Actualizar(producto: Producto) {
-
-    if(producto.nombre_producto != "" && producto.descripcion_producto !="" && producto.codigoBarras_producto>0 && producto.costo_producto>0 
-    && producto.pvp_producto && producto.utilidad_producto>0 && producto.estadoIVA_producto !="" ){
     this.service.updateProducto(producto)
       .subscribe(data => {
         this.producto = data;
@@ -56,16 +53,26 @@ export class EditarProductoComponent implements OnInit {
         //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProduc'])
       })
-    }else{
-      Swal.fire({
-        title: 'existen campos vacios',
-        icon: 'error',
-        iconColor :'#17550c',
-        color: "#0c3255",
-        confirmButtonColor:"#0c3255",
-        background: "#63B68B",
-      })
-    }  
+  }
+
+  tieneIVA() {
+
+    if (document.getElementById('check').click) {  
+      this.vali = this.vali+1;
+      console.log(this.vali);
+    }
+
+    if(this.vali==1){
+      console.log("es verdadero")
+      this.constIva = true;
+    }
+
+    if(this.vali==2){
+      console.log("es falso")
+      this.constIva = false;
+      this.vali=0;
+    }
+    
   }
 
 }
