@@ -19,6 +19,8 @@ export class RegistroAdministradorComponent implements OnInit {
   }
 
   guardar(persona:Persona){
+    if(persona.nombre_persona!= "" && persona.apellido_persona !="" && persona.direccion_persona!="" && persona.telefono_persona!=""
+    && persona.correo_persona !="" ){
     this.service.create(persona)
     .subscribe(data=>{
       Swal.fire({
@@ -32,6 +34,16 @@ export class RegistroAdministradorComponent implements OnInit {
       //alert("Se agrego con exito..!");
       this.router.navigate(['admin/crudAdmin']);
     })
+  }else{
+    Swal.fire({
+      title: 'Revise  por favor,existen campos vacios',
+      icon: 'error',
+      iconColor :'#17550c',
+      color: "#0c3255",
+      confirmButtonColor:"#0c3255",
+      background: "#63B68B",
+    })
+  }
   }
 
 }
