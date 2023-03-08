@@ -43,16 +43,28 @@ Listado() {
 
 
   guardarInventario(inventario:Inventario2){
-    this.serviceInventario.createInventario(inventario)
-    .subscribe(data=>  
+    if(inventario.cantidad_inventario>0 && inventario.fechaEntrega != null && inventario.producto != null){
+      this.serviceInventario.createInventario(inventario)
+      .subscribe(data=>  
+        Swal.fire({
+          title: 'Inventario Guardado éxitosamente',
+          icon: 'success',
+          iconColor :'#17550c',
+          color: "#0c3255",
+          confirmButtonColor:"#0c3255",
+          background: "#63B68B",
+        }))
+    }else{
       Swal.fire({
-        title: 'Inventario Guardado éxitosamente',
-        icon: 'success',
+        title: 'existen campos vacios',
+        icon: 'error',
         iconColor :'#17550c',
         color: "#0c3255",
         confirmButtonColor:"#0c3255",
         background: "#63B68B",
-      }))
+      })
+    }
+   
   }
 
 
