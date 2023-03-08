@@ -14,6 +14,8 @@ import { DetalleFacturaService } from 'src/app/servicios/api/detalle-factura.ser
 import { Factura2 } from 'src/app/modelo/factur';
 import { Factura } from 'src/app/modelo/Factura';
 import { FacturaService } from 'src/app/servicios/api/factura.service';
+import { DetalleFact } from 'src/app/modelo/DetalleFact';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-vendedor',
@@ -25,39 +27,44 @@ export class VendedorComponent implements OnInit {
   //VARIABLES PARA DETALLE-FACTURA
   nuev = [];
   idFactura;
-  product:Producto;
+  product: Producto;
   cantidad;
-  subTotal;
-  total;
+  subTotal: number;
+  total: number;
   iva: number = 0.12;
 
+  //variable de total final
+  totalFinal: number;
+  subtotaIva: number = 0;
+  subtotaIva12: number = 0;
+
   //VARIABLES PARA FACTURA
-  fact2:Factura2 = new Factura2();
-  fac=[];
-  facN=[];
+  fact2: Factura2 = new Factura2();
+  fac: Factura2 = new Factura2();
+  facN = [];
   idfact;
   fecha;
-  numfac;
-  perso:Persona;
+  numfac: string;
+  perso: Persona;
 
   verSeleccion: string = '';
 
   productos: Producto[] = [];
   producto: Producto[] = [];
   personas: Persona[] = [];
-  factura:Factura[]=[];
-  detal:DetalleFactura2[]=[];
+  factura: Factura[] = [];
+  detal: DetalleFactura2[] = [];
 
   filterPost = '';
   filterPost2 = '';
-  consumidorfinal ="";
+  consumidorfinal = "";
   constructor(
-    private service: ProductoService, 
-    private personaService: PersonaService, 
-    private router: Router, 
+    private service: ProductoService,
+    private personaService: PersonaService,
+    private router: Router,
     private detalleService: DetalleFacturaService,
-    private factService:FacturaService
-    ) {
+    private factService: FacturaService
+  ) {
 
   }
 
@@ -71,23 +78,23 @@ export class VendedorComponent implements OnInit {
     //   })
     this.listaProducto();
     this.listarPerso();
-
+    this.listaFacturas();
+    this.totalFinal = 0.00;
 
   }
 
   //PARA EL CONSUMIDOR FINAL
-  consumidor(){
+  consumidor() {
 
-  
-    if (document.getElementById('check').click)
-  {
-    this.consumidorfinal ="9999999999999";
-  //alert('checkbox1 esta seleccionado');
-  }
-  
+
+    if (document.getElementById('check').click) {
+      this.consumidorfinal = "9999999999999";
+      //alert('checkbox1 esta seleccionado');
+    }
+
   }
 
-//LISTARES DE LAS CLASES
+  //LISTARES DE LAS CLASES
 
   listaProducto() {
     this.service.getProducto()
@@ -96,7 +103,7 @@ export class VendedorComponent implements OnInit {
       })
   }
 
-
+  //LISTAR PERSONAS
   listarPerso() {
 
     this.personaService.listarPersona().subscribe(data => {
@@ -105,28 +112,28 @@ export class VendedorComponent implements OnInit {
 
   }
 
-  listarFactura(){
-    this.factService.getFactura().subscribe(data =>{
-      this.factura = data;
+  //BUSCAR LA FACTURA RECIEN CREADA
+  listarFactura() {
+    this.factService.getFacturaId(this.fact2.id_factura)
+      .subscribe(data => {
+        this.fact2 = data;
+      })
+  }
+  //LISTAR LAS FACTURAS SACAR EL TOTAL DE FACTURAS
+  listaFacturas() {
+    this.factService.getFactura().subscribe(data => {
+      this.numfac = "000" + (data.length + 1);
     })
   }
 
-  listarDeta(){
-    this.detalleService.getDetalle().subscribe(data =>{
-      this.fac=data;
-      this.facN = data;
-      console.log(data.length)
-      for (let index = 0; index < data.length; index++) {
-        console.log("en el for")
-        console.log(this.fact2.id_factura)
-        console.log(this.fac[index].id_factura)
-        if(this.fact2.id_factura==this.fac[index].id_factura){
-          this.facN=this.fac[index];
-      }
-        
-      }
-      
-    })
+  //PARA LISTAR ATRAVES DEL ID DE LA FACTURA LOS DETALLES
+  listarDeta() {
+    this.detalleService.getDetalleIdFactura(this.fact2.id_factura)
+      .subscribe(data => {
+        //this.fac = data;
+        this.facN = data;
+      })
+
   }
 
   // PARA DIRIGIR A CREAR UNA NUEVA PERSONA
@@ -135,40 +142,69 @@ export class VendedorComponent implements OnInit {
     this.router.navigate(['vendedor/regCliente']);
   }
 
-// TRANFORMAR UN OBJETO A ARRAY
+  // TRANFORMAR UN OBJETO A ARRAY
   private productosE$ = new Subject<Producto[]>();
 
   detalle: DetalleFactura2;
 
-  agregarProduc(producto1: Producto ,inputValue: string) {
+  agregarProduc(producto1: Producto, inputValue: string) {
 
     this.verSeleccion = inputValue;
     this.producto.push(producto1);
     this.productosE$.next(this.producto);
     this.productosE$.subscribe(data => {
       this.producto = data;
-      
+
       // console.log(data);
       // console.log("tres " + this.producto);
     })
 
-    this.total = producto1.pvp_producto * (+this.verSeleccion);
-    console.log(this.total)
-    //this.idProducto = this.producto;
+
     this.product = producto1;
 
-    this.listaDetalle();
-    this.listarDeta();
+    //PARA VALIDAR QUE HAYA UNA FACTURA PRIMERO
+    if (this.fact2.id_factura != 0) {
+      //PARA VALIDAR PRODUCTOS EN STOCK
+      if ((producto1.stock) >= (+this.verSeleccion)) {
+        this.listaDetalle();
+        this.listarDeta();
+      } else {
+        Swal.fire({
+          title: 'Productos Faltantes',
+            icon: 'warning',
+            iconColor :'#0a0a0a', //color negro
+            color: "#9e0e0e", //color rojo
+            confirmButtonColor:"#0c3255", //color azul
+            background: "#fcfcfc", //color blanco
+        })
+        //alert("ya no hay productos")
+      }
+    } else {
+      Swal.fire({
+        title: 'Falta Datos en la Factura',
+        icon: 'warning',
+        iconColor: '#0a0a0a', //color negro
+        color: "#9e0e0e", //color rojo
+        confirmButtonColor: "#0c3255", //color azul
+        background: "#fcfcfc", //color blanco
+      })
+      //Poner el mensaje
+      //alert("Ingrese los datos de la factura")
+    }
+
+
 
   }
 
-  //LISTANDO EN LA NUEVA LISTA
+  //LISTANDO EN LA NUEVA LISTA 
   listaDetalle() {
 
-    this.idFactura = 1;
+    //this.idFactura = 1;
     //this.idProducto = this.productos[0].id_producto;
     this.cantidad = this.verSeleccion;
-    this.subTotal = (+this.verSeleccion * this.iva) + this.verSeleccion;
+    this.subTotal = this.product.pvp_producto;
+    this.total = Math.round(this.product.pvp_producto * (+this.verSeleccion) * 100) / 100;
+    console.log("estoy en el total 2 " + this.total)
 
     this.nuev = [this.idFactura, this.product, this.verSeleccion, this.subTotal]
 
@@ -180,44 +216,145 @@ export class VendedorComponent implements OnInit {
       "cantidad": +this.verSeleccion,
       "producto": this.product,
       "iva": this.iva,
-      "subtotal": +this.subTotal,
+      "subTotal": +this.subTotal,
       "total": this.total,
       "id_detalle": 0
     }
 
-    console.log(this.detalle);
+    console.log("aqui" + this.detalle);
 
-    //METODO PARA CREAR EL DETALLE
+    //METODO PARA CREAR EL DETALLE EN LA BASE
+
+    //if (this.fact2.id_factura != 0) {
+    console.log("el stock" + this.product.stock);
+    // if ((this.product.stock) >= (+this.verSeleccion)) {
     this.detalleService.create(this.detalle)
-    .subscribe(data=>{
-      this.listarDeta();
-      console.log("creado")
+      .subscribe(data => {
+        this.totalFinal = Math.round((this.totalFinal + this.total) * 100) / 100;
+        if (this.product.constIva == true) {
+          this.subtotaIva = Math.round(((this.subtotaIva) + (this.total * 0.12)) * 100) / 100;
 
-    })
+        }
+        this.totalAPagar = Math.round((this.subtotaIva + this.totalFinal) * 100) / 100;
+        this.subtotaIva12 = Math.round((this.subtotaIva + this.totalFinal) * 100) / 100;
+        this.listarFactura();
+        this.listarDeta();
+        console.log("creado")
+
+      })
+    // } else {
+    //Poner el mensaje
+    // alert("ya no hay productos")
+    //}
+
+    //} else {
+    //Poner el mensaje
+    // alert("Ingrese los datos de la factura")
+    // }
+
+
   }
 
-// METODO PARA GUARDAR UNA FACTURA
-guardar(fact:Factura2){
-  this.factService.create(fact)
-  .subscribe(data=>{
-    this.fact2 = data;
+  // METODO PARA GUARDAR UNA FACTURA
+  factuNueva: Factura2;
 
-    console.log("creado factura");
-  })
-}
-
-
-  eliminar(detal:DetalleFactura2): void {
-    if (confirm('¿Seguro deseas eliminar este Persona?')) {
-      this.detalleService.eliminarDetalle(detal)
-      .subscribe(data =>{
-        this.facN = this.facN.filter(p => p !== detal);
-      })
+  guardar(fact: Factura2) {
+    this.factuNueva = {
+      "numeroFact": this.numfac,
+      "fecha": fact.fecha,
+      "persona": fact.persona,
+      "id_factura": 0
     }
 
-    this.listarDeta();
+    this.factService.create(this.factuNueva)
+      .subscribe(data => {
+        this.fact2 = data;
+        Swal.fire({
+          title: 'Factura Asignada',
+          icon: 'success',
+          iconColor: '#17550c',
+          color: "#0c3255",
+          confirmButtonColor: "#0c3255",
+          background: "#63B68B",
+        })
+        //console.log("creado factura");
+      })
+  }
+
+
+  //METODO PARA ELIMINAR EL DETALLE AL QUITAR
+  eliminar(detal: DetalleFactura2): void {
+    if (confirm('¿Seguro deseas quitar este Producto?')) {
+      this.detalleService.eliminarDetalle(detal)
+        .subscribe(data => {
+
+          this.detalleService.resutarar(detal).subscribe(data => {
+            console.log("se restauro en el stock")
+          })
+
+          this.totalFinal = Math.round((this.totalFinal - detal.total) * 100) / 100;
+          if (this.product.constIva == true) {
+            this.subtotaIva = Math.round(((this.subtotaIva) - (this.total * 0.12)) * 100) / 100;
+
+          }
+          this.totalAPagar = Math.round((this.subtotaIva + this.totalFinal) * 100) / 100;
+          this.subtotaIva12 = Math.round((this.subtotaIva + this.totalFinal) * 100) / 100;
+          this.listarDeta();
+          //this.facN = this.facN.filter(p => p !== detal);
+        })
+    }
+
+    //this.listarDeta();
 
   }
 
+  //PARA RECAGAR LA PAGINA Y GENERAR LA FACTURA
+  generar() {
+    if (confirm("¿Generar Factura?")) {
+      Swal.fire({
+        title: 'Factura Generada éxitosamente',
+        icon: 'success',
+        iconColor: '#17550c',
+        color: "#0c3255",
+        confirmButtonColor: "#0c3255",
+        background: "#63B68B",
+      })
+      //this.router.navigate(['vendedor/vendedor']);
+      window.location.reload();
+    }
+
+  }
+
+
+  //CALCULAR EL VUELTO
+  vuelto1: number = 0;
+  vuelto2: number = 0;
+  calcuVuelto() {
+    this.vuelto1;
+    console.log("estoy precionando")
+    //this.vuelto2=this.vuelto1-100;
+    this.vuelto2 = this.totalAPagar;
+  }
+
+  //CALCULAR EL DESCUENTO
+  descuento1: number = 0;
+  descuento2: number = 0;
+  totalAPagar: number = 0;
+  calcuDescuen() {
+    this.descuento2 = Math.round(((this.subtotaIva + this.totalFinal) * (this.descuento1 / 100)) * 100) / 100;
+    this.totalAPagar = Math.round((this.subtotaIva12 - this.descuento2) * 100) / 100;
+  }
+
+  //ESCANER PARA EL CODIGO DE BARRAS
+  escaner() {
+    Swal.fire({
+      title: 'Dispositivo No Encontrado',
+      icon: 'error',
+      iconColor: '#0a0a0a', //color negro
+      color: "#9e0e0e", //color rojo
+      confirmButtonColor: "#0c3255", //color azul
+      background: "#fcfcfc", //color blanco
+    })
+  }
 
 }

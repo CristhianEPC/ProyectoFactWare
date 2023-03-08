@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/Producto';
+import { Producto2 } from 'src/app/modelo/producto2';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,14 @@ import Swal from 'sweetalert2';
 })
 export class EditarProductoComponent implements OnInit {
 
+  //Variables de registrar el producto
+  constIva: boolean = false;
+  vali:number=0;
+  utilida:number;
+  pvp:number;
+
   producto:Producto = new Producto();
+  productoN = new Producto2();
 
   constructor(private router: Router,private service:ProductoService) { }
 
@@ -27,14 +35,6 @@ export class EditarProductoComponent implements OnInit {
     .subscribe(data=>{
       this.producto = data;
     })
-
-    // if (id != null) {
-    //   this.service.getProveedorId(+id)
-    //     .subscribe(data => {
-    //       console.log(data);
-    //       this.proveedor = data;
-    //     })
-    // }
 
   }
 
@@ -53,6 +53,26 @@ export class EditarProductoComponent implements OnInit {
         //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProduc'])
       })
+  }
+
+  tieneIVA() {
+
+    if (document.getElementById('check').click) {  
+      this.vali = this.vali+1;
+      console.log(this.vali);
+    }
+
+    if(this.vali==1){
+      console.log("es verdadero")
+      this.constIva = true;
+    }
+
+    if(this.vali==2){
+      console.log("es falso")
+      this.constIva = false;
+      this.vali=0;
+    }
+    
   }
 
 }

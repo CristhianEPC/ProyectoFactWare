@@ -17,6 +17,7 @@ interface Producto {
     pvp_producto: number ;
     utilidad_producto: number ;
     estadoIVA_producto: string ;
+    constIva:boolean;
     // id_proveedor: Proveedor;
 }
 
