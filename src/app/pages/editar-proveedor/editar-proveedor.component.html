@@ -29,7 +29,7 @@
             <form action="" (ngSubmit)="Editar()">
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input  name="nombre_proveedor" type="text" class="form-control" 
+                    <input  name="nombre_proveedor" type="text"  placeholder="Ingrese solo letras" onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" 
                     [(ngModel)] ="proveedor.nombre_proveedor">
                 </div>
                 <div class="form-group">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Teléfono</label>
-                    <input name="proveedor_telefono" type="text" class="form-control"
+                    <input name="proveedor_telefono" type="number" class="form-control"
                     [(ngModel)] ="proveedor.telefono_proveedor">
                 </div>
         
