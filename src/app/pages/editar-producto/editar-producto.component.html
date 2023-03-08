@@ -48,12 +48,7 @@
                     [(ngModel)] ="producto.costo_producto">
                 </div>
                 <div class="form-group">
-                    <label for="">PVP del Producto</label>
-                    <input name="pvp_producto" type="text" class="form-control"
-                    [(ngModel)] ="producto.pvp_producto">
-                </div>
-                <div class="form-group">
-                    <label for="">Utilidad del Producto</label>
+                    <label for="">Utilidad del Producto (0%)</label>
                     <input name="utilidad_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.utilidad_producto">
                 </div>
@@ -61,6 +56,16 @@
                     <label for="">Estado del Producto</label>
                     <input name="estadoIVA_producto" type="text" placeholder="Ingrese solo letras" onkeydown="return /[a-zA-Z ]/i.test(event.key)"   class="form-control"
                     [(ngModel)] ="producto.estadoIVA_producto">
+                </div>
+                <div class="form-group">
+                    <label for="">Tiene IVA el producto</label>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineFormCheck" name="si" id="check"
+                        (change)="tieneIVA()">
+                    <label class="form-check-label" for="inlineFormCheck">
+                        Si
+                    </label>
+                </div>
                 </div>
         
                 <button (click)="Actualizar(producto)" class="btn btn-danger">Guardar</button>
