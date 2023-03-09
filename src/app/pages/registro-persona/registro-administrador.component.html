@@ -26,41 +26,89 @@
             <h1>Agregar Persona</h1>
         </div>
         <div class="card-body">
-            <form action="">
+            <form action="" name="fvalidar" ngNativeValidate [formGroup]="myForm"  >
                 <div class="form-group">
                     <label for="">Cédula</label>
-                    <input  name="cedula" type="text" class="form-control" 
-                    [(ngModel)] ="persona.cedula"  required pattern="^[0-9]*$" min="10" max="10"
+                    <input   name="cedula" type="number" class="form-control"  formControlName="cedula"
+                    [(ngModel)] ="persona.cedula"   minlength="10" maxlength="10" required pattern="^[0-9]*$"
                     title="La cédula consta  de 10 dígitos.">
                 </div>
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input name="nombre_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.nombre_persona"  minlength="3"  required pattern="[a-zA-Z ]*" title="El nombre debe tener minimo 3 letras." >
+                    <input id="idnombre" name="nombre_persona" type="text" class="form-control"  formControlName="nombre"
+                    [(ngModel)] ="persona.nombre_persona"  minlength="3"  title="El nombre debe tener minimo 3 letras."  required pattern="[a-zA-Z ]*">
                 </div>
                 <div class="form-group">
                     <label for="">Apellido</label>
-                    <input name="apellido_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.apellido_persona" minlength="3"  required pattern="[a-zA-Z ]*" title="El apellido debe tener minimo 3 letras.">
+                    <input name="apellido_persona" type="text" class="form-control"   formControlName="apellido"
+                    [(ngModel)] ="persona.apellido_persona" minlength="3"   title="El apellido debe tener minimo 3 letras." required pattern="[a-zA-Z ]*">
                 </div>
                 <div class="form-group">
                     <label for="">Dirección</label>
-                    <input name="direccion_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.direccion_persona" minlength="4"  required pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]*" title="La dirección debe tener un minimo de 4 letras">
+                    <input name="direccion_persona" type="text" class="form-control"   formControlName="direccion"
+                    [(ngModel)] ="persona.direccion_persona" minlength="4"  required pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]*" title="La dirección debe tener un minimo de 4 letras" >
                 </div>
                 <div class="form-group">
                     <label for=""> Teléfono </label>
-                    <input name="telefono_persona" type="number" class="form-control"
-                    [(ngModel)] ="persona.telefono_persona" minlength="10" maxlength="10"  required pattern="^[0-9]*$" name="Telefono"
-                    title="El número de teléfono debe tener 10 numeros" formControlName="cedula" >
+                    <input name="telefono_persona" type="text" class="form-control"   formControlName="telefono"
+                    [(ngModel)] ="persona.telefono_persona" minlength="10" maxlength="10"   name="Telefono" required pattern="^[0-9]*$"
+                    title="El número de teléfono debe tener 10 numeros"  >
                 </div>
                 <div class="form-group">
                     <label for="">Correo</label>
-                    <input name="correo_persona" type="email" class="form-control"
-                    [(ngModel)] ="persona.correo_persona">
+                    <input  type="email" class="form-control"  formControlName="correo" id="email" name="email" value="" required
+                    [(ngModel)] ="persona.correo_persona" >
                 </div>
-                <button (click)="guardar(persona)" class="btn btn-danger">Guardar</button>
+                <button id="btnenviar" (click)="guardar(persona)" class="btn btn-danger" type="submit" >Guardar</button>
             </form>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    
+/*    function valida_envia(){
+   	//valido el nombre
+       miCampoTexto = document.getElementById("idnombre").value;
+        //la condición
+        if (miCampoTexto.length == 0) {
+            alert("Tiene que escribir su nombre")
+            return false;
+        }
+        return true;
+  
+}
+
+$(document).ready(function() {
+    $('#btnenviar').click(function() {
+        var value = document.getElementById('idnombre').value;
+        if (value === '') {
+            alert('Enter your name');
+        }
+    })
+}); */
+
+function comprobarNombre(valor, campo) {
+  
+  var mensaje = "";
+  
+  // comprobar los posibles errores
+  if (this.value == "") {
+    mensaje = "El email no puede estar vacío";
+  } else if (this.value.indexOf("@") < 0) {
+    mensaje = "El email debe contener una @";
+  } else if (this.value.indexOf(".com", this.value.indexOf("@")) < 0) {
+    mensaje = "El email debe contener .com detras de la @";
+  } 
+  
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var email = document.querySelector("#email");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+email.addEventListener("invalid", comprobarNombre);
+email.addEventListener("input", comprobarNombre);
+
+
+</script>
