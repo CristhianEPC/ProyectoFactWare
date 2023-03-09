@@ -19,28 +19,19 @@ export class RegistroProveedorComponent implements OnInit {
   }
 
   guardar(proveedor:Proveedor){
-    if(proveedor.nombre_proveedor !="" && proveedor.telefono_proveedor !="" && proveedor.direccion_proveedor !=""){
-      this.service.create(proveedor)
-      .subscribe(data=>{
-        Swal.fire({
-          title: 'Proveedor Guardado éxitosamente',
-          icon: 'success',
-          iconColor :'#17550c',
-          color: "#0c3255",
-          confirmButtonColor:"#0c3255",
-          background: "#63B68B",
-        })
-        //alert("Se guardo...!!")
-        this.router.navigate(['admin/crudProvee']);
-      })
-    }else{
+    this.service.create(proveedor)
+    .subscribe(data=>{
       Swal.fire({
-        icon: 'error',
-        title: 'Existen campos vacios'
-       
-       
+        title: 'Proveedor Guardado éxitosamente',
+        icon: 'success',
+        iconColor :'#17550c',
+        color: "#0c3255",
+        confirmButtonColor:"#0c3255",
+        background: "#63B68B",
       })
-    }
-   
+      //alert("Se guardo...!!")
+      this.router.navigate(['admin/crudProvee']);
+    })
   }
+
 }

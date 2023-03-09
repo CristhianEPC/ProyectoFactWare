@@ -8,6 +8,39 @@ export class DetalleFactura2 {
     producto: Producto | undefined;
     factura: Factura | undefined;
 
+
+    constructor(factura: Factura , cantidad: number,   producto: Producto,     iva: number ,  subTotal: number, total: number ,   id_detalle: number) {
+        this.factura = factura;
+        this.cantidad = cantidad;
+        this. producto =  producto;
+        this.iva=   iva;
+        this. subTotal =  subTotal;
+        this. total =  total;
+        this. id_detalle =  id_detalle;
+      }
+
+
+// Define el método `[Symbol.iterator]()` que devuelve el iterador
+[Symbol.iterator]() {
+    let index = 0;
+    const values = Object.values(this);
+
+    // Define el método `next()` que devuelve el siguiente valor del iterador
+    return {
+      next: () => {
+        if (index < values.length) {
+          return { value: values[index++], done: false };
+        } else {
+          return { value: undefined, done: true };
+        }
+      }
+    };
+  }
+
+
+
+
+
 }
 
 interface Producto{

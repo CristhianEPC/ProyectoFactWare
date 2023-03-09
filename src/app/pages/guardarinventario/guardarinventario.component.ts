@@ -56,8 +56,12 @@ Listado() {
         }))
     }else{
       Swal.fire({
+        title: 'existen campos vacios',
         icon: 'error',
-        title: 'Existen campos vacios'
+        iconColor :'#17550c',
+        color: "#0c3255",
+        confirmButtonColor:"#0c3255",
+        background: "#63B68B",
       })
     }
    
