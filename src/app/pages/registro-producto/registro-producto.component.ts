@@ -55,15 +55,11 @@ this.productoN={
 console.log(this.productoN)
     
 
+if(producto.nombre_producto != "" && producto.descripcion_producto != ""
+&& producto.codigoBarras_producto > 0 && producto.costo_producto > 0
+&& producto.utilidad_producto > 0 && producto.proveedor != null){
 
-if(producto.nombre_producto == null || producto.nombre_producto == ""){
-  alert("el campo esta vacio");
-}else{
-  if(producto.descripcion_producto ==  null || producto.descripcion_producto == ""){
-    alert("el campo esta vacio descripcion");
-  }
-  else{
-    this.service.createProducto(this.productoN)
+  this.service.createProducto(this.productoN)
       .subscribe(data => {
         Swal.fire({
           title: 'Producto Guardado éxitosamente',
@@ -76,9 +72,14 @@ if(producto.nombre_producto == null || producto.nombre_producto == ""){
         //alert("Se guardo...!!")
         this.router.navigate(['admin/crudProduc']);
       })
-  }
-  
+
+}else {
+
+  Swal.fire('Llene todos los campos', '', 'info')
 }
+
+  
+
     
   }
   

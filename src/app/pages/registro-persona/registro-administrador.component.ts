@@ -12,26 +12,37 @@ import Swal from 'sweetalert2';
 export class RegistroAdministradorComponent implements OnInit {
 
   persona = new Persona();
-  
-  constructor(private router:Router, private service:PersonaService) { }
+
+  constructor(private router: Router, private service: PersonaService) { }
 
   ngOnInit(): void {
   }
 
-  guardar(persona:Persona){
-    this.service.create(persona)
-    .subscribe(data=>{
-      Swal.fire({
-        title: 'Persona Guardado éxitosamente',
-        icon: 'success',
-        iconColor :'#17550c',
-        color: "#0c3255",
-        confirmButtonColor:"#0c3255",
-        background: "#63B68B",
-      })
-      //alert("Se agrego con exito..!");
-      this.router.navigate(['admin/crudAdmin']);
-    })
+  guardar(persona: Persona) {
+
+    if (persona.cedula != "" && persona.nombre_persona != ""
+      && persona.apellido_persona != "" && persona.direccion_persona != ""
+      && persona.telefono_persona != "" && persona.correo_persona != "") {
+
+      this.service.create(persona)
+        .subscribe(data => {
+          Swal.fire({
+            title: 'Persona Guardado éxitosamente',
+            icon: 'success',
+            iconColor: '#17550c',
+            color: "#0c3255",
+            confirmButtonColor: "#0c3255",
+            background: "#63B68B",
+          })
+          //alert("Se agrego con exito..!");
+          this.router.navigate(['admin/crudAdmin']);
+        })
+
+    } else {
+      Swal.fire('Llene todos los campos', '', 'info')
+    }
+
+
   }
 
 }
