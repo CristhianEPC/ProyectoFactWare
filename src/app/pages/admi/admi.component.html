@@ -1,5 +1,3 @@
-
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -16,11 +14,11 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-  </section>
-   <!-- Main content -->
+</section>
+<!-- Main content -->
 
-   
- <div class="content">
+
+<div class="content">
 
     <div class="container-fluid">
 
@@ -38,7 +36,8 @@
                     <div class="icon">
                         <i class="ion ion-clipboard"></i>
                     </div>
-                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -54,7 +53,8 @@
                     <div class="icon">
                         <i class="ion ion-cash"></i>
                     </div>
-                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -70,7 +70,8 @@
                     <div class="icon">
                         <i class="ion ion-ios-cart"></i>
                     </div>
-                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -86,7 +87,8 @@
                     <div class="icon">
                         <i class="ion ion-ios-pie"></i>
                     </div>
-                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -102,7 +104,8 @@
                     <div class="icon">
                         <i class="ion ion-android-remove-circle"></i>
                     </div>
-                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -118,7 +121,8 @@
                     <div class="icon">
                         <i class="ion ion-android-calendar"></i>
                     </div>
-                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a style="cursor:pointer;" class="small-box-footer">Mas Info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -147,11 +151,11 @@
                             </button>
 ---------->
 
-                  <!---------         </div>   ----------> <!-- ./ end card-tools -->
+            <!---------         </div>   ----------> <!-- ./ end card-tools -->
 
-             <!---------            </div> ----------> <!-- ./ end card-header -->
-                 
-   <!---------   
+            <!---------            </div> ----------> <!-- ./ end card-header -->
+
+            <!---------   
                     <div class="card-body">
 
                         <div class="chart">
@@ -163,7 +167,7 @@
                         </div>
 
                     </div>----------> <!-- ./ end card-body -->
-   <!---------  
+            <!---------  
                 </div>
 
             </div>
@@ -200,7 +204,8 @@
 
                         <div class="chart">
 
-                            <div id="chartContainer" style="min-height: 250px; height: 300px; max-height: 350px; width: 100%;"></div>
+                            <div id="chartContainer"
+                                style="min-height: 250px; height: 300px; max-height: 350px; width: 100%;"></div>
 
                         </div>
 
@@ -239,7 +244,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr class="text-center text-start" *ngFor="let item of listaVendido">
+                                        <td>{{item.producto.nombre_producto}}</td>
+                                        <td>{{item.cantidad}}</td>
+                                        <td>{{item.total}}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -263,14 +272,20 @@
                         <div class="table-responsive">
                             <table class="table" id="tbl_productos_poco_stock">
                                 <thead>
-                                    <tr class="text-danger">
+                                    <tr class="text-danger text-center">
                                         <!-- <th>Cod. producto</th> -->
                                         <th>Producto</th>
                                         <th class="text-center">Stock Actual</th>
                                         <th class="text-center">Mín. Stock</th>
                                     </tr>
                                 </thead>
-                                <tbody></tbody>
+                                <tbody>
+                                    <tr class="text-center text-start" *ngFor="let item of listaProduc">
+                                        <th>{{item.nombre_producto}}</th>
+                                        <th>{{item.stock}}</th>
+                                        <th>25</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div> <!-- ./ end card-body -->

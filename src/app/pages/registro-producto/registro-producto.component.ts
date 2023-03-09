@@ -56,6 +56,13 @@ console.log(this.productoN)
     
 
 
+if(producto.nombre_producto == null || producto.nombre_producto == ""){
+  alert("el campo esta vacio");
+}else{
+  if(producto.descripcion_producto ==  null || producto.descripcion_producto == ""){
+    alert("el campo esta vacio descripcion");
+  }
+  else{
     this.service.createProducto(this.productoN)
       .subscribe(data => {
         Swal.fire({
@@ -69,6 +76,10 @@ console.log(this.productoN)
         //alert("Se guardo...!!")
         this.router.navigate(['admin/crudProduc']);
       })
+  }
+  
+}
+    
   }
   
 

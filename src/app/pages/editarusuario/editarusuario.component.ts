@@ -37,6 +37,17 @@ usuario:Usuarios= new Usuarios();
 
   
     Actualizar(usuarios: Usuarios) {
+
+      Swal.fire({
+        title: '¿Desea modificar los campos?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'SI',
+            denyButtonText: `NO`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+      //COLOCAR EL CODIGO A EJECUTAR
       this.usuarioService.updateUsuario(usuarios)
       .subscribe(data=>  
         Swal.fire({
@@ -47,6 +58,14 @@ usuario:Usuarios= new Usuarios();
           confirmButtonColor:"#0c3255",
           background: "#63B68B",
         }))
+              //FIN DEL CODIGO A EJECUTAR
+          //Swal.fire('Modificado!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Ningun campo modificado', '', 'info')
+        }
+      })
+
+      
     }
   
   

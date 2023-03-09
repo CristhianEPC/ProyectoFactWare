@@ -3,9 +3,6 @@ import { Inventario } from 'src/app/modelo/Inventario';
 import { InventarioService } from 'src/app/servicios/api/inventario.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { data } from 'jquery';
-import { Producto } from 'src/app/modelo/Producto';
-import { ProductoService } from 'src/app/servicios/api/producto.service';
 
 @Component({
   selector: 'app-editarinventario',
@@ -14,8 +11,7 @@ import { ProductoService } from 'src/app/servicios/api/producto.service';
 })
 export class EditarinventarioComponent implements OnInit {
  inventario:Inventario = new Inventario();
-producto:Producto = new Producto();
-  constructor(private router: Router,private serviceInventario:InventarioService, private serviceProducto:ProductoService) { }
+  constructor(private router: Router,private serviceInventario:InventarioService) { }
 
   ngOnInit(): void {
   this.Editar();
@@ -25,18 +21,10 @@ producto:Producto = new Producto();
   Editar() {
 
     let id = localStorage.getItem("id");
-    let id2 = localStorage.getItem("id2");
-    this.serviceProducto.getProductoId(Number(id))
-    .subscribe(data=>{
-      this.producto = data;
-      console.log(data);
-    })
     this.serviceInventario.getInventarioId(Number(id))
     .subscribe(data=>{
       this.inventario = data;
-      console.log(data);
     })
-
 
  
 
@@ -45,8 +33,18 @@ producto:Producto = new Producto();
  
 
     Actualizar(inventario: Inventario) {
-      if(inventario.cantidad_inventario >0 && inventario.fechaEntrega != null){
-        this.serviceInventario.updateInventario(inventario)
+
+      Swal.fire({
+        title: '¿Desea modificar los campos?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'SI',
+            denyButtonText: `NO`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+      //COLOCAR EL CODIGO A EJECUTAR
+      this.serviceInventario.updateInventario(inventario)
       .subscribe(data =>  
         Swal.fire({
           title: 'Inventario modificado éxitosamente',
@@ -56,16 +54,13 @@ producto:Producto = new Producto();
           confirmButtonColor:"#0c3255",
           background: "#63B68B",
         }))
-      }else{
-        Swal.fire({
-          title: 'existen campos vacios',
-          icon: 'error',
-          iconColor :'#17550c',
-          color: "#0c3255",
-          confirmButtonColor:"#0c3255",
-          background: "#63B68B",
-        })
-      }
+              //FIN DEL CODIGO A EJECUTAR
+          //Swal.fire('Modificado!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Ningun campo modificado', '', 'info')
+        }
+      })
+
       
     }
   
@@ -75,7 +70,5 @@ producto:Producto = new Producto();
       this.router.navigate(['admin/regisInvent']);
     }
     
-    
-   
 
 }
