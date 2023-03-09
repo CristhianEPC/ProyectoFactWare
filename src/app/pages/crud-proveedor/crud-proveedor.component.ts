@@ -38,20 +38,45 @@ export class CrudProveedorComponent implements OnInit {
   }
 
   eliminar(proveedor: Proveedor): void {
-    if (confirm('¿Seguro deseas eliminar este proveedor?')) {
-      this.proveedorService.deleteProveedor(proveedor)
+
+    Swal.fire({
+      title: '¿Esta Seguro?',
+          text: "No será capaz de revertirlo!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si, Borrarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+    //COLOCAR EL CODIGO A EJECUTAR
+    this.proveedorService.deleteProveedor(proveedor)
         .subscribe(data => {
           this.proveedor = this.proveedor.filter(p => p !== proveedor);
-          Swal.fire({
-            title: 'Proveedor Eliminado éxitosamente',
-            icon: 'success',
-            iconColor :'#17550c',
-            color: "#0c3255",
-            confirmButtonColor:"#0c3255",
-            background: "#63B68B",
-          })
+          // Swal.fire({
+          //   title: 'Proveedor Eliminado éxitosamente',
+          //   icon: 'success',
+          //   iconColor :'#17550c',
+          //   color: "#0c3255",
+          //   confirmButtonColor:"#0c3255",
+          //   background: "#63B68B",
+          // })
           //alert("Se elimino...!!")
+          Swal.fire(
+            'Borrado!',
+                'Su archivo ha sido borrado.',
+                'success'
+          )
         });
+            //FIN DEL CODIGO A EJECUTAR
+        
+      }
+    })
+    
+
+
+    if (confirm('¿Seguro deseas eliminar este proveedor?')) {
+      
     }
 
   }

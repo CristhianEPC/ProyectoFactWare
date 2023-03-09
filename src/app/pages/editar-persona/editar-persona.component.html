@@ -27,49 +27,37 @@
         <div class="card-body">
             <form action="" (ngSubmit)="Editar()">
                 <div class="form-group">
-                    <label for="">Cedula</label>
-                    <input  name="input" type="text"  id="i1" class="form-control"  
-                    [(ngModel)] ="persona.cedula"  pattern="^[0-9]*$" min="10" max="10" title="La cédula consta  de 10 dígitos." required >
+                    <label for="">Cédula</label>
+                    <input  name="cedula" type="text" class="form-control" 
+                    [(ngModel)] ="persona.cedula">
                 </div>
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input name="input"  class="i1" type="text" class="form-control"
-                    [(ngModel)] ="persona.nombre_persona" minlength="3"  required pattern="[a-zA-Z ]*" title="El nombre debe tener minimo 3 letras.">
+                    <input name="nombre_persona" type="text" class="form-control"
+                    [(ngModel)] ="persona.nombre_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Apellido</label>
-                    <input name="input" type="text" class="form-control"
-                    [(ngModel)] ="persona.apellido_persona" minlength="3"  required pattern="[a-zA-Z ]*" title="El apellido debe tener minimo 3 letras.">
+                    <input name="apellido_persona" type="text" class="form-control"
+                    [(ngModel)] ="persona.apellido_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Dirección</label>
-                    <input name="input "type="text" class="form-control"
-                    [(ngModel)] ="persona.direccion_persona" minlength="4" required pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]*"  title="La dirección debe tener un minimo de 4 letras">
+                    <input name="direccion_persona" type="text" class="form-control"
+                    [(ngModel)] ="persona.direccion_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Teléfono</label>
-                    <input name="input" type="text" class="form-control" minlength="10" maxlength="10"  required pattern="^[0-9]*$" name="Telefono" 
-                    [(ngModel)] ="persona.telefono_persona"  title="El número de teléfono debe tener 10 numeros">
+                    <input name="telefono_persona" type="text" class="form-control"
+                    [(ngModel)] ="persona.telefono_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Correo</label>
-                    <input name="input"   type="email"  [email]="true" matInput placeholder="Correo" class="form-control" 
-                    [(ngModel)] ="persona.correo_persona"  title="El correo debe contener un @"/>
+                    <input name="correo_persona" type="text" class="form-control"
+                    [(ngModel)] ="persona.correo_persona">
                 </div>
                 <button (click)="Actualizar(persona)" class="btn btn-danger">Actualizar</button>
             </form>
         </div>
     </div>
 </div>
-<script>
-    document.getElementById("i1").addEventListener("keyup", myFunction);
-    function myFunction() {
-		var campo = document.getElementById('i1');
-    if (campo.value == '') {
-    	campo.style.backgroundColor="red"
-    }
-    else {
-      campo.style.backgroundColor= "green";
-    }
-}
-</script>

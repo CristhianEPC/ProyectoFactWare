@@ -28,30 +28,42 @@ export class EditarClienteComponent implements OnInit {
       this.persona=data;
     })
 
-    // if (id != null) {
-    //   this.service.getPersonaId(+id)
-    //     .subscribe(data => {
-    //       console.log(data);
-    //       this.persona = data;
-    //     })
-    // }
-
   }
   Actualizar(persona: Persona) {
-    this.service.updatePersona(persona)
-      .subscribe(data => {
-        this.persona = data;
-        Swal.fire({
-          title: 'Cliente Modificado éxitosamente',
-          icon: 'success',
-          iconColor :'#17550c',
-          color: "#0c3255",
-          confirmButtonColor:"#0c3255",
-          background: "#63B68B",
+
+    Swal.fire({
+      title: '¿Desea modificar los campos?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'SI',
+      denyButtonText: `NO`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        //PONER EL CODIGO A EJECUTAR
+        this.service.updatePersona(persona)
+        .subscribe(data => {
+          this.persona = data;
+          Swal.fire({
+            title: 'Cliente Modificado éxitosamente',
+            icon: 'success',
+            iconColor :'#17550c',
+            color: "#0c3255",
+            confirmButtonColor:"#0c3255",
+            background: "#63B68B",
+          })
+          //alert("Se Actualiazo");
+          this.router.navigate(['vendedor/crudCliente'])
         })
-        //alert("Se Actualiazo");
-        this.router.navigate(['vendedor/crudCliente'])
-      })
+        //FIN DEL CODIGO A EJECUTAR
+        //Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Ningun campo modificado', '', 'info')
+      }
+    })
+
+
+    
   }
 
 
