@@ -32,8 +32,8 @@
 
                     <div class="form-group">
                         <label for="">Producto</label>
-                        <input  name="id_producto" type="text" class="form-control" disabled
-                        [(ngModel)] ="inventario.id_producto">
+                        <input  name="id_producto" type="text" class="form-control" 
+                        [(ngModel)] ="producto.id_producto" disabled>
                     </div>
 
                     <div class="form-group">
@@ -43,6 +43,12 @@
                     </div>
                     <div class="form-group">
                         <label for="">Fecha</label>
+                        <input name="inventario_cantidad" type="text" class="form-control"
+                        [(ngModel)] ="inventario.fechaEntrega" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Nueva Fecha</label>
                         <input name="inventario" type="date" class="form-control"
                         [(ngModel)] ="inventario.fechaEntrega">
                     </div>
@@ -64,7 +70,8 @@
         <h5 class="card-header">Acciones</h5>
         <div class="card-body">
             <div class="buttons">
-                <a href="#" class="btn btn-1 ">Limpiar</a>
+                
+             <!--  <a  class="btn btn-1" (click)="">Cancelar</a>---> 
                 <a  class="btn btn-3 " (click)="Listado()">Ver Listado</a>
             </div>
         </div>

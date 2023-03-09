@@ -56,7 +56,11 @@
                                             </option>
                                         </datalist>
                                         <button class="btn btn-primary" type="button" id="button-addon2"
-                                            (click)="Agregar()">Agregar Nuevo</button>
+                                            (click)="Agregar()">
+                                            Agregar Nuevo <i class="fas  fa-user-plus"></i> </button>
+                                           
+                                              
+                                           
                                     </div>
                                     <br>
 
@@ -179,7 +183,10 @@
 
                     </div>
                 </div>
-                <button (click)="guardar(fac)" class="btn btn-secondary">Asignar factura</button>
+                <button (click)="guardar(fac)" (click)="encontrarPersona()" class="btn btn-secondary">Asignar factura <i class="fas  fa-hand-pointer"></i> </button>
+                <!-------
+                <button (click)="createPdf()"  class="btn btn-secondary">ver cuerpo</button>-------->
+
             </div>
         </div>
 
@@ -234,10 +241,10 @@
                                     <div class="form-group">
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
-                                        Agregar Productos
+                                        Agregar Productos <i class="fas   fa-cubes"></i>
                                     </button>
 
-                                    <button (click)="escaner()" class="btn btn-secondary" style="margin-left: 10px; background-color: cornflowerblue;">Lector de Código</button>
+                                    <button (click)="escaner()" class="btn btn-secondary" style="margin-left: 10px; background-color: cornflowerblue;">Lector de Código <i class="fas   fa-th"></i> </button>
                                     </div>
                                     
 
@@ -284,7 +291,7 @@
                                                                     <button
                                                                         (click)="agregarProduc(item,identificador.value)"
                                                                         type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Agregar</button>
+                                                                        data-bs-dismiss="modal"> <i class="fas fa-plus-square"></i> </button>
                                                                 </td>
 
                                                                 <!-- <button (click)="agregarProduc(item)" class="btn btn-lg">Agregar</button> -->
@@ -372,7 +379,7 @@
                                             [(ngModel)]="detalle.cantidad"></td> -->
                                             <td>{{item2.total}}</td>
                                             <td>
-                                                <button (click)="eliminar(item2)" class="btn btn-danger">Quitar</button>
+                                                <button (click)="eliminar(item2)" class="btn btn-danger"><i class="fas fa-trash"></i>  </button>
                                             </td>
 
                                         </tr>
@@ -590,7 +597,7 @@
                 <h2 class="text-center"><strong> Acciones</strong> </h2>
             </div>
             <div class="card-body">
-                <button (click)="generar()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(96, 99, 96);">Generar factura</button>
+                <button (click)="generar()" (click)="createPdf()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(96, 99, 96);">Generar factura  <i class="fas   fa-cart-plus"></i> </button>
                 <button type="button" class="btn btn-primary btn-lg" >Generar SRI</button>
             </div>
         </div>
