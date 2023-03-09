@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelo/Producto';
 import { Producto2 } from 'src/app/modelo/producto2';
+import { Proveedor } from 'src/app/modelo/Proveedor';
 import { ProductoService } from 'src/app/servicios/api/producto.service';
+import { ProveedorService } from 'src/app/servicios/api/proveedor.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,12 +20,16 @@ export class EditarProductoComponent implements OnInit {
   utilida:number;
   pvp:number;
 
-  producto:Producto = new Producto();
+  listaProveedor: Proveedor[] = [];
+  producto:Producto2 = new Producto2();
   productoN = new Producto2();
 
-  constructor(private router: Router,private service:ProductoService) { }
+  constructor(private router: Router,private service:ProductoService, private service2: ProveedorService) { }
 
   ngOnInit(): void {
+    this.service2.getProveedor().subscribe(
+      listaProve => this.listaProveedor = listaProve
+    );
     this.Editar();
   }
 
@@ -38,7 +44,18 @@ export class EditarProductoComponent implements OnInit {
 
   }
 
-  Actualizar(producto: Producto) {
+  Actualizar(producto: Producto2) {
+
+    Swal.fire({
+      title: '¿Desea modificar los campos?',
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'SI',
+          denyButtonText: `NO`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+    //COLOCAR EL CODIGO A EJECUTAR
     this.service.updateProducto(producto)
       .subscribe(data => {
         this.producto = data;
@@ -52,7 +69,15 @@ export class EditarProductoComponent implements OnInit {
         })
         //alert("Se Actualiazo");
         this.router.navigate(['admin/crudProduc'])
-      })
+      });
+            //FIN DEL CODIGO A EJECUTAR
+        //Swal.fire('Modificado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Ningun campo modificado', '', 'info')
+      }
+    })
+
+    
   }
 
   tieneIVA() {

@@ -31,6 +31,17 @@ export class EditarPersonaComponent implements OnInit {
   }
 
   Actualizar(persona: Persona) {
+
+    Swal.fire({
+      title: '¿Desea modificar los campos?',
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'SI',
+          denyButtonText: `NO`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+    //COLOCAR EL CODIGO A EJECUTAR
     this.service.updatePersona(persona)
       .subscribe(data => {
         this.persona = data;
@@ -45,6 +56,15 @@ export class EditarPersonaComponent implements OnInit {
         //alert("Se Actualiazo");
         this.router.navigate(['admin/crudAdmin'])
       })
+            //FIN DEL CODIGO A EJECUTAR
+        //Swal.fire('Modificado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Ningun campo modificado', '', 'info')
+      }
+    })
+
+
+    
   }
 
 }

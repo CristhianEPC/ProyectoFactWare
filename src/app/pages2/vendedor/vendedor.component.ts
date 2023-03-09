@@ -381,16 +381,11 @@ export class VendedorComponent implements OnInit {
 
   }
 
-  nuevaFactura() {
-
-
-  }
-
 
   //METODO PARA ELIMINAR EL DETALLE AL QUITAR
   eliminar(detal: DetalleFactura2): void {
     Swal.fire({
-      title: 'Esta Seguro?',
+      title: '¿Esta Seguro?',
       text: "No será capaz de revertirlo!",
       icon: 'warning',
       showCancelButton: true,
@@ -495,8 +490,8 @@ export class VendedorComponent implements OnInit {
   descuento2: number = 0;
   totalAPagar: number = 0;
   calcuDescuen() {
-    this.descuento2 = Math.round(((this.subtotaIva + this.totalFinal) * (this.descuento1 / 100)) * 100) / 100;
-    this.totalAPagar = Math.round((this.subtotaIva12 - this.descuento2) * 100) / 100;
+    this.descuento2 = Math.round(((this.totalAPagar) * (this.descuento1 / 100)) * 100) / 100;
+    this.totalAPagar = Math.round((this.totalAPagar - this.descuento2) * 100) / 100;
   }
 
   //ESCANER PARA EL CODIGO DE BARRAS

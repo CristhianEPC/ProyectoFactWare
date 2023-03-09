@@ -40,7 +40,7 @@ export class RegistrarClienteComponent implements OnInit {
         background: "#63B68B",
       })
       //alert("Se agrego con exito..!");
-      this.router.navigate(['vendedor/crudCliente']);
+      this.router.navigate(['vendedor/vendedor']);
     })
   }
 

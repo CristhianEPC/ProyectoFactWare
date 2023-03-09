@@ -57,6 +57,15 @@
                     <input name="estadoIVA_producto" type="text" class="form-control"
                     [(ngModel)] ="producto.estadoIVA_producto">
                 </div>
+                <div class="select">
+                    <label for="">Proveedor</label>
+                    <select class="form-select" id="selecionarr" aria-label="Default select example" name="selecionar"
+                        [(ngModel)]="producto.proveedor">
+                        <option selected disabled> Seleccione el producto </option>
+                        <option *ngFor="let provee of listaProveedor" [value]="provee.id_proveedor">
+                            {{provee.nombre_proveedor}} </option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="">Tiene IVA el producto</label>
                     <div class="form-check">

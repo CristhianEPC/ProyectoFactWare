@@ -38,21 +38,41 @@ export class CrudProductoComponent implements OnInit {
   }
 
   eliminar(producto: Producto): void {
-    if (confirm('¿Seguro deseas eliminar este Producto?')) {
-      this.productoService.deleteProducto(producto)
+
+    Swal.fire({
+      title: '¿Esta Seguro?',
+          text: "No será capaz de revertirlo!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si, Borrarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+    //COLOCAR EL CODIGO A EJECUTAR
+    this.productoService.deleteProducto(producto)
         .subscribe(data => {
           this.producto = this.producto.filter(p => p !== producto);
-          Swal.fire({
-            title: 'Producto Eliminado éxitosamente',
-            icon: 'success',
-            iconColor :'#17550c',
-            color: "#0c3255",
-            confirmButtonColor:"#0c3255",
-            background: "#63B68B",
-          })
+          // Swal.fire({
+          //   title: 'Producto Eliminado éxitosamente',
+          //   icon: 'success',
+          //   iconColor :'#17550c',
+          //   color: "#0c3255",
+          //   confirmButtonColor:"#0c3255",
+          //   background: "#63B68B",
+          // })
           //alert("Se elimino...!!")
+          Swal.fire(
+            'Borrado!',
+                'Su archivo ha sido borrado.',
+                'success'
+          )
         });
-    }
+            //FIN DEL CODIGO A EJECUTAR
+       
+      }
+    })
+    
 
   }
 }

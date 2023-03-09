@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
 })
 export class EditarProveedorComponent implements OnInit {
 
-  proveedor:Proveedor = new Proveedor();
+  proveedor: Proveedor = new Proveedor();
 
-  constructor(private router: Router,private service:ProveedorService) { }
+  constructor(private router: Router, private service: ProveedorService) { }
 
   ngOnInit(): void {
     this.Editar();
@@ -24,9 +24,9 @@ export class EditarProveedorComponent implements OnInit {
     let id = localStorage.getItem("id");
     console.log(id);
     this.service.getProveedorId(Number(id))
-    .subscribe(data=>{
-      this.proveedor = data;
-    })
+      .subscribe(data => {
+        this.proveedor = data;
+      })
 
     // if (id != null) {
     //   this.service.getProveedorId(+id)
@@ -39,20 +39,39 @@ export class EditarProveedorComponent implements OnInit {
   }
 
   Actualizar(proveedor: Proveedor) {
-    this.service.updateProveedor(proveedor)
-      .subscribe(data => {
-        this.proveedor = data;
-        Swal.fire({
-          title: 'Proveedor Modificada éxitosamente',
-          icon: 'success',
-          iconColor :'#17550c',
-          color: "#0c3255",
-          confirmButtonColor:"#0c3255",
-          background: "#63B68B",
-        })
-        //alert("Se Actualiazo");
-        this.router.navigate(['admin/crudProvee'])
-      })
+
+    Swal.fire({
+      title: '¿Desea modificar los campos?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'SI',
+      denyButtonText: `NO`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        //COLOCAR EL CODIGO A EJECUTAR
+        this.service.updateProveedor(proveedor)
+          .subscribe(data => {
+            this.proveedor = data;
+            Swal.fire({
+              title: 'Proveedor Modificada éxitosamente',
+              icon: 'success',
+              iconColor: '#17550c',
+              color: "#0c3255",
+              confirmButtonColor: "#0c3255",
+              background: "#63B68B",
+            })
+            //alert("Se Actualiazo");
+            this.router.navigate(['admin/crudProvee'])
+          })
+        //FIN DEL CODIGO A EJECUTAR
+        //Swal.fire('Modificado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Ningun campo modificado', '', 'info')
+      }
+    })
+
+
   }
 
 }
