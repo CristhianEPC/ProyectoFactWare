@@ -111,12 +111,13 @@
               <mat-card-content>
             
                 <br>
-                <form >
+                <form action=""  ngNativeValidate [formGroup]="myForm" >
               
                 <!---- <input type="text" class="form-control" id="idpersona"  name="idpers"  [value]=" personaSele.id_persona " [(ngModel)] ="usua.persona"   />------> 
                 <div class="input-group mb-3">
                   <input type="text"  class="form-control" id="idpersona"  name="idpers"  list="datalistOptions" id="exampleDataList"
-                   placeholder="Nombre o apellido" [(ngModel)] ="usua.persona" > 
+                   placeholder="Nombre o apellido" [(ngModel)] ="usua.persona" formControlName="nombre"
+                     required  pattern="^[A-Za-z0-9]+$"> 
                   <datalist id="datalistOptions" >
                     <option *ngFor="let person of listaPersonas"  [value]="person.id_persona"  >
                         {{person.nombre_persona}}    {{person.apellido_persona}}
@@ -128,7 +129,8 @@
 
 
                 <div class="input-group mb-3">
-              <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"    [(ngModel)] ="usua.user" />
+              <input type="text" class="form-control" id="usuario"  name="usua "   placeholder="Usuario"   formControlName="usuario"
+      minlength="1"  title="El usuario debe tener minimo 1 caracteres."  required  pattern="[a-zA-Z]*"    [(ngModel)] ="usua.user" />
               <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
@@ -140,7 +142,8 @@
          
                <div class="input-group mb-3">
 
-                            <input type="text" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"   [(ngModel)] ="usua.password"  />
+                            <input type="password" class="form-control" id="pass"    name="contraseña " placeholder="Contraseña"  
+                            formControlName="contraseña"   title="La contraseña  debe tener minimo 4 caracteres."  required pattern="[A-Za-z0-9!?-]{4,12}" [(ngModel)] ="usua.password"  />
                           <div class="input-group-append">
                             <div class="input-group-text">
                              <span class="fas fa-lock"></span>

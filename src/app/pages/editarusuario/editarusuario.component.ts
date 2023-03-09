@@ -3,7 +3,7 @@ import { Usuarios } from 'src/app/modelo/Usuarios';
 import { UsuariosService } from 'src/app/servicios/api/usuarios.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-editarusuario',
   templateUrl: './editarusuario.component.html',
@@ -13,9 +13,15 @@ export class EditarusuarioComponent implements OnInit {
 
 
 usuario:Usuarios= new Usuarios();
-
-    constructor( private usuarioService:UsuariosService,private router: Router,) {
-  
+myForm:FormGroup;
+    constructor( private usuarioService:UsuariosService,private router: Router, public fb:FormBuilder) {
+      this.myForm = fb.group({
+        
+        
+        usuario: ['', Validators.required],
+        contraseña: ['', Validators.required]
+       
+      })
   
     }
   
@@ -37,6 +43,7 @@ usuario:Usuarios= new Usuarios();
 
   
     Actualizar(usuarios: Usuarios) {
+      if (this.myForm.valid){
       this.usuarioService.updateUsuario(usuarios)
       .subscribe(data=>  
         Swal.fire({
@@ -47,6 +54,9 @@ usuario:Usuarios= new Usuarios();
           confirmButtonColor:"#0c3255",
           background: "#63B68B",
         }))
+      }else{
+        alert('Revise que los campos esten llenados correctamente')
+      }
     }
   
   

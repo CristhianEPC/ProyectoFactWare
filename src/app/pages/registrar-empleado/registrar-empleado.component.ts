@@ -19,6 +19,7 @@ import { Usuario } from 'src/app/modelo/usuario';
   styleUrls: ['./registrar-empleado.component.css']
 })
 export class RegistrarEmpleadoComponent implements OnInit {
+  
   listaPersonas: Persona[]=[];
  usua : Usuario = new Usuario();
  hide = true;
@@ -27,6 +28,7 @@ usuarii:any ={
   idrol:null,
   user:null,
   pas:null
+  
 }
 
 // SaveData(form:NgForm){
@@ -38,11 +40,21 @@ usuarii:any ={
 filterPost = '';
  personaSele = new Persona();
  listaRoles: Rol[]=[];
-  constructor(private _formBuilder: FormBuilder,
+ myForm:FormGroup;
+  constructor(public fb: FormBuilder,
     private personaService:PersonaService,
     private usuarioService:UsuariosService,
     private rolesService:RolesService,
-    private router: Router) {}
+
+    private router: Router) {
+      this.myForm = fb.group({
+        
+        nombre: ['', Validators.required],
+        usuario: ['', Validators.required],
+        contraseña: ['', Validators.required]
+       
+      })
+    }
 
 
   ngOnInit(): void {
@@ -66,6 +78,7 @@ filterPost = '';
 
 
   guardarUsuario(usuario:Usuario){
+    if (this.myForm.valid){
     this.usuarioService.create(usuario)
     .subscribe(data=> 
       Swal.fire({
@@ -78,6 +91,9 @@ filterPost = '';
       }))
 
       console.log(usuario) ;
+    }else{
+        alert('Revise que los campos esten llenados correctamente')
+      }
   }
 
 
