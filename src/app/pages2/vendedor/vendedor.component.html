@@ -55,7 +55,7 @@
                                                 {{person.nombre_persona}} {{person.apellido_persona}}
                                             </option>
                                         </datalist>
-                                        <button class="btn btn-secondary" type="button" id="button-addon2"
+                                        <button class="btn btn-primary" type="button" id="button-addon2"
                                             (click)="Agregar()">Agregar Nuevo</button>
                                     </div>
                                     <br>
@@ -142,12 +142,7 @@
 
                             <div class="row g-2">
                                 <div class="col-md">
-
-                                    <!-- <div class="form-floating">
-                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder=""
-                                            value="">
-                                        <label for="floatingInputGrid">Punto de emisión</label>
-                                    </div> -->
+                                    
                                     <label for="floatingInputGrid">
                                         <h6> Punto de emisión</h6>
                                     </label>
@@ -233,13 +228,6 @@
                             </label>
                             <form>
                                 <div class="input-group mb-3">
-                                    <!------- <input class="form-control" list="datalistOptions2" id="exampleDataList" placeholder="Código de barras o nombre">
-                        <datalist id="datalistOptions2" >
-                          <option *ngFor="let produc of productos" >
-                              {{produc.codigoBarras_producto}}    |||   {{produc.nombre_producto}}
-                          </option>
-                       </datalist>
-                       <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Agregar Producto</button>------->
 
 
                                     <!-- Button trigger modal -->
@@ -274,6 +262,7 @@
                                                                 <th>NOMBRE</th>
                                                                 <th>DESCRIPCION</th>
                                                                 <th>CANTIDAD</th>
+                                                                <th>STOCK</th>
                                                                 <th>ACCIONES</th>
                                                             </tr>
                                                         </thead>
@@ -290,6 +279,7 @@
 
 
                                                                 </td>
+                                                                <td>{{item.stock}}</td>
                                                                 <td>
                                                                     <button
                                                                         (click)="agregarProduc(item,identificador.value)"
@@ -495,13 +485,6 @@
                                             placeholder="Cantidad de efectivo recibida" (click)="calcuVuelto()">
                                     </div>
 
-                                    <!-- INPUT CHECK DE EFECTIVO EXACTO -->
-                                    <!-- <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="chkEfectivoExacto">
-                                        <label class="form-check-label" for="chkEfectivoExacto">
-                                            Efectivo Exacto
-                                        </label>
-                                    </div> -->
 
                                     <!-- MOSTRAR MONTO EFECTIVO ENTREGADO Y EL VUELTO -->
                                     <div class="row mt-2">
@@ -541,7 +524,7 @@
                                             <span>SubTotal 0%</span>
                                         </div>
                                         <div class="col-md-5 text-right">
-                                            S./ <span class="" id="">{{totalFinal}}</span>
+                                            S./ <span class="" id="">{{subtotaCero}}</span>
                                         </div>
 
                                         <div class="col-md-7">
@@ -607,8 +590,8 @@
                 <h2 class="text-center"><strong> Acciones</strong> </h2>
             </div>
             <div class="card-body">
-                <button (click)="generar()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(12, 131, 12);">Generar factura</button>
-                <button type="button" class="btn btn-secondary btn-lg" style="background-color: rgb(117, 112, 9);">Generar SRI</button>
+                <button (click)="generar()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(96, 99, 96);">Generar factura</button>
+                <button type="button" class="btn btn-primary btn-lg" >Generar SRI</button>
             </div>
         </div>
 
