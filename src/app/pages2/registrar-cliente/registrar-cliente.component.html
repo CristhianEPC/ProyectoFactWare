@@ -1,4 +1,3 @@
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -15,7 +14,7 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-  </section>
+</section>
 
 <div class="container col-md-6">
     <div class="card">
@@ -26,36 +25,45 @@
             <form action="">
                 <div class="form-group">
                     <label for="">Cedula</label>
-                    <input  name="cedula" type="text" class="form-control" 
-                    [(ngModel)] ="persona.cedula">
+                    <input name="cedula" type="text" class="form-control" [(ngModel)]="persona.cedula">
                 </div>
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input name="nombre_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.nombre_persona">
+                    <input name="nombre_persona" type="text" class="form-control" [(ngModel)]="persona.nombre_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Apellido</label>
                     <input name="apellido_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.apellido_persona">
+                        [(ngModel)]="persona.apellido_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Direccion</label>
                     <input name="direccion_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.direccion_persona">
+                        [(ngModel)]="persona.direccion_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Telefono</label>
                     <input name="telefono_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.telefono_persona">
+                        [(ngModel)]="persona.telefono_persona">
                 </div>
                 <div class="form-group">
                     <label for="">Correo</label>
-                    <input name="correo_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.correo_persona">
+                    <input name="correo_persona" type="text" class="form-control" [(ngModel)]="persona.correo_persona">
                 </div>
-                <button (click)="guardar(persona)" class="btn btn-danger">Guardar</button>
+
+
             </form>
+
         </div>
+        <div class="card-footer">
+            <div class="input-group mb-3">
+                <button type="button" (click)="guardar(persona)" class="btn btn-secondary" style="background-color: green;">Guardar</button>
+                <button (click)="cancelar()" class="btn btn-primary"  style="margin-left: 70%;">Cancelar</button>
+                
+            </div>
+
+        </div>
+
     </div>
+
 </div>

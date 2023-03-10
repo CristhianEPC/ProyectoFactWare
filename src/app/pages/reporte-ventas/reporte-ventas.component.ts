@@ -10,6 +10,7 @@ import { Persona } from 'src/app/modelo/Persona';
 import { PersonaService } from 'src/app/servicios/api/persona.service';
 import { ProveedorService } from 'src/app/servicios/api/proveedor.service';
 import { Proveedor } from 'src/app/modelo/Proveedor';
+import { DetalleFactura2 } from 'src/app/modelo/detalleFactura';
 @Component({
   selector: 'app-reporte-ventas',
   templateUrl: './reporte-ventas.component.html',
@@ -20,6 +21,8 @@ export class ReporteVentasComponent implements OnInit {
   listaInventario: Inventario2[]=[];
   personas: Persona[] = [];
   proveedor: Proveedor[] = [];
+  listaVendido: DetalleFactura2[] = [];
+  
     constructor(private service:ProductoService, private inventarioService: InventarioService, private personaService: PersonaService, private proveedorService: ProveedorService) { }
 
   ngOnInit(): void {
@@ -27,6 +30,12 @@ export class ReporteVentasComponent implements OnInit {
     .subscribe(data=>{
       this.productos=data;
     })
+
+    this.service.getVendido().subscribe(
+      data => {
+        this.listaVendido = data;
+      }
+    )
 
     this.listarInventario();
     this.listaProveedor();
