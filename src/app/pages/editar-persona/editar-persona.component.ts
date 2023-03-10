@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Persona } from 'src/app/modelo/Persona';
 import { PersonaService } from 'src/app/servicios/api/persona.service';
 import Swal from 'sweetalert2';
-
+import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-editar-persona',
   templateUrl: './editar-persona.component.html',
@@ -12,8 +12,17 @@ import Swal from 'sweetalert2';
 export class EditarPersonaComponent implements OnInit {
 
   persona:Persona = new Persona();
-  
-  constructor(private router: Router, private service: PersonaService) { }
+  myForm:FormGroup;
+  constructor(private router: Router, private service: PersonaService, public fb:FormBuilder) { 
+    this.myForm = fb.group({
+      cedula: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      correo: ['', Validators.required],
+      telefono: ['', Validators.required],
+      direccion: ['', Validators.required]
+    })
+  }
 
   ngOnInit(): void {
     this.Editar();
@@ -31,6 +40,7 @@ export class EditarPersonaComponent implements OnInit {
   }
 
   Actualizar(persona: Persona) {
+    if (this.myForm.valid) {
 
     Swal.fire({
       title: '¿Desea modificar los campos?',
@@ -62,6 +72,9 @@ export class EditarPersonaComponent implements OnInit {
         Swal.fire('Ningun campo modificado', '', 'info')
       }
     })
+  } else {
+    Swal.fire('Llene todos los campos')
+  }
 
 
     

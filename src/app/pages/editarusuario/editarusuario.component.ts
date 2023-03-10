@@ -55,7 +55,7 @@ myForm:FormGroup;
           background: "#63B68B",
         }))
       }else{
-        alert('Revise que los campos esten llenados correctamente')
+        Swal.fire('Revise que los campos esten llenados correctamente')
       }
     }
   

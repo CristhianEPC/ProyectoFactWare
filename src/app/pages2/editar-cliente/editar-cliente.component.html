@@ -23,36 +23,38 @@
             <h1>Modificar Clientes</h1>
         </div>
         <div class="card-body">
-            <form action="" (ngSubmit)="Editar()">
+            <form action="" (ngSubmit)="Editar()" ngNativeValidate [formGroup]="myForm" >
                 <div class="form-group">
-                    <label for="">Cedula</label>
-                    <input  name="cedula" type="text" class="form-control" 
-                    [(ngModel)] ="persona.cedula">
+                    <label for="">Cédula</label>
+                    <input   name="cedula" type="number" class="form-control"  formControlName="cedula"
+                    [(ngModel)] ="persona.cedula"   minlength="10" maxlength="10" required pattern="^[0-9]*$"
+                    title="La cédula consta  de 10 dígitos.">
                 </div>
-                <div class="form-group">
+               <div class="form-group">
                     <label for="">Nombre</label>
-                    <input name="nombre_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.nombre_persona">
+                    <input id="idnombre" name="nombre_persona" type="text" class="form-control"  formControlName="nombre"
+                    [(ngModel)] ="persona.nombre_persona"  minlength="3"  title="El nombre debe tener minimo 3 letras."  required pattern="[a-zA-Z ]*">
                 </div>
                 <div class="form-group">
                     <label for="">Apellido</label>
-                    <input name="apellido_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.apellido_persona">
+                    <input name="apellido_persona" type="text" class="form-control"   formControlName="apellido"
+                    [(ngModel)] ="persona.apellido_persona" minlength="3"   title="El apellido debe tener minimo 3 letras." required pattern="[a-zA-Z ]*" >
                 </div>
                 <div class="form-group">
-                    <label for="">Direccion</label>
-                    <input name="direccion_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.direccion_persona">
+                    <label for="">Dirección</label>
+                    <input name="direccion_persona" type="text" class="form-control"   formControlName="direccion"
+                    [(ngModel)] ="persona.direccion_persona" minlength="4"  required pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]*" title="La dirección debe tener un minimo de 4 letras" >
                 </div>
                 <div class="form-group">
-                    <label for="">Telefono</label>
-                    <input name="telefono_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.telefono_persona">
+                    <label for=""> Teléfono </label>
+                    <input name="telefono_persona" type="text" class="form-control"   formControlName="telefono"
+                    [(ngModel)] ="persona.telefono_persona" minlength="10" maxlength="10"   name="Telefono" required pattern="^[0-9]*$"
+                    title="El número de teléfono debe tener 10 numeros"  >
                 </div>
                 <div class="form-group">
                     <label for="">Correo</label>
-                    <input name="correo_persona" type="text" class="form-control"
-                    [(ngModel)] ="persona.correo_persona">
+                    <input  type="email" class="form-control"  formControlName="correo" id="email" name="correo_persona" value="" required
+                    [(ngModel)] ="persona.correo_persona" >
                 </div>
                 <button (click)="Actualizar(persona)" class="btn btn-danger">Actualizar</button>
             </form>
