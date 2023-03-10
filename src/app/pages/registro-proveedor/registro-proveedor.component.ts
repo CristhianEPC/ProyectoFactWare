@@ -19,7 +19,10 @@ export class RegistroProveedorComponent implements OnInit {
   }
 
   guardar(proveedor:Proveedor){
-    this.service.create(proveedor)
+
+    if(proveedor.nombre_proveedor != "" && proveedor.direccion_proveedor != ""
+    && proveedor.telefono_proveedor != "") {
+       this.service.create(proveedor)
     .subscribe(data=>{
       Swal.fire({
         title: 'Proveedor Guardado éxitosamente',
@@ -32,6 +35,11 @@ export class RegistroProveedorComponent implements OnInit {
       //alert("Se guardo...!!")
       this.router.navigate(['admin/crudProvee']);
     })
+    } else {
+      Swal.fire('Llene todos los campos', '', 'info')
+    }
+
+   
   }
 
 }

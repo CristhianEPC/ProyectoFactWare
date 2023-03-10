@@ -11,21 +11,21 @@ import { ProductoService } from 'src/app/servicios/api/producto.service';
 })
 export class AdmiComponent implements OnInit {
 
-  listaProduc : Producto[] = [];
-  listaVendido : DetalleFactura2[] = [];
-  constructor(private servicio:ProductoService) { }
+  listaProduc: Producto[] = [];
+  listaVendido: DetalleFactura2[] = [];
+  constructor(private servicio: ProductoService) { }
 
   ngOnInit(): void {
 
     this.servicio.getStock().subscribe(
-      data =>{
+      data => {
         this.listaProduc = data;
       }
     )
 
     this.servicio.getVendido().subscribe(
       data => {
-this.listaVendido = data;
+        this.listaVendido = data;
       }
     )
   }

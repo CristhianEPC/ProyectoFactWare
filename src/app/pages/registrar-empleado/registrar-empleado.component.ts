@@ -19,7 +19,6 @@ import { Usuario } from 'src/app/modelo/usuario';
   styleUrls: ['./registrar-empleado.component.css']
 })
 export class RegistrarEmpleadoComponent implements OnInit {
-  
   listaPersonas: Persona[]=[];
  usua : Usuario = new Usuario();
  hide = true;
@@ -28,7 +27,6 @@ usuarii:any ={
   idrol:null,
   user:null,
   pas:null
-  
 }
 
 // SaveData(form:NgForm){
@@ -40,21 +38,11 @@ usuarii:any ={
 filterPost = '';
  personaSele = new Persona();
  listaRoles: Rol[]=[];
- myForm:FormGroup;
-  constructor(public fb: FormBuilder,
+  constructor(private _formBuilder: FormBuilder,
     private personaService:PersonaService,
     private usuarioService:UsuariosService,
     private rolesService:RolesService,
-
-    private router: Router) {
-      this.myForm = fb.group({
-        
-        nombre: ['', Validators.required],
-        usuario: ['', Validators.required],
-        contraseña: ['', Validators.required]
-       
-      })
-    }
+    private router: Router) {}
 
 
   ngOnInit(): void {
@@ -75,11 +63,18 @@ filterPost = '';
     
   }
 
-
+  limpiar(){
+    this.usua.persona = null;
+    this.usua.user = "";
+    this.usua.password = "";
+    this.usua.rol = null;
+  }
 
   guardarUsuario(usuario:Usuario){
-    if (this.myForm.valid){
-    this.usuarioService.create(usuario)
+
+    if(usuario.persona != null && usuario.user != ""
+    && usuario.password != "" && usuario.rol != null){
+      this.usuarioService.create(usuario)
     .subscribe(data=> 
       Swal.fire({
         title: 'Usuarios Guardado éxitosamente',
@@ -89,11 +84,13 @@ filterPost = '';
         confirmButtonColor:"#0c3255",
         background: "#63B68B",
       }))
+    } else {
+      Swal.fire('Llene todos los campos', '', 'info')
+    }
+
+    
 
       console.log(usuario) ;
-    }else{
-        alert('Revise que los campos esten llenados correctamente')
-      }
   }
 
 

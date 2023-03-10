@@ -41,6 +41,10 @@ Listado() {
   this.router.navigate(['admin/regisInvent']);
 }
 
+limpiar(){
+  this.inventarios.cantidad_inventario = 0;
+  this.inventarios.fechaEntrega = null;
+}
 
   guardarInventario(inventario:Inventario2){
     if(inventario.cantidad_inventario>0 && inventario.fechaEntrega != null && inventario.producto != null){
@@ -55,14 +59,7 @@ Listado() {
           background: "#63B68B",
         }))
     }else{
-      Swal.fire({
-        title: 'existen campos vacios',
-        icon: 'error',
-        iconColor :'#17550c',
-        color: "#0c3255",
-        confirmButtonColor:"#0c3255",
-        background: "#63B68B",
-      })
+      Swal.fire('Llene todos los campos', '', 'info')
     }
    
   }
