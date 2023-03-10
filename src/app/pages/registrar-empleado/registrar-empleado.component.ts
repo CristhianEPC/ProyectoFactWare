@@ -63,10 +63,18 @@ filterPost = '';
     
   }
 
-
+  limpiar(){
+    this.usua.persona = null;
+    this.usua.user = "";
+    this.usua.password = "";
+    this.usua.rol = null;
+  }
 
   guardarUsuario(usuario:Usuario){
-    this.usuarioService.create(usuario)
+
+    if(usuario.persona != null && usuario.user != ""
+    && usuario.password != "" && usuario.rol != null){
+      this.usuarioService.create(usuario)
     .subscribe(data=> 
       Swal.fire({
         title: 'Usuarios Guardado éxitosamente',
@@ -76,6 +84,11 @@ filterPost = '';
         confirmButtonColor:"#0c3255",
         background: "#63B68B",
       }))
+    } else {
+      Swal.fire('Llene todos los campos', '', 'info')
+    }
+
+    
 
       console.log(usuario) ;
   }

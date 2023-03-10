@@ -239,7 +239,7 @@
 
                                     <!-- Button trigger modal -->
                                     <div class="form-group">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        <button (click)="listaProducto()" type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
                                         Agregar Productos <i class="fas   fa-cubes"></i>
                                     </button>
@@ -597,8 +597,9 @@
                 <h2 class="text-center"><strong> Acciones</strong> </h2>
             </div>
             <div class="card-body">
-                <button (click)="generar()" (click)="createPdf()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(96, 99, 96);">Generar factura  <i class="fas   fa-cart-plus"></i> </button>
+                <button (click)="createPdf()" type="button" class="btn btn-primary btn-lg" style="background-color: rgb(96, 99, 96);">Generar Factura  <i class="fas   fa-cart-plus"></i> </button>
                 <button type="button" class="btn btn-primary btn-lg" >Generar SRI</button>
+                <button (click)="nuevaFC()" class="btn btn-primary btn-lg" style="margin-left: 60%; background-color: rgb(201, 15, 185);">Nueva Factura</button>
             </div>
         </div>
 

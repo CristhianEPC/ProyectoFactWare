@@ -111,7 +111,7 @@
                 <div>
                     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
                         <button type="button" class="btn btn-outline-dark" disabled></button>
-                        <button type="button" class="btn btn-outline-dark"   > 
+                        <button type="button" class="btn btn-outline-dark"  (click)="downloadPDFInventario()" > 
                             Exportar
                              <i class="fas fa-file-pdf"></i>
                         </button>
@@ -178,7 +178,7 @@
                   <div>
                       <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
                         <button type="button" class="btn btn-outline-dark" disabled></button>
-                          <button type="button" class="btn btn-outline-dark" > 
+                          <button type="button" class="btn btn-outline-dark" (click)="downloadPDFPersonas()"> 
                               Exportar
                                <i class="fas fa-file-pdf"></i>
                           </button>
@@ -218,7 +218,24 @@
             <h2> <strong>Ventas</strong></h2>
                </div>
         <div class="card-body">
-          
+
+            <table class="table" id="tbl_productos_mas_vendidos">
+                <thead>
+                    <tr class="text-danger">
+                        <!-- <th>Cod. producto</th> -->
+                        <th>Producto</th>
+                        <th class="text-center">Cantidad</th>
+                        <th class="text-center">Ventas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center text-start" *ngFor="let item of listaVendido">
+                        <td>{{item.producto.nombre_producto}}</td>
+                        <td>{{item.cantidad}}</td>
+                        <td>{{item.total}}</td>
+                    </tr>
+                </tbody>
+            </table>  
         
         </div>
     </div>
@@ -227,7 +244,7 @@
                 <div>
                     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
                         <button type="button" class="btn btn-outline-dark" disabled></button>
-                        <button type="button" class="btn btn-outline-dark"  > 
+                        <button type="button" class="btn btn-outline-dark" (click)="downloadPDFVentas()" > 
                             Exportar
                              <i class="fas fa-file-pdf"></i>
                         </button>
@@ -283,7 +300,7 @@
               <div>
                   <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
                       <button type="button" class="btn btn-outline-dark" disabled></button>
-                      <button type="button" class="btn btn-outline-dark"  > 
+                      <button type="button" class="btn btn-outline-dark" (click)="downloadPDFProveedores()" > 
                           Exportar
                            <i class="fas fa-file-pdf"></i>
                       </button>

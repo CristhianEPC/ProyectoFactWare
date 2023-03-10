@@ -62,15 +62,6 @@ export class CrudClienteComponent implements OnInit {
         this.personaService.deletePersona(pers)
         .subscribe(data => {
           this.personas = this.personas.filter(p => p !== pers);
-          // Swal.fire({
-          //   title: 'Cliente Eliminado éxitosamente',
-          //   icon: 'success',
-          //   iconColor :'#17550c',
-          //   color: "#0c3255",
-          //   confirmButtonColor:"#0c3255",
-          //   background: "#63B68B",
-          // })
-          //alert("Se elimino");
         });
         //FIN DEL CODIGO A EJECUTAR
         Swal.fire(
