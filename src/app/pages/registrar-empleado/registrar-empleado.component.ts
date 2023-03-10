@@ -38,11 +38,20 @@ usuarii:any ={
 filterPost = '';
  personaSele = new Persona();
  listaRoles: Rol[]=[];
-  constructor(private _formBuilder: FormBuilder,
+ myForm:FormGroup;
+  constructor(public _formBuilder:FormBuilder,
     private personaService:PersonaService,
     private usuarioService:UsuariosService,
     private rolesService:RolesService,
-    private router: Router) {}
+    private router: Router) {
+      this.myForm = _formBuilder.group({
+        
+        nombre: ['', Validators.required],
+        usuario: ['', Validators.required],
+        contraseña: ['', Validators.required]
+       
+      })
+    }
 
 
   ngOnInit(): void {
@@ -72,8 +81,7 @@ filterPost = '';
 
   guardarUsuario(usuario:Usuario){
 
-    if(usuario.persona != null && usuario.user != ""
-    && usuario.password != "" && usuario.rol != null){
+    if (this.myForm.valid){
       this.usuarioService.create(usuario)
     .subscribe(data=> 
       Swal.fire({
