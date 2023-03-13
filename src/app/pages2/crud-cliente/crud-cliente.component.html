@@ -29,7 +29,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="text-center">
-                        <th>ID</th>
+                        <th>CODIGO</th>
                         <th>NOMBRE Y APELLIDO</th>
                         <th>TELEFONO</th>
                         <th>ACCIONES</th>
@@ -41,8 +41,8 @@
                         <td>{{item.nombre_persona}} {{item.apellido_persona}}</td>
                         <td>{{item.telefono_persona}}</td>
                         <td>
-                            <button (click)="editar(item)" class="btn btn-warning">editar</button>
-                            <button (click)="eliminar(item)" class="btn btn-danger" style="margin-left: 10px;">delete</button>
+                            <button (click)="editar(item)" class="btn btn-warning">Editar</button>
+                            <button (click)="eliminar(item)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
